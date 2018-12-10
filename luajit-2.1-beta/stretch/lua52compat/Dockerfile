@@ -9,8 +9,8 @@ RUN set -ex \
     gcc \
     libc6-dev \
     make \
-              && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz" \
-    && cd /tmp \
+          && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz" \
+  && cd /tmp \
   && echo "eae40bc29d06ee5e3078f9444fcea39b *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \

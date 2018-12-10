@@ -10,8 +10,8 @@ RUN set -ex \
     libc6-dev \
     make \
           libreadline-dev \
-                    && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.3.5.tar.gz" \
-    && cd /tmp \
+                && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.3.5.tar.gz" \
+  && cd /tmp \
   && echo "4f4b4f323fd3514a68e0ab3da8ce3455 *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \

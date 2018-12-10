@@ -61,13 +61,15 @@ versions.keys.each do |lang|
     end
 
     if !versions[lang][version_name] || version > versions[lang][version_name].fetch(:version)
-      md5 = case lang
+      case lang
       when "lua"
         filename = "lua-#{version_full}.tar.gz"
-        content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?md5:\s+([a-f0-9]{32})/im)[1]
+        archive_url = (version.prerelease?) ? "https://www.lua.org/work/#{filename}" : "https://www.lua.org/ftp/#{filename}"
+        archive_md5 = content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?md5:\s+([a-f0-9]{32})/im)[1]
       when "luajit"
         filename = "LuaJIT-#{version_full}.tar.gz"
-        content.match(/([a-f0-9]{32})\s+#{Regexp.escape(filename)}/)[1]
+        archive_url = "https://luajit.org/download/#{filename}"
+        archive_md5 = content.match(/([a-f0-9]{32})\s+#{Regexp.escape(filename)}/)[1]
       end
 
       versions[lang][version_name] = {
@@ -77,7 +79,8 @@ versions.keys.each do |lang|
         :version_major => version_major,
         :version_minor => version_minor,
         :version_full => version_full,
-        :md5 => md5,
+        :archive_url => archive_url,
+        :archive_md5 => archive_md5,
       }
     end
   end

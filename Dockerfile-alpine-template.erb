@@ -18,13 +18,9 @@ RUN set -ex \
       gnupg \
       unzip \
     <% end -%>
-  <% if lang == "luajit" -%>
-    && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-<%= version_full %>.tar.gz" \
-  <% else -%>
-    && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-<%= version_full %>.tar.gz" \
-  <% end -%>
+  && curl -fsSL -o /tmp/lua.tar.gz "<%= archive_url %>" \
   && cd /tmp \
-  && echo "<%= md5 %> *lua.tar.gz" | md5sum -c - \
+  && echo "<%= archive_md5 %> *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
