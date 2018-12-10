@@ -1,0 +1,84 @@
+FROM debian:<%= distro_version %>
+
+RUN set -ex \
+  && saved_apt_mark="$(apt-mark showmanual)" \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    gcc \
+    libc6-dev \
+    make \
+    <% if lang == "lua" -%>
+      libreadline-dev \
+      <% if version_minor == "5.1" -%>
+        libncurses-dev \
+      <% end -%>
+    <% end -%>
+    <% if variant.include?("luarocks") -%>
+      dirmngr \
+      gnupg \
+      unzip \
+    <% end -%>
+  <% if lang == "luajit" -%>
+    && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-<%= version_full %>.tar.gz" \
+  <% else -%>
+    && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-<%= version_full %>.tar.gz" \
+  <% end -%>
+  && cd /tmp \
+  && echo "<%= md5 %> *lua.tar.gz" | md5sum -c - \
+  && mkdir /tmp/lua \
+  && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
+  && cd /tmp/lua \
+  <% if lang == "luajit" && variant.include?("lua52compat") -%>
+    && make CFLAGS="-DLUAJIT_ENABLE_LUA52COMPAT" \
+  <% elsif lang == "luajit" || version_minor == "5.0" -%>
+    && make \
+  <% else -%>
+    && make linux \
+  <% end -%>
+  && make install \
+  <% if lang == "luajit" && version.prerelease? -%>
+    && ln -s /usr/local/bin/luajit-<%= version_full %> /usr/local/bin/luajit \
+  <% end -%>
+  <% if variant.include?("luarocks") -%>
+    && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-<%= luarocks_version %>.tar.gz" \
+    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-<%= luarocks_version %>.tar.gz.asc" \
+    && cd /tmp \
+    && export GNUPGHOME="$(mktemp -d)" \
+    && export GPG_KEYS="8460980B2B79786DE0C7FCC83FD8F43C2BB3C478" \
+    && (gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" || gpg --batch --keyserver ipv4.pool.sks-keyservers.net --recv-keys "$GPG_KEYS") \
+    && gpg --batch --verify luarocks.tar.gz.asc luarocks.tar.gz \
+    && rm -r "$GNUPGHOME" \
+    && mkdir /tmp/luarocks \
+    && tar -xf /tmp/luarocks.tar.gz -C /tmp/luarocks --strip-components=1 \
+    && cd /tmp/luarocks \
+    && ./configure \
+    && make \
+    && make install \
+  <% end -%>
+  && apt-mark auto '.*' > /dev/null \
+  && apt-mark manual $saved_apt_mark \
+  <% if lang == "lua" -%>
+    && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline\d+$' | xargs apt-mark manual \
+    <% if version_minor == "5.1" -%>
+      && dpkg-query --show --showformat '${package}\n' | grep -P '^libncurses\d+$' | xargs apt-mark manual \
+    <% end -%>
+  <% end -%>
+  <% if variant.include?("luarocks") -%>
+    && apt-mark manual \
+      ca-certificates \
+      curl \
+      unzip \
+  <% end -%>
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/* \
+  && cd / \
+  && rm -rf /tmp/lua /tmp/lua.tar.gz \
+  <% if variant.include?("luarocks") -%>
+    && rm -rf /tmp/luarocks /tmp/luarocks.tar.gz \
+    && luarocks --version \
+  <% end -%>
+  && <%= lang %> -v
+
+CMD ["<%= lang %>"]

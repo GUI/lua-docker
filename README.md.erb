@@ -1,0 +1,55 @@
+# lua-docker
+
+Clean, automated, and up-to-date Docker images for different Lua versions.
+
+Includes variants:
+
+- Debian and Alpine base images
+- With LuaRocks
+- LuaJIT
+- LuaJIT built with Lua 5.2 compatibility mode
+
+## Supported Tags
+
+<% tags.each do |lang, files| -%>
+- `nickblah/<%= lang %>`
+<% files.each do |file, file_tags| -%>
+  - <%= file_tags.map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](<%= file %>)
+<% end -%>
+<% end -%>
+
+## Image Variants
+
+### `nickblah/lua:<version>`
+
+### `nickblah/lua:<version>-alpine`
+
+### `nickblah/lua:<version>-luarocks`
+
+### `nickblah/lua:<version>-luarocks-alpine`
+
+### `nickblah/luajit:<version>`
+
+### `nickblah/luajit:<version>-alpine`
+
+### `nickblah/luajit:<version>-luarocks`
+
+### `nickblah/luajit:<version>-luarocks-alpine`
+
+### `nickblah/luajit:<version>-lua52compat`
+
+### `nickblah/luajit:<version>-lua52compat-alpine`
+
+### `nickblah/luajit:<version>-lua52compat-luarocks`
+
+### `nickblah/luajit:<version>-lua52compat-luarocks-alpine`
+
+## Update Process
+
+<% tags.each do |lang, files| -%>
+- `nickblah/<%= lang %>`
+<% files.each do |file, file_tags| -%>
+  - Docker Tag: `<%= file_tags.join(",") %>`<br>
+    Dockerfile Location: `<%= file %>`
+<% end -%>
+<% end -%>

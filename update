@@ -1,0 +1,157 @@
+#!/usr/bin/env ruby
+
+require "erb"
+require "fileutils"
+require "net/http"
+require "set"
+require "uri"
+
+VERSION_CONSTRAINTS = {
+  "lua" => Gem::Dependency.new("lua", ">= 5.0", ">= 5.0.pre"),
+  "luajit" => Gem::Dependency.new("luajit", ">= 2.0", ">= 2.0.pre"),
+}
+
+VARIANTS = {
+  "lua" => [
+    ["luarocks"],
+  ],
+  "luajit" => [
+    ["luarocks"],
+    ["lua52compat"],
+    ["lua52compat", "luarocks"],
+  ],
+}
+
+DISTROS = {
+  "debian" => ["stretch"],
+  "alpine" => ["3.8"],
+}
+
+FileUtils.rm_rf(Dir.glob("lua-*"))
+FileUtils.rm_rf(Dir.glob("luajit-*"))
+
+versions = {
+  "lua" => {},
+  "luajit" => {},
+}
+
+versions.keys.each do |lang|
+  archive_versions = case lang
+  when "lua"
+    content = Net::HTTP.get_response(URI.parse("https://www.lua.org/ftp/")).body
+    content += Net::HTTP.get_response(URI.parse("https://www.lua.org/work/")).body
+    content.scan(/lua-([\d\.]+(?:-work\d+)?)\.tar\.gz/).flatten.compact.uniq
+  when "luajit"
+    content = Net::HTTP.get_response(URI.parse("https://luajit.org/download.html")).body
+    content.scan(/LuaJIT-([\d\.]+(?:-beta\d+)?)\.tar\.gz/).flatten.compact.uniq
+  end
+
+  archive_versions.each do |version_full|
+    version = Gem::Version.new(version_full)
+    next unless VERSION_CONSTRAINTS.fetch(lang).match?(lang, version)
+
+    version_major = version_full.match(/^(\d+)/)[1]
+    version_minor = version_full.match(/^(\d+\.\d+)/)[1]
+    version_name = version_minor
+    case lang
+    when "lua"
+      version_name += "-work" if version.prerelease?
+    when "luajit"
+      version_name += "-beta" if version.prerelease?
+    end
+
+    if !versions[lang][version_name] || version > versions[lang][version_name].fetch(:version)
+      md5 = case lang
+      when "lua"
+        filename = "lua-#{version_full}.tar.gz"
+        content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?md5:\s+([a-f0-9]{32})/im)[1]
+      when "luajit"
+        filename = "LuaJIT-#{version_full}.tar.gz"
+        content.match(/([a-f0-9]{32})\s+#{Regexp.escape(filename)}/)[1]
+      end
+
+      versions[lang][version_name] = {
+        :lang => lang,
+        :version => version,
+        :version_name => version_name,
+        :version_major => version_major,
+        :version_minor => version_minor,
+        :version_full => version_full,
+        :md5 => md5,
+      }
+    end
+  end
+end
+
+versions.each_value do |lang_versions|
+  latest_version = lang_versions.values.reject { |v| v.fetch(:version).prerelease? }.sort_by { |v| v.fetch(:version) }.last
+  latest_version[:latest] = true
+end
+
+content = Net::HTTP.get_response(URI.parse("https://luarocks.github.io/luarocks/releases/")).body
+luarocks_version = content.scan(/luarocks-([\d\.]+)\.tar\.gz/).flatten.compact.uniq.sort_by { |version| Gem::Version.new(version) }.last
+
+tags = {}
+versions.each_value do |lang_versions|
+  lang_versions.values.sort_by { |v| v.fetch(:version) }.reverse.each do |version|
+    DISTROS.each do |distro, distro_versions|
+      variants = [[]] + VARIANTS.fetch(version.fetch(:lang))
+
+      variants.each do |variant|
+        # LuaRocks is not compatible with Lua 5.0 (needs 5.1+).
+        if version.fetch(:version_minor) == "5.0" && variant.include?("luarocks")
+          next
+        end
+
+        distro_versions.each_with_index do |distro_version, distro_index|
+          template_filename = "Dockerfile-#{distro}-template.erb"
+          template = ERB.new(File.read(template_filename), nil, "-").result_with_hash(version.merge({
+            :distro_version => distro_version,
+            :variant => variant,
+            :luarocks_version => luarocks_version,
+          }))
+
+          distro_version_name = (distro == "debian") ? distro_version : "#{distro}#{distro_version}"
+          variant_name = (variant.empty?) ? nil : variant.join("-")
+          filename = File.join(["#{version.fetch(:lang)}-#{version.fetch(:version_name)}", distro_version_name, variant_name, "Dockerfile"].compact)
+          FileUtils.mkdir_p(File.dirname(filename))
+          File.open(filename, "w") { |f| f.write(template) }
+
+          lang = version.fetch(:lang)
+          tags[lang] ||= {}
+          tags[lang][filename] = []
+          tags[lang][filename] << [version.fetch(:version_name), variant_name, distro_version_name].compact.join("-")
+          tags[lang][filename] << [version.fetch(:version_full), variant_name, distro_version_name].compact.join("-")
+
+          if version[:latest]
+            tags[lang][filename] << [version.fetch(:version_major), variant_name, distro_version_name].compact.join("-")
+          end
+
+          # Default distro tags
+          if distro_index == 0
+            distro_default_version_name = (distro == "debian") ? nil : distro
+
+            tags[lang][filename] << [version.fetch(:version_name), variant_name, distro_default_version_name].compact.join("-")
+            tags[lang][filename] << [version.fetch(:version_full), variant_name, distro_default_version_name].compact.join("-")
+
+            if version[:latest]
+              tags[lang][filename] << [version.fetch(:version_major), variant_name, distro_default_version_name].compact.join("-")
+              if variant_name || distro_default_version_name
+                tags[lang][filename] << [variant_name, distro_default_version_name].compact.join("-")
+              else
+                tags[lang][filename] << "latest"
+              end
+            end
+          end
+          tags[lang][filename].uniq!
+          tags[lang][filename].sort!
+        end
+      end
+    end
+  end
+end
+
+template = ERB.new(File.read("README.md.erb"), nil, "-").result_with_hash({
+  :tags => tags,
+})
+File.open("README.md", "w") { |f| f.write(template) }
