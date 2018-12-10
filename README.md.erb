@@ -1,53 +1,72 @@
 # lua-docker
 
-Clean, automated, and up-to-date Docker images for different Lua versions.
+Clean, automated, and up-to-date Docker images for different Lua and LuaJIT versions.
 
-Includes variants:
+Provides variants for:
 
 - Debian and Alpine base images
 - With LuaRocks
 - LuaJIT
 - LuaJIT built with Lua 5.2 compatibility mode
 
-## Supported Tags
+This repo provides the source for both Lua and LuaJIT images. The different images can be found at:
+
+- [`nickblah/lua`](https://hub.docker.com/r/nickblah/lua/): Lua images.
+- [`nickblah/luajit`](https://hub.docker.com/r/nickblah/luajit/): LuaJIT images.
+
+## Supported Tags and Respective Dockerfile Links
 
 <% tags.each do |lang, files| -%>
-- `nickblah/<%= lang %>`
+### [`nickblah/<%= lang %>`](https://hub.docker.com/r/nickblah/<%= lang %>/)
 <% files.each do |file, file_tags| -%>
-  - <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](<%= file %>)
+- <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](https://github.com/GUI/lua-docker/blob/master/<%= file %>)
 <% end -%>
 <% end -%>
 
 ## Image Variants
 
 ### `nickblah/lua:<version>`
+The default Lua image. Provides Lua. Uses Debian Linux for base image.
 
 ### `nickblah/lua:<version>-alpine`
+Provides Lua. Uses Alpine Linux for base image.
 
 ### `nickblah/lua:<version>-luarocks`
+Provides Lua and LuaRocks. Uses Debian Linux for base image.
 
 ### `nickblah/lua:<version>-luarocks-alpine`
+Provides Lua and LuaRocks. Uses Alpine Linux for base image.
 
 ### `nickblah/luajit:<version>`
+The default LuaJIT image. Provides LuaJIT. Uses Debian Linux for base image.
 
 ### `nickblah/luajit:<version>-alpine`
+Provides LuaJIT. Uses Alpine Linux for base image.
 
 ### `nickblah/luajit:<version>-luarocks`
+Provides LuaJIT and LuaRocks. Uses Debian Linux for base image.
 
 ### `nickblah/luajit:<version>-luarocks-alpine`
+Provides LuaJIT and LuaRocks. Uses Alpine Linux for base image.
 
 ### `nickblah/luajit:<version>-lua52compat`
+Provides LuaJIT. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. Uses Debian Linux for base image.
 
 ### `nickblah/luajit:<version>-lua52compat-alpine`
+Provides LuaJIT. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. Uses Alpine Linux for base image.
 
 ### `nickblah/luajit:<version>-lua52compat-luarocks`
+Provides LuaJIT and LuaRocks. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. Uses Debian Linux for base image.
 
 ### `nickblah/luajit:<version>-lua52compat-luarocks-alpine`
+Provides LuaJIT and LuaRocks. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. Uses Alpine Linux for base image.
 
 ## Update Process
 
+This could possibly be automated more, but the current process for handling updates: When new versions of Lua, LuaJIT, or LuaRocks are released, the CI builds should fail to act as a notification mechanism. Run `./update` and commit the results to generate the new Dockerfiles. If there are any new major or minor releases, ensure the automated build configuration is updated (patch releases should not require updating):
+
 <% tags.each do |lang, files| -%>
-- `nickblah/<%= lang %>`
+- [`nickblah/<%= lang %>`](https://hub.docker.com/r/nickblah/<%= lang %>/~/settings/automated-builds/)
 <% files.each do |file, file_tags| -%>
   - Dockerfile Location: `/<%= File.dirname(file) %>/`  
     Docker Tag: `<%= file_tags.fetch(:primary_tag) %>`
