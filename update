@@ -107,8 +107,8 @@ versions.each_value do |lang_versions|
         end
 
         distro_versions.each_with_index do |distro_version, distro_index|
-          template_filename = "Dockerfile-#{distro}-template.erb"
-          template = ERB.new(File.read(template_filename), nil, "-").result_with_hash(version.merge({
+          template = ERB.new(File.read("Dockerfile.erb"), nil, "-").result_with_hash(version.merge({
+            :distro => distro,
             :distro_version => distro_version,
             :variant => variant,
             :luarocks_version => luarocks_version,
@@ -116,38 +116,53 @@ versions.each_value do |lang_versions|
 
           distro_version_name = (distro == "debian") ? distro_version : "#{distro}#{distro_version}"
           variant_name = (variant.empty?) ? nil : variant.join("-")
-          filename = File.join(["#{version.fetch(:lang)}-#{version.fetch(:version_name)}", distro_version_name, variant_name, "Dockerfile"].compact)
+          filename = File.join("#{version.fetch(:lang)}-#{version.fetch(:version_name)}", [variant_name, distro_version_name].compact.join("-"), "Dockerfile")
           FileUtils.mkdir_p(File.dirname(filename))
           File.open(filename, "w") { |f| f.write(template) }
 
-          lang = version.fetch(:lang)
-          tags[lang] ||= {}
-          tags[lang][filename] = []
-          tags[lang][filename] << [version.fetch(:version_name), variant_name, distro_version_name].compact.join("-")
-          tags[lang][filename] << [version.fetch(:version_full), variant_name, distro_version_name].compact.join("-")
+          primary_tag = [version.fetch(:version_name), variant_name, distro_version_name].compact.join("-")
+          image_tags = []
+          image_tags << primary_tag
+          image_tags << [version.fetch(:version_full), variant_name, distro_version_name].compact.join("-")
 
           if version[:latest]
-            tags[lang][filename] << [version.fetch(:version_major), variant_name, distro_version_name].compact.join("-")
+            image_tags << [version.fetch(:version_major), variant_name, distro_version_name].compact.join("-")
           end
 
           # Default distro tags
           if distro_index == 0
             distro_default_version_name = (distro == "debian") ? nil : distro
 
-            tags[lang][filename] << [version.fetch(:version_name), variant_name, distro_default_version_name].compact.join("-")
-            tags[lang][filename] << [version.fetch(:version_full), variant_name, distro_default_version_name].compact.join("-")
+            image_tags << [version.fetch(:version_name), variant_name, distro_default_version_name].compact.join("-")
+            image_tags << [version.fetch(:version_full), variant_name, distro_default_version_name].compact.join("-")
 
             if version[:latest]
-              tags[lang][filename] << [version.fetch(:version_major), variant_name, distro_default_version_name].compact.join("-")
+              image_tags << [version.fetch(:version_major), variant_name, distro_default_version_name].compact.join("-")
               if variant_name || distro_default_version_name
-                tags[lang][filename] << [variant_name, distro_default_version_name].compact.join("-")
+                image_tags << [variant_name, distro_default_version_name].compact.join("-")
               else
-                tags[lang][filename] << "latest"
+                image_tags << "latest"
               end
             end
           end
-          tags[lang][filename].uniq!
-          tags[lang][filename].sort!
+
+          image_tags.uniq!
+          image_tags.sort!
+
+          post_push_template = ERB.new(File.read("post_push.erb"), nil, "-").result_with_hash({
+            :image_tags => image_tags,
+          })
+          post_push_filename = File.join(File.dirname(filename), "hooks", "post_push")
+          FileUtils.mkdir_p(File.dirname(post_push_filename))
+          File.open(post_push_filename, "w") { |f| f.write(post_push_template) }
+          File.chmod(0755, post_push_filename)
+
+          lang = version.fetch(:lang)
+          tags[lang] ||= {}
+          tags[lang][filename] = {
+            :primary_tag => primary_tag,
+            :tags => image_tags,
+          }
         end
       end
     end

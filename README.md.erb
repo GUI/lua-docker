@@ -14,7 +14,7 @@ Includes variants:
 <% tags.each do |lang, files| -%>
 - `nickblah/<%= lang %>`
 <% files.each do |file, file_tags| -%>
-  - <%= file_tags.map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](<%= file %>)
+  - <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](<%= file %>)
 <% end -%>
 <% end -%>
 
@@ -49,7 +49,7 @@ Includes variants:
 <% tags.each do |lang, files| -%>
 - `nickblah/<%= lang %>`
 <% files.each do |file, file_tags| -%>
-  - Docker Tag: `<%= file_tags.join(",") %>`<br>
-    Dockerfile Location: `<%= file %>`
+  - Dockerfile Location: `/<%= File.dirname(file) %>/`  
+    Docker Tag: `<%= file_tags.fetch(:primary_tag) %>`
 <% end -%>
 <% end -%>
