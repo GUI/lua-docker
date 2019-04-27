@@ -1,6 +1,6 @@
 # lua-docker
 
-Clean, automated, and up-to-date Docker images for different Lua and LuaJIT versions.
+Minimal, automated, and up-to-date Docker images for different Lua and LuaJIT versions.
 
 Provides variants for:
 
@@ -63,12 +63,12 @@ Provides LuaJIT and LuaRocks. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. 
 
 ## Update Process
 
-This could possibly be automated more, but the current process for handling updates: When new versions of Lua, LuaJIT, or LuaRocks are released, the CI builds should fail to act as a notification mechanism. Run `./update` and commit the results to generate the new Dockerfiles. If there are any new major or minor releases, ensure the automated build configuration is updated (patch releases should not require updating):
+This could possibly be automated more, but the current process for handling updates: When new versions of Lua, LuaJIT, or LuaRocks are released, the CI builds should fail (which serves as a notification mechanism). Run `./update` and commit the results to generate the new Dockerfiles. If there are any new major or minor releases, ensure the automated build configuration is updated (patch releases should not require updating):
 
 <% tags.each do |lang, files| -%>
-- [`nickblah/<%= lang %>`](https://hub.docker.com/r/nickblah/<%= lang %>/~/settings/automated-builds/)
-<% files.each do |file, file_tags| -%>
-  - Dockerfile Location: `/<%= File.dirname(file) %>/`  
-    Docker Tag: `<%= file_tags.fetch(:primary_tag) %>`
+- [`nickblah/<%= lang %>`](https://cloud.docker.com/repository/docker/nickblah/<%= lang %>/builds/edit)
+<% files.sort_by { |file, file_tags| file }.each do |file, file_tags| -%>
+  - Docker Tag: `<%= file_tags.fetch(:primary_tag) %>`  
+    Build Context: `/<%= File.dirname(file) %>/`
 <% end -%>
 <% end -%>

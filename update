@@ -24,7 +24,7 @@ VARIANTS = {
 
 DISTROS = {
   "debian" => ["stretch"],
-  "alpine" => ["3.8"],
+  "alpine" => ["3.9"],
 }
 
 FileUtils.rm_rf(Dir.glob("lua-*"))
