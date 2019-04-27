@@ -61,6 +61,19 @@ Provides LuaJIT and LuaRocks. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. 
 ### `nickblah/luajit:<version>-lua52compat-luarocks-alpine`
 Provides LuaJIT and LuaRocks. LuaJIT compiled with `LUAJIT_ENABLE_LUA52COMPAT`. Uses Alpine Linux for base image.
 
+## Installing C Libraries
+
+These base images are minimal, so they only contain the necessary dependencies for running Lua and installing pure-Lua LuaRocks modules. If you need to install LuaRocks modules that include C extensions or need compiling/building, then you'll first need to install the necessary dependencies (for example, make, gcc, etc). The exact dependencies may vary depending on the module's requirements, but to install basic build dependencies, the following installation commands can be used:
+
+- For Debian based images:
+    ```sh
+    apt-get update && apt-get install -y build-essential
+    ```
+- For Alpine based images:
+    ```sh
+    apk add --no-cache build-base
+    ```
+
 ## Update Process
 
 This could possibly be automated more, but the current process for handling updates: When new versions of Lua, LuaJIT, or LuaRocks are released, the CI builds should fail (which serves as a notification mechanism). Run `./update` and commit the results to generate the new Dockerfiles. If there are any new major or minor releases, ensure the automated build configuration is updated (patch releases should not require updating):
