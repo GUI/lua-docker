@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e -u
+
+# Trigger nightly builds on Docker Hub so we rebuild whenever there are
+# base-image updates (eg, security updates or other updates to the base Debian
+# or Alpine images).
+#
+# Note: This may not be necessary if repository links are allowed for official
+# images:
+# https://github.com/docker/hub-feedback/issues/1587
+# https://github.com/docker/hub-feedback/issues/1717
+curl -H "Content-Type: application/json" --data '{"build": true}' --fail "$BUILD_TRIGGER_URL_LUA"
+curl -H "Content-Type: application/json" --data '{"build": true}' --fail "$BUILD_TRIGGER_URL_LUAJIT"
+
+set -x
+
+if [ -n "$(git status --porcelain)" ]; then
+  echo "Error: Git checkout is not clean before running updates."
+  exit 1
+fi
+
+./update
+
+if [ -n "$(git status --porcelain)" ]; then
+  echo "There are Lua or LuaRocks updates that should be reviewed and committed."
+  exit 1
+fi
