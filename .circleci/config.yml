@@ -5,7 +5,7 @@ jobs:
       - image: circleci/buildpack-deps:latest
     steps:
       - checkout
-      - run: ./circleci/run
+      - run: ./.circleci/run
 workflows:
   version: 2
   nightly:
