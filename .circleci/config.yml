@@ -15,6 +15,10 @@ jobs:
       - run: ./publish
 workflows:
   version: 2
+  commit:
+    jobs:
+      - test
+      - publish
   nightly:
     triggers:
       - schedule:
