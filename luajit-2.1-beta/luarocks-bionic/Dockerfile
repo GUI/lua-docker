@@ -29,7 +29,7 @@ RUN set -ex \
     && cd /tmp \
     && export GNUPGHOME="$(mktemp -d)" \
     && export GPG_KEYS="8460980B2B79786DE0C7FCC83FD8F43C2BB3C478" \
-    && (gpg --batch --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS" || gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS") \
+    && (gpg --batch --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS" || gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS" || gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS" || gpg --batch --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$GPG_KEYS") \
     && gpg --batch --verify luarocks.tar.gz.asc luarocks.tar.gz \
     && rm -rf "$GNUPGHOME" \
     && mkdir /tmp/luarocks \
