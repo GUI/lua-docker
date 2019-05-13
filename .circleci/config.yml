@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: circleci/buildpack-deps:latest
+      - image: circleci/ruby:stretch
     steps:
       - checkout
       - run: ./.circleci/run
@@ -18,7 +18,9 @@ workflows:
   commit:
     jobs:
       - test
-      - publish
+      - publish:
+          requires:
+            - test
   nightly:
     triggers:
       - schedule:
