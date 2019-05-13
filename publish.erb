@@ -16,7 +16,7 @@ primary_tag="<%= file_tags.fetch(:primary_tag) %>"
 docker build -t "$image_name:$primary_tag" <%= File.dirname(file) %>
 docker push "$image_name:$primary_tag"
 <% file_tags.fetch(:secondary_tags).each do |tag| -%>
-git tag "$image_name:$primary_tag" "$image_name:<%= tag %>"
+docker tag "$image_name:$primary_tag" "$image_name:<%= tag %>"
 docker push "$image_name:<%= tag %>"
 <% end -%>
 <% end -%>
