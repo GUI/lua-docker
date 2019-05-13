@@ -6,6 +6,13 @@ jobs:
     steps:
       - checkout
       - run: ./.circleci/run
+  publish:
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: ./publish
 workflows:
   version: 2
   nightly:
@@ -18,3 +25,4 @@ workflows:
                 - master
     jobs:
       - test
+      - publish

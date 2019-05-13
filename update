@@ -151,25 +151,24 @@ versions.each_value do |lang_versions|
           image_tags.uniq!
           image_tags.sort!
 
-          post_push_template = ERB.new(File.read("post_push.erb"), nil, "-").result_with_hash({
-            :image_tags => image_tags,
-          })
-          post_push_filename = File.join(File.dirname(filename), "hooks", "post_push")
-          FileUtils.mkdir_p(File.dirname(post_push_filename))
-          File.open(post_push_filename, "w") { |f| f.write(post_push_template) }
-          File.chmod(0755, post_push_filename)
-
           lang = version.fetch(:lang)
           tags[lang] ||= {}
           tags[lang][filename] = {
-            :primary_tag => primary_tag,
             :tags => image_tags,
+            :primary_tag => primary_tag,
+            :secondary_tags => image_tags - [primary_tag],
           }
         end
       end
     end
   end
 end
+
+template = ERB.new(File.read("publish.erb"), nil, "-").result_with_hash({
+  :tags => tags,
+})
+File.open("publish", "w") { |f| f.write(template) }
+File.chmod(0755, "publish")
 
 template = ERB.new(File.read("README.md.erb"), nil, "-").result_with_hash({
   :tags => tags,
