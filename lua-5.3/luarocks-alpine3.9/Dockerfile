@@ -22,12 +22,12 @@ RUN set -ex \
   && cd /tmp/lua \
       && make linux \
     && make install \
-        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.0.4.tar.gz" \
-    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.0.4.tar.gz.asc" \
+        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.1.2.tar.gz" \
+    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.1.2.tar.gz.asc" \
     && cd /tmp \
     && export GNUPGHOME="$(mktemp -d)" \
     && export GPG_KEYS="8460980B2B79786DE0C7FCC83FD8F43C2BB3C478" \
-    && (gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" || gpg --batch --keyserver ipv4.pool.sks-keyservers.net --recv-keys "$GPG_KEYS") \
+    && (gpg --batch --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS" || gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEYS") \
     && gpg --batch --verify luarocks.tar.gz.asc luarocks.tar.gz \
     && rm -rf "$GNUPGHOME" \
     && mkdir /tmp/luarocks \

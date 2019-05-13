@@ -23,8 +23,10 @@ VARIANTS = {
 }
 
 DISTROS = {
-  "debian" => ["stretch"],
+  "debian" => ["stretch", "jessie"],
   "alpine" => ["3.9"],
+  "ubuntu" => ["bionic", "xenial"],
+  "centos" => ["7", "6"],
 }
 
 FileUtils.rm_rf(Dir.glob("lua-*"))
@@ -114,7 +116,7 @@ versions.each_value do |lang_versions|
             :luarocks_version => luarocks_version,
           }))
 
-          distro_version_name = (distro == "debian") ? distro_version : "#{distro}#{distro_version}"
+          distro_version_name = (distro == "debian" || distro == "ubuntu") ? distro_version : "#{distro}#{distro_version}"
           variant_name = (variant.empty?) ? nil : variant.join("-")
           filename = File.join("#{version.fetch(:lang)}-#{version.fetch(:version_name)}", [variant_name, distro_version_name].compact.join("-"), "Dockerfile")
           FileUtils.mkdir_p(File.dirname(filename))
