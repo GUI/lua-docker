@@ -42,7 +42,7 @@ versions.keys.each do |lang|
   when "lua"
     content = Net::HTTP.get_response(URI.parse("https://www.lua.org/ftp/")).body
     content += Net::HTTP.get_response(URI.parse("https://www.lua.org/work/")).body
-    content.scan(/lua-([\d\.]+(?:-work\d+)?)\.tar\.gz/).flatten.compact.uniq
+    content.scan(/lua-([\d\.]+(?:-alpha-rc\d+)?)\.tar\.gz/).flatten.compact.uniq
   when "luajit"
     content = Net::HTTP.get_response(URI.parse("https://luajit.org/download.html")).body
     content.scan(/LuaJIT-([\d\.]+(?:-beta\d+)?)\.tar\.gz/).flatten.compact.uniq
@@ -57,7 +57,7 @@ versions.keys.each do |lang|
     version_name = version_minor
     case lang
     when "lua"
-      version_name += "-work" if version.prerelease?
+      version_name += "-alpha-rc" if version.prerelease?
     when "luajit"
       version_name += "-beta" if version.prerelease?
     end

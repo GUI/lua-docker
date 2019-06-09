@@ -10,121 +10,121 @@ set -x
 
 image_name="nickblah/lua"
 
-primary_tag="5.4-work-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/stretch
+primary_tag="5.4-alpha-rc-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/stretch
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work"
-docker push "$image_name:5.4-work"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2"
-docker push "$image_name:5.4.0-work2"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-stretch"
-docker push "$image_name:5.4.0-work2-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc"
+docker push "$image_name:5.4-alpha-rc"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2"
+docker push "$image_name:5.4.0-alpha-rc2"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-stretch"
+docker push "$image_name:5.4.0-alpha-rc2-stretch"
 
-primary_tag="5.4-work-jessie"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/jessie
+primary_tag="5.4-alpha-rc-jessie"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/jessie
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-jessie"
-docker push "$image_name:5.4.0-work2-jessie"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-jessie"
+docker push "$image_name:5.4.0-alpha-rc2-jessie"
 
-primary_tag="5.4-work-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-stretch
+primary_tag="5.4-alpha-rc-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-stretch
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-luarocks"
-docker push "$image_name:5.4-work-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks"
-docker push "$image_name:5.4.0-work2-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-stretch"
-docker push "$image_name:5.4.0-work2-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-luarocks"
+docker push "$image_name:5.4-alpha-rc-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-stretch"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-stretch"
 
-primary_tag="5.4-work-luarocks-jessie"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-jessie
+primary_tag="5.4-alpha-rc-luarocks-jessie"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-jessie
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-jessie"
-docker push "$image_name:5.4.0-work2-luarocks-jessie"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-jessie"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-jessie"
 
-primary_tag="5.4-work-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/alpine3.9
+primary_tag="5.4-alpha-rc-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/alpine3.9
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-alpine"
-docker push "$image_name:5.4-work-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-alpine"
-docker push "$image_name:5.4.0-work2-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-alpine3.9"
-docker push "$image_name:5.4.0-work2-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-alpine"
+docker push "$image_name:5.4-alpha-rc-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-alpine"
+docker push "$image_name:5.4.0-alpha-rc2-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-alpine3.9"
+docker push "$image_name:5.4.0-alpha-rc2-alpine3.9"
 
-primary_tag="5.4-work-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-alpine3.9
+primary_tag="5.4-alpha-rc-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-alpine3.9
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-luarocks-alpine"
-docker push "$image_name:5.4-work-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-alpine"
-docker push "$image_name:5.4.0-work2-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-alpine3.9"
-docker push "$image_name:5.4.0-work2-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-luarocks-alpine"
+docker push "$image_name:5.4-alpha-rc-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-alpine"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-alpine3.9"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-alpine3.9"
 
-primary_tag="5.4-work-bionic"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/bionic
+primary_tag="5.4-alpha-rc-bionic"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/bionic
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-ubuntu"
-docker push "$image_name:5.4-work-ubuntu"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-bionic"
-docker push "$image_name:5.4.0-work2-bionic"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-ubuntu"
-docker push "$image_name:5.4.0-work2-ubuntu"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-ubuntu"
+docker push "$image_name:5.4-alpha-rc-ubuntu"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-bionic"
+docker push "$image_name:5.4.0-alpha-rc2-bionic"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-ubuntu"
+docker push "$image_name:5.4.0-alpha-rc2-ubuntu"
 
-primary_tag="5.4-work-xenial"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/xenial
+primary_tag="5.4-alpha-rc-xenial"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/xenial
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-xenial"
-docker push "$image_name:5.4.0-work2-xenial"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-xenial"
+docker push "$image_name:5.4.0-alpha-rc2-xenial"
 
-primary_tag="5.4-work-luarocks-bionic"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-bionic
+primary_tag="5.4-alpha-rc-luarocks-bionic"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-bionic
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-luarocks-ubuntu"
-docker push "$image_name:5.4-work-luarocks-ubuntu"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-bionic"
-docker push "$image_name:5.4.0-work2-luarocks-bionic"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-ubuntu"
-docker push "$image_name:5.4.0-work2-luarocks-ubuntu"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-luarocks-ubuntu"
+docker push "$image_name:5.4-alpha-rc-luarocks-ubuntu"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-bionic"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-bionic"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-ubuntu"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-ubuntu"
 
-primary_tag="5.4-work-luarocks-xenial"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-xenial
+primary_tag="5.4-alpha-rc-luarocks-xenial"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-xenial
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-xenial"
-docker push "$image_name:5.4.0-work2-luarocks-xenial"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-xenial"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-xenial"
 
-primary_tag="5.4-work-centos7"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/centos7
+primary_tag="5.4-alpha-rc-centos7"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/centos7
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-centos"
-docker push "$image_name:5.4-work-centos"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-centos"
-docker push "$image_name:5.4.0-work2-centos"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-centos7"
-docker push "$image_name:5.4.0-work2-centos7"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-centos"
+docker push "$image_name:5.4-alpha-rc-centos"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-centos"
+docker push "$image_name:5.4.0-alpha-rc2-centos"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-centos7"
+docker push "$image_name:5.4.0-alpha-rc2-centos7"
 
-primary_tag="5.4-work-centos6"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/centos6
+primary_tag="5.4-alpha-rc-centos6"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/centos6
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-centos6"
-docker push "$image_name:5.4.0-work2-centos6"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-centos6"
+docker push "$image_name:5.4.0-alpha-rc2-centos6"
 
-primary_tag="5.4-work-luarocks-centos7"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-centos7
+primary_tag="5.4-alpha-rc-luarocks-centos7"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-centos7
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4-work-luarocks-centos"
-docker push "$image_name:5.4-work-luarocks-centos"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-centos"
-docker push "$image_name:5.4.0-work2-luarocks-centos"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-centos7"
-docker push "$image_name:5.4.0-work2-luarocks-centos7"
+docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-luarocks-centos"
+docker push "$image_name:5.4-alpha-rc-luarocks-centos"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-centos"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-centos"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-centos7"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-centos7"
 
-primary_tag="5.4-work-luarocks-centos6"
-docker build -t "$image_name:$primary_tag" lua-5.4-work/luarocks-centos6
+primary_tag="5.4-alpha-rc-luarocks-centos6"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-centos6
 docker push "$image_name:$primary_tag"
-docker tag "$image_name:$primary_tag" "$image_name:5.4.0-work2-luarocks-centos6"
-docker push "$image_name:5.4.0-work2-luarocks-centos6"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-centos6"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-centos6"
 
 primary_tag="5.3-stretch"
 docker build -t "$image_name:$primary_tag" lua-5.3/stretch

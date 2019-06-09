@@ -11,9 +11,9 @@ RUN set -ex \
       libc-dev \
       make \
               readline-dev \
-                        && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/work/lua-5.4.0-work2.tar.gz" \
+                        && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/work/lua-5.4.0-alpha-rc2.tar.gz" \
   && cd /tmp \
-  && echo "3cdf2a4eb84dde6b6aaf5d2d1de07be9 *lua.tar.gz" | md5sum -c - \
+  && echo "d49d30b394794b96ffad53513ac647a5 *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \

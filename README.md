@@ -17,20 +17,20 @@ This repo provides the source for both Lua and LuaJIT images. The different imag
 ## Supported Tags and Respective Dockerfile Links
 
 ### [`nickblah/lua`](https://hub.docker.com/r/nickblah/lua/)
-- `5.4-work`, `5.4-work-stretch`, `5.4.0-work2`, `5.4.0-work2-stretch`: [lua-5.4-work/stretch/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/stretch/Dockerfile)
-- `5.4-work-jessie`, `5.4.0-work2-jessie`: [lua-5.4-work/jessie/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/jessie/Dockerfile)
-- `5.4-work-luarocks`, `5.4-work-luarocks-stretch`, `5.4.0-work2-luarocks`, `5.4.0-work2-luarocks-stretch`: [lua-5.4-work/luarocks-stretch/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-stretch/Dockerfile)
-- `5.4-work-luarocks-jessie`, `5.4.0-work2-luarocks-jessie`: [lua-5.4-work/luarocks-jessie/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-jessie/Dockerfile)
-- `5.4-work-alpine`, `5.4-work-alpine3.9`, `5.4.0-work2-alpine`, `5.4.0-work2-alpine3.9`: [lua-5.4-work/alpine3.9/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/alpine3.9/Dockerfile)
-- `5.4-work-luarocks-alpine`, `5.4-work-luarocks-alpine3.9`, `5.4.0-work2-luarocks-alpine`, `5.4.0-work2-luarocks-alpine3.9`: [lua-5.4-work/luarocks-alpine3.9/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-alpine3.9/Dockerfile)
-- `5.4-work-bionic`, `5.4-work-ubuntu`, `5.4.0-work2-bionic`, `5.4.0-work2-ubuntu`: [lua-5.4-work/bionic/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/bionic/Dockerfile)
-- `5.4-work-xenial`, `5.4.0-work2-xenial`: [lua-5.4-work/xenial/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/xenial/Dockerfile)
-- `5.4-work-luarocks-bionic`, `5.4-work-luarocks-ubuntu`, `5.4.0-work2-luarocks-bionic`, `5.4.0-work2-luarocks-ubuntu`: [lua-5.4-work/luarocks-bionic/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-bionic/Dockerfile)
-- `5.4-work-luarocks-xenial`, `5.4.0-work2-luarocks-xenial`: [lua-5.4-work/luarocks-xenial/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-xenial/Dockerfile)
-- `5.4-work-centos`, `5.4-work-centos7`, `5.4.0-work2-centos`, `5.4.0-work2-centos7`: [lua-5.4-work/centos7/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/centos7/Dockerfile)
-- `5.4-work-centos6`, `5.4.0-work2-centos6`: [lua-5.4-work/centos6/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/centos6/Dockerfile)
-- `5.4-work-luarocks-centos`, `5.4-work-luarocks-centos7`, `5.4.0-work2-luarocks-centos`, `5.4.0-work2-luarocks-centos7`: [lua-5.4-work/luarocks-centos7/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-centos7/Dockerfile)
-- `5.4-work-luarocks-centos6`, `5.4.0-work2-luarocks-centos6`: [lua-5.4-work/luarocks-centos6/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-work/luarocks-centos6/Dockerfile)
+- `5.4-alpha-rc`, `5.4-alpha-rc-stretch`, `5.4.0-alpha-rc2`, `5.4.0-alpha-rc2-stretch`: [lua-5.4-alpha-rc/stretch/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/stretch/Dockerfile)
+- `5.4-alpha-rc-jessie`, `5.4.0-alpha-rc2-jessie`: [lua-5.4-alpha-rc/jessie/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/jessie/Dockerfile)
+- `5.4-alpha-rc-luarocks`, `5.4-alpha-rc-luarocks-stretch`, `5.4.0-alpha-rc2-luarocks`, `5.4.0-alpha-rc2-luarocks-stretch`: [lua-5.4-alpha-rc/luarocks-stretch/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-stretch/Dockerfile)
+- `5.4-alpha-rc-luarocks-jessie`, `5.4.0-alpha-rc2-luarocks-jessie`: [lua-5.4-alpha-rc/luarocks-jessie/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-jessie/Dockerfile)
+- `5.4-alpha-rc-alpine`, `5.4-alpha-rc-alpine3.9`, `5.4.0-alpha-rc2-alpine`, `5.4.0-alpha-rc2-alpine3.9`: [lua-5.4-alpha-rc/alpine3.9/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/alpine3.9/Dockerfile)
+- `5.4-alpha-rc-luarocks-alpine`, `5.4-alpha-rc-luarocks-alpine3.9`, `5.4.0-alpha-rc2-luarocks-alpine`, `5.4.0-alpha-rc2-luarocks-alpine3.9`: [lua-5.4-alpha-rc/luarocks-alpine3.9/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-alpine3.9/Dockerfile)
+- `5.4-alpha-rc-bionic`, `5.4-alpha-rc-ubuntu`, `5.4.0-alpha-rc2-bionic`, `5.4.0-alpha-rc2-ubuntu`: [lua-5.4-alpha-rc/bionic/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/bionic/Dockerfile)
+- `5.4-alpha-rc-xenial`, `5.4.0-alpha-rc2-xenial`: [lua-5.4-alpha-rc/xenial/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/xenial/Dockerfile)
+- `5.4-alpha-rc-luarocks-bionic`, `5.4-alpha-rc-luarocks-ubuntu`, `5.4.0-alpha-rc2-luarocks-bionic`, `5.4.0-alpha-rc2-luarocks-ubuntu`: [lua-5.4-alpha-rc/luarocks-bionic/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-bionic/Dockerfile)
+- `5.4-alpha-rc-luarocks-xenial`, `5.4.0-alpha-rc2-luarocks-xenial`: [lua-5.4-alpha-rc/luarocks-xenial/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-xenial/Dockerfile)
+- `5.4-alpha-rc-centos`, `5.4-alpha-rc-centos7`, `5.4.0-alpha-rc2-centos`, `5.4.0-alpha-rc2-centos7`: [lua-5.4-alpha-rc/centos7/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/centos7/Dockerfile)
+- `5.4-alpha-rc-centos6`, `5.4.0-alpha-rc2-centos6`: [lua-5.4-alpha-rc/centos6/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/centos6/Dockerfile)
+- `5.4-alpha-rc-luarocks-centos`, `5.4-alpha-rc-luarocks-centos7`, `5.4.0-alpha-rc2-luarocks-centos`, `5.4.0-alpha-rc2-luarocks-centos7`: [lua-5.4-alpha-rc/luarocks-centos7/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-centos7/Dockerfile)
+- `5.4-alpha-rc-luarocks-centos6`, `5.4.0-alpha-rc2-luarocks-centos6`: [lua-5.4-alpha-rc/luarocks-centos6/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.4-alpha-rc/luarocks-centos6/Dockerfile)
 - `5`, `5-stretch`, `5.3`, `5.3-stretch`, `5.3.5`, `5.3.5-stretch`, `latest`: [lua-5.3/stretch/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.3/stretch/Dockerfile)
 - `5-jessie`, `5.3-jessie`, `5.3.5-jessie`: [lua-5.3/jessie/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.3/jessie/Dockerfile)
 - `5-luarocks`, `5-luarocks-stretch`, `5.3-luarocks`, `5.3-luarocks-stretch`, `5.3.5-luarocks`, `5.3.5-luarocks-stretch`, `luarocks`: [lua-5.3/luarocks-stretch/Dockerfile](https://github.com/GUI/lua-docker/blob/master/lua-5.3/luarocks-stretch/Dockerfile)
@@ -292,34 +292,34 @@ This could possibly be automated more, but the current process for handling upda
     Build Context: `/lua-5.3/stretch/`
   - Docker Tag: `5.3-xenial`  
     Build Context: `/lua-5.3/xenial/`
-  - Docker Tag: `5.4-work-alpine3.9`  
-    Build Context: `/lua-5.4-work/alpine3.9/`
-  - Docker Tag: `5.4-work-bionic`  
-    Build Context: `/lua-5.4-work/bionic/`
-  - Docker Tag: `5.4-work-centos6`  
-    Build Context: `/lua-5.4-work/centos6/`
-  - Docker Tag: `5.4-work-centos7`  
-    Build Context: `/lua-5.4-work/centos7/`
-  - Docker Tag: `5.4-work-jessie`  
-    Build Context: `/lua-5.4-work/jessie/`
-  - Docker Tag: `5.4-work-luarocks-alpine3.9`  
-    Build Context: `/lua-5.4-work/luarocks-alpine3.9/`
-  - Docker Tag: `5.4-work-luarocks-bionic`  
-    Build Context: `/lua-5.4-work/luarocks-bionic/`
-  - Docker Tag: `5.4-work-luarocks-centos6`  
-    Build Context: `/lua-5.4-work/luarocks-centos6/`
-  - Docker Tag: `5.4-work-luarocks-centos7`  
-    Build Context: `/lua-5.4-work/luarocks-centos7/`
-  - Docker Tag: `5.4-work-luarocks-jessie`  
-    Build Context: `/lua-5.4-work/luarocks-jessie/`
-  - Docker Tag: `5.4-work-luarocks-stretch`  
-    Build Context: `/lua-5.4-work/luarocks-stretch/`
-  - Docker Tag: `5.4-work-luarocks-xenial`  
-    Build Context: `/lua-5.4-work/luarocks-xenial/`
-  - Docker Tag: `5.4-work-stretch`  
-    Build Context: `/lua-5.4-work/stretch/`
-  - Docker Tag: `5.4-work-xenial`  
-    Build Context: `/lua-5.4-work/xenial/`
+  - Docker Tag: `5.4-alpha-rc-alpine3.9`  
+    Build Context: `/lua-5.4-alpha-rc/alpine3.9/`
+  - Docker Tag: `5.4-alpha-rc-bionic`  
+    Build Context: `/lua-5.4-alpha-rc/bionic/`
+  - Docker Tag: `5.4-alpha-rc-centos6`  
+    Build Context: `/lua-5.4-alpha-rc/centos6/`
+  - Docker Tag: `5.4-alpha-rc-centos7`  
+    Build Context: `/lua-5.4-alpha-rc/centos7/`
+  - Docker Tag: `5.4-alpha-rc-jessie`  
+    Build Context: `/lua-5.4-alpha-rc/jessie/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-alpine3.9`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-alpine3.9/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-bionic`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-bionic/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-centos6`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-centos6/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-centos7`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-centos7/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-jessie`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-jessie/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-stretch`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-stretch/`
+  - Docker Tag: `5.4-alpha-rc-luarocks-xenial`  
+    Build Context: `/lua-5.4-alpha-rc/luarocks-xenial/`
+  - Docker Tag: `5.4-alpha-rc-stretch`  
+    Build Context: `/lua-5.4-alpha-rc/stretch/`
+  - Docker Tag: `5.4-alpha-rc-xenial`  
+    Build Context: `/lua-5.4-alpha-rc/xenial/`
 - [`nickblah/luajit`](https://cloud.docker.com/repository/docker/nickblah/luajit/builds/edit)
   - Docker Tag: `2.0-alpine3.9`  
     Build Context: `/luajit-2.0/alpine3.9/`
