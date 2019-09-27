@@ -10,13 +10,19 @@ set -x
 
 image_name="nickblah/lua"
 
-primary_tag="5.4-alpha-rc-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/stretch
+primary_tag="5.4-alpha-rc-buster"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc"
 docker push "$image_name:5.4-alpha-rc"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2"
 docker push "$image_name:5.4.0-alpha-rc2"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-buster"
+docker push "$image_name:5.4.0-alpha-rc2-buster"
+
+primary_tag="5.4-alpha-rc-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-stretch"
 docker push "$image_name:5.4.0-alpha-rc2-stretch"
 
@@ -26,13 +32,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-jessie"
 docker push "$image_name:5.4.0-alpha-rc2-jessie"
 
-primary_tag="5.4-alpha-rc-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-stretch
+primary_tag="5.4-alpha-rc-luarocks-buster"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-luarocks"
 docker push "$image_name:5.4-alpha-rc-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks"
 docker push "$image_name:5.4.0-alpha-rc2-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-buster"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-buster"
+
+primary_tag="5.4-alpha-rc-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-stretch"
 docker push "$image_name:5.4.0-alpha-rc2-luarocks-stretch"
 
@@ -42,23 +54,35 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-jessie"
 docker push "$image_name:5.4.0-alpha-rc2-luarocks-jessie"
 
-primary_tag="5.4-alpha-rc-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/alpine3.9
+primary_tag="5.4-alpha-rc-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-alpine"
 docker push "$image_name:5.4-alpha-rc-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-alpine"
 docker push "$image_name:5.4.0-alpha-rc2-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-alpine3.10"
+docker push "$image_name:5.4.0-alpha-rc2-alpine3.10"
+
+primary_tag="5.4-alpha-rc-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-alpine3.9"
 docker push "$image_name:5.4.0-alpha-rc2-alpine3.9"
 
-primary_tag="5.4-alpha-rc-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-alpine3.9
+primary_tag="5.4-alpha-rc-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4-alpha-rc-luarocks-alpine"
 docker push "$image_name:5.4-alpha-rc-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-alpine"
 docker push "$image_name:5.4.0-alpha-rc2-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-alpine3.10"
+docker push "$image_name:5.4.0-alpha-rc2-luarocks-alpine3.10"
+
+primary_tag="5.4-alpha-rc-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.4-alpha-rc/luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-alpine3.9"
 docker push "$image_name:5.4.0-alpha-rc2-luarocks-alpine3.9"
 
@@ -126,21 +150,29 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.4.0-alpha-rc2-luarocks-centos6"
 docker push "$image_name:5.4.0-alpha-rc2-luarocks-centos6"
 
-primary_tag="5.3-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.3/stretch
+primary_tag="5.3-buster"
+docker build -t "$image_name:$primary_tag" lua-5.3/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5"
 docker push "$image_name:5"
-docker tag "$image_name:$primary_tag" "$image_name:5-stretch"
-docker push "$image_name:5-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5-buster"
+docker push "$image_name:5-buster"
 docker tag "$image_name:$primary_tag" "$image_name:5.3"
 docker push "$image_name:5.3"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5"
 docker push "$image_name:5.3.5"
-docker tag "$image_name:$primary_tag" "$image_name:5.3.5-stretch"
-docker push "$image_name:5.3.5-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-buster"
+docker push "$image_name:5.3.5-buster"
 docker tag "$image_name:$primary_tag" "$image_name:latest"
 docker push "$image_name:latest"
+
+primary_tag="5.3-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.3/stretch
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:5-stretch"
+docker push "$image_name:5-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-stretch"
+docker push "$image_name:5.3.5-stretch"
 
 primary_tag="5.3-jessie"
 docker build -t "$image_name:$primary_tag" lua-5.3/jessie
@@ -150,21 +182,29 @@ docker push "$image_name:5-jessie"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5-jessie"
 docker push "$image_name:5.3.5-jessie"
 
-primary_tag="5.3-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-stretch
+primary_tag="5.3-luarocks-buster"
+docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5-luarocks"
 docker push "$image_name:5-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-stretch"
-docker push "$image_name:5-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-buster"
+docker push "$image_name:5-luarocks-buster"
 docker tag "$image_name:$primary_tag" "$image_name:5.3-luarocks"
 docker push "$image_name:5.3-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks"
 docker push "$image_name:5.3.5-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-stretch"
-docker push "$image_name:5.3.5-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-buster"
+docker push "$image_name:5.3.5-luarocks-buster"
 docker tag "$image_name:$primary_tag" "$image_name:luarocks"
 docker push "$image_name:luarocks"
+
+primary_tag="5.3-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-stretch
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-stretch"
+docker push "$image_name:5-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-stretch"
+docker push "$image_name:5.3.5-luarocks-stretch"
 
 primary_tag="5.3-luarocks-jessie"
 docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-jessie
@@ -174,37 +214,53 @@ docker push "$image_name:5-luarocks-jessie"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-jessie"
 docker push "$image_name:5.3.5-luarocks-jessie"
 
-primary_tag="5.3-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.3/alpine3.9
+primary_tag="5.3-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.3/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5-alpine"
 docker push "$image_name:5-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5-alpine3.9"
-docker push "$image_name:5-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5-alpine3.10"
+docker push "$image_name:5-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:5.3-alpine"
 docker push "$image_name:5.3-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5-alpine"
 docker push "$image_name:5.3.5-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5.3.5-alpine3.9"
-docker push "$image_name:5.3.5-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-alpine3.10"
+docker push "$image_name:5.3.5-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:alpine"
 docker push "$image_name:alpine"
 
-primary_tag="5.3-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-alpine3.9
+primary_tag="5.3-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.3/alpine3.9
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:5-alpine3.9"
+docker push "$image_name:5-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-alpine3.9"
+docker push "$image_name:5.3.5-alpine3.9"
+
+primary_tag="5.3-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-alpine"
 docker push "$image_name:5-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-alpine3.9"
-docker push "$image_name:5-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-alpine3.10"
+docker push "$image_name:5-luarocks-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:5.3-luarocks-alpine"
 docker push "$image_name:5.3-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-alpine"
 docker push "$image_name:5.3.5-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-alpine3.9"
-docker push "$image_name:5.3.5-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-alpine3.10"
+docker push "$image_name:5.3.5-luarocks-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:luarocks-alpine"
 docker push "$image_name:luarocks-alpine"
+
+primary_tag="5.3-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.3/luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:5-luarocks-alpine3.9"
+docker push "$image_name:5-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-alpine3.9"
+docker push "$image_name:5.3.5-luarocks-alpine3.9"
 
 primary_tag="5.3-bionic"
 docker build -t "$image_name:$primary_tag" lua-5.3/bionic
@@ -302,13 +358,19 @@ docker push "$image_name:5-luarocks-centos6"
 docker tag "$image_name:$primary_tag" "$image_name:5.3.5-luarocks-centos6"
 docker push "$image_name:5.3.5-luarocks-centos6"
 
-primary_tag="5.2-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.2/stretch
+primary_tag="5.2-buster"
+docker build -t "$image_name:$primary_tag" lua-5.2/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2"
 docker push "$image_name:5.2"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4"
 docker push "$image_name:5.2.4"
+docker tag "$image_name:$primary_tag" "$image_name:5.2.4-buster"
+docker push "$image_name:5.2.4-buster"
+
+primary_tag="5.2-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.2/stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-stretch"
 docker push "$image_name:5.2.4-stretch"
 
@@ -318,13 +380,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-jessie"
 docker push "$image_name:5.2.4-jessie"
 
-primary_tag="5.2-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.2/luarocks-stretch
+primary_tag="5.2-luarocks-buster"
+docker build -t "$image_name:$primary_tag" lua-5.2/luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2-luarocks"
 docker push "$image_name:5.2-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks"
 docker push "$image_name:5.2.4-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-buster"
+docker push "$image_name:5.2.4-luarocks-buster"
+
+primary_tag="5.2-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.2/luarocks-stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-stretch"
 docker push "$image_name:5.2.4-luarocks-stretch"
 
@@ -334,23 +402,35 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-jessie"
 docker push "$image_name:5.2.4-luarocks-jessie"
 
-primary_tag="5.2-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.2/alpine3.9
+primary_tag="5.2-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.2/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2-alpine"
 docker push "$image_name:5.2-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-alpine"
 docker push "$image_name:5.2.4-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.2.4-alpine3.10"
+docker push "$image_name:5.2.4-alpine3.10"
+
+primary_tag="5.2-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.2/alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-alpine3.9"
 docker push "$image_name:5.2.4-alpine3.9"
 
-primary_tag="5.2-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.2/luarocks-alpine3.9
+primary_tag="5.2-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.2/luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2-luarocks-alpine"
 docker push "$image_name:5.2-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-alpine"
 docker push "$image_name:5.2.4-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-alpine3.10"
+docker push "$image_name:5.2.4-luarocks-alpine3.10"
+
+primary_tag="5.2-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.2/luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-alpine3.9"
 docker push "$image_name:5.2.4-luarocks-alpine3.9"
 
@@ -418,13 +498,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.2.4-luarocks-centos6"
 docker push "$image_name:5.2.4-luarocks-centos6"
 
-primary_tag="5.1-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.1/stretch
+primary_tag="5.1-buster"
+docker build -t "$image_name:$primary_tag" lua-5.1/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1"
 docker push "$image_name:5.1"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5"
 docker push "$image_name:5.1.5"
+docker tag "$image_name:$primary_tag" "$image_name:5.1.5-buster"
+docker push "$image_name:5.1.5-buster"
+
+primary_tag="5.1-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.1/stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-stretch"
 docker push "$image_name:5.1.5-stretch"
 
@@ -434,13 +520,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-jessie"
 docker push "$image_name:5.1.5-jessie"
 
-primary_tag="5.1-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.1/luarocks-stretch
+primary_tag="5.1-luarocks-buster"
+docker build -t "$image_name:$primary_tag" lua-5.1/luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1-luarocks"
 docker push "$image_name:5.1-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks"
 docker push "$image_name:5.1.5-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-buster"
+docker push "$image_name:5.1.5-luarocks-buster"
+
+primary_tag="5.1-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.1/luarocks-stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-stretch"
 docker push "$image_name:5.1.5-luarocks-stretch"
 
@@ -450,23 +542,35 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-jessie"
 docker push "$image_name:5.1.5-luarocks-jessie"
 
-primary_tag="5.1-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.1/alpine3.9
+primary_tag="5.1-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.1/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1-alpine"
 docker push "$image_name:5.1-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-alpine"
 docker push "$image_name:5.1.5-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.1.5-alpine3.10"
+docker push "$image_name:5.1.5-alpine3.10"
+
+primary_tag="5.1-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.1/alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-alpine3.9"
 docker push "$image_name:5.1.5-alpine3.9"
 
-primary_tag="5.1-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.1/luarocks-alpine3.9
+primary_tag="5.1-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.1/luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1-luarocks-alpine"
 docker push "$image_name:5.1-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-alpine"
 docker push "$image_name:5.1.5-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-alpine3.10"
+docker push "$image_name:5.1.5-luarocks-alpine3.10"
+
+primary_tag="5.1-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.1/luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-alpine3.9"
 docker push "$image_name:5.1.5-luarocks-alpine3.9"
 
@@ -534,13 +638,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.1.5-luarocks-centos6"
 docker push "$image_name:5.1.5-luarocks-centos6"
 
-primary_tag="5.0-stretch"
-docker build -t "$image_name:$primary_tag" lua-5.0/stretch
+primary_tag="5.0-buster"
+docker build -t "$image_name:$primary_tag" lua-5.0/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.0"
 docker push "$image_name:5.0"
 docker tag "$image_name:$primary_tag" "$image_name:5.0.3"
 docker push "$image_name:5.0.3"
+docker tag "$image_name:$primary_tag" "$image_name:5.0.3-buster"
+docker push "$image_name:5.0.3-buster"
+
+primary_tag="5.0-stretch"
+docker build -t "$image_name:$primary_tag" lua-5.0/stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.0.3-stretch"
 docker push "$image_name:5.0.3-stretch"
 
@@ -550,13 +660,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.0.3-jessie"
 docker push "$image_name:5.0.3-jessie"
 
-primary_tag="5.0-alpine3.9"
-docker build -t "$image_name:$primary_tag" lua-5.0/alpine3.9
+primary_tag="5.0-alpine3.10"
+docker build -t "$image_name:$primary_tag" lua-5.0/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.0-alpine"
 docker push "$image_name:5.0-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:5.0.3-alpine"
 docker push "$image_name:5.0.3-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:5.0.3-alpine3.10"
+docker push "$image_name:5.0.3-alpine3.10"
+
+primary_tag="5.0-alpine3.9"
+docker build -t "$image_name:$primary_tag" lua-5.0/alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:5.0.3-alpine3.9"
 docker push "$image_name:5.0.3-alpine3.9"
 
@@ -594,13 +710,19 @@ docker push "$image_name:5.0.3-centos6"
 
 image_name="nickblah/luajit"
 
-primary_tag="2.1-beta-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/stretch
+primary_tag="2.1-beta-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta"
 docker push "$image_name:2.1-beta"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3"
 docker push "$image_name:2.1.0-beta3"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-buster"
+docker push "$image_name:2.1.0-beta3-buster"
+
+primary_tag="2.1-beta-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-stretch"
 docker push "$image_name:2.1.0-beta3-stretch"
 
@@ -610,13 +732,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-jessie"
 docker push "$image_name:2.1.0-beta3-jessie"
 
-primary_tag="2.1-beta-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/luarocks-stretch
+primary_tag="2.1-beta-luarocks-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-luarocks"
 docker push "$image_name:2.1-beta-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks"
 docker push "$image_name:2.1.0-beta3-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks-buster"
+docker push "$image_name:2.1.0-beta3-luarocks-buster"
+
+primary_tag="2.1-beta-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/luarocks-stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks-stretch"
 docker push "$image_name:2.1.0-beta3-luarocks-stretch"
 
@@ -626,13 +754,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks-jessie"
 docker push "$image_name:2.1.0-beta3-luarocks-jessie"
 
-primary_tag="2.1-beta-lua52compat-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-stretch
+primary_tag="2.1-beta-lua52compat-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-lua52compat"
 docker push "$image_name:2.1-beta-lua52compat"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat"
 docker push "$image_name:2.1.0-beta3-lua52compat"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-buster"
+docker push "$image_name:2.1.0-beta3-lua52compat-buster"
+
+primary_tag="2.1-beta-lua52compat-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-stretch"
 docker push "$image_name:2.1.0-beta3-lua52compat-stretch"
 
@@ -642,13 +776,19 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-jessie"
 docker push "$image_name:2.1.0-beta3-lua52compat-jessie"
 
-primary_tag="2.1-beta-lua52compat-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-luarocks-stretch
+primary_tag="2.1-beta-lua52compat-luarocks-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-lua52compat-luarocks"
 docker push "$image_name:2.1-beta-lua52compat-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks"
 docker push "$image_name:2.1.0-beta3-lua52compat-luarocks"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-buster"
+docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-buster"
+
+primary_tag="2.1-beta-lua52compat-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-luarocks-stretch
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-stretch"
 docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-stretch"
 
@@ -658,43 +798,67 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-jessie"
 docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-jessie"
 
-primary_tag="2.1-beta-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/alpine3.9
+primary_tag="2.1-beta-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-alpine"
 docker push "$image_name:2.1-beta-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-alpine"
 docker push "$image_name:2.1.0-beta3-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-alpine3.10"
+docker push "$image_name:2.1.0-beta3-alpine3.10"
+
+primary_tag="2.1-beta-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-alpine3.9"
 docker push "$image_name:2.1.0-beta3-alpine3.9"
 
-primary_tag="2.1-beta-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/luarocks-alpine3.9
+primary_tag="2.1-beta-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-luarocks-alpine"
 docker push "$image_name:2.1-beta-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks-alpine"
 docker push "$image_name:2.1.0-beta3-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks-alpine3.10"
+docker push "$image_name:2.1.0-beta3-luarocks-alpine3.10"
+
+primary_tag="2.1-beta-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-luarocks-alpine3.9"
 docker push "$image_name:2.1.0-beta3-luarocks-alpine3.9"
 
-primary_tag="2.1-beta-lua52compat-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-alpine3.9
+primary_tag="2.1-beta-lua52compat-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-lua52compat-alpine"
 docker push "$image_name:2.1-beta-lua52compat-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-alpine"
 docker push "$image_name:2.1.0-beta3-lua52compat-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-alpine3.10"
+docker push "$image_name:2.1.0-beta3-lua52compat-alpine3.10"
+
+primary_tag="2.1-beta-lua52compat-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-alpine3.9"
 docker push "$image_name:2.1.0-beta3-lua52compat-alpine3.9"
 
-primary_tag="2.1-beta-lua52compat-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-luarocks-alpine3.9
+primary_tag="2.1-beta-lua52compat-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1-beta-lua52compat-luarocks-alpine"
 docker push "$image_name:2.1-beta-lua52compat-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-alpine"
 docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-alpine"
+docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-alpine3.10"
+docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-alpine3.10"
+
+primary_tag="2.1-beta-lua52compat-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.1-beta/lua52compat-luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-alpine3.9"
 docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-alpine3.9"
 
@@ -826,21 +990,29 @@ docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2.1.0-beta3-lua52compat-luarocks-centos6"
 docker push "$image_name:2.1.0-beta3-lua52compat-luarocks-centos6"
 
-primary_tag="2.0-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.0/stretch
+primary_tag="2.0-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.0/buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2"
 docker push "$image_name:2"
-docker tag "$image_name:$primary_tag" "$image_name:2-stretch"
-docker push "$image_name:2-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2-buster"
+docker push "$image_name:2-buster"
 docker tag "$image_name:$primary_tag" "$image_name:2.0"
 docker push "$image_name:2.0"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5"
 docker push "$image_name:2.0.5"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-stretch"
-docker push "$image_name:2.0.5-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-buster"
+docker push "$image_name:2.0.5-buster"
 docker tag "$image_name:$primary_tag" "$image_name:latest"
 docker push "$image_name:latest"
+
+primary_tag="2.0-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.0/stretch
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-stretch"
+docker push "$image_name:2-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-stretch"
+docker push "$image_name:2.0.5-stretch"
 
 primary_tag="2.0-jessie"
 docker build -t "$image_name:$primary_tag" luajit-2.0/jessie
@@ -850,21 +1022,29 @@ docker push "$image_name:2-jessie"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-jessie"
 docker push "$image_name:2.0.5-jessie"
 
-primary_tag="2.0-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-stretch
+primary_tag="2.0-luarocks-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-luarocks"
 docker push "$image_name:2-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-stretch"
-docker push "$image_name:2-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-buster"
+docker push "$image_name:2-luarocks-buster"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-luarocks"
 docker push "$image_name:2.0-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks"
 docker push "$image_name:2.0.5-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-stretch"
-docker push "$image_name:2.0.5-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-buster"
+docker push "$image_name:2.0.5-luarocks-buster"
 docker tag "$image_name:$primary_tag" "$image_name:luarocks"
 docker push "$image_name:luarocks"
+
+primary_tag="2.0-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-stretch
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-stretch"
+docker push "$image_name:2-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-stretch"
+docker push "$image_name:2.0.5-luarocks-stretch"
 
 primary_tag="2.0-luarocks-jessie"
 docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-jessie
@@ -874,21 +1054,29 @@ docker push "$image_name:2-luarocks-jessie"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-jessie"
 docker push "$image_name:2.0.5-luarocks-jessie"
 
-primary_tag="2.0-lua52compat-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-stretch
+primary_tag="2.0-lua52compat-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat"
 docker push "$image_name:2-lua52compat"
-docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-stretch"
-docker push "$image_name:2-lua52compat-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-buster"
+docker push "$image_name:2-lua52compat-buster"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-lua52compat"
 docker push "$image_name:2.0-lua52compat"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat"
 docker push "$image_name:2.0.5-lua52compat"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-stretch"
-docker push "$image_name:2.0.5-lua52compat-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-buster"
+docker push "$image_name:2.0.5-lua52compat-buster"
 docker tag "$image_name:$primary_tag" "$image_name:lua52compat"
 docker push "$image_name:lua52compat"
+
+primary_tag="2.0-lua52compat-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-stretch
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-stretch"
+docker push "$image_name:2-lua52compat-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-stretch"
+docker push "$image_name:2.0.5-lua52compat-stretch"
 
 primary_tag="2.0-lua52compat-jessie"
 docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-jessie
@@ -898,21 +1086,29 @@ docker push "$image_name:2-lua52compat-jessie"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-jessie"
 docker push "$image_name:2.0.5-lua52compat-jessie"
 
-primary_tag="2.0-lua52compat-luarocks-stretch"
-docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-stretch
+primary_tag="2.0-lua52compat-luarocks-buster"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-buster
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks"
 docker push "$image_name:2-lua52compat-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-stretch"
-docker push "$image_name:2-lua52compat-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-buster"
+docker push "$image_name:2-lua52compat-luarocks-buster"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-lua52compat-luarocks"
 docker push "$image_name:2.0-lua52compat-luarocks"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks"
 docker push "$image_name:2.0.5-lua52compat-luarocks"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-stretch"
-docker push "$image_name:2.0.5-lua52compat-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-buster"
+docker push "$image_name:2.0.5-lua52compat-luarocks-buster"
 docker tag "$image_name:$primary_tag" "$image_name:lua52compat-luarocks"
 docker push "$image_name:lua52compat-luarocks"
+
+primary_tag="2.0-lua52compat-luarocks-stretch"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-stretch
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-stretch"
+docker push "$image_name:2-lua52compat-luarocks-stretch"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-stretch"
+docker push "$image_name:2.0.5-lua52compat-luarocks-stretch"
 
 primary_tag="2.0-lua52compat-luarocks-jessie"
 docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-jessie
@@ -922,69 +1118,101 @@ docker push "$image_name:2-lua52compat-luarocks-jessie"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-jessie"
 docker push "$image_name:2.0.5-lua52compat-luarocks-jessie"
 
-primary_tag="2.0-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.0/alpine3.9
+primary_tag="2.0-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.0/alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-alpine"
 docker push "$image_name:2-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2-alpine3.9"
-docker push "$image_name:2-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2-alpine3.10"
+docker push "$image_name:2-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-alpine"
 docker push "$image_name:2.0-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-alpine"
 docker push "$image_name:2.0.5-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-alpine3.9"
-docker push "$image_name:2.0.5-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-alpine3.10"
+docker push "$image_name:2.0.5-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:alpine"
 docker push "$image_name:alpine"
 
-primary_tag="2.0-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-alpine3.9
+primary_tag="2.0-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.0/alpine3.9
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-alpine3.9"
+docker push "$image_name:2-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-alpine3.9"
+docker push "$image_name:2.0.5-alpine3.9"
+
+primary_tag="2.0-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-alpine"
 docker push "$image_name:2-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-alpine3.9"
-docker push "$image_name:2-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-alpine3.10"
+docker push "$image_name:2-luarocks-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-luarocks-alpine"
 docker push "$image_name:2.0-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-alpine"
 docker push "$image_name:2.0.5-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-alpine3.9"
-docker push "$image_name:2.0.5-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-alpine3.10"
+docker push "$image_name:2.0.5-luarocks-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:luarocks-alpine"
 docker push "$image_name:luarocks-alpine"
 
-primary_tag="2.0-lua52compat-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-alpine3.9
+primary_tag="2.0-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.0/luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-luarocks-alpine3.9"
+docker push "$image_name:2-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-luarocks-alpine3.9"
+docker push "$image_name:2.0.5-luarocks-alpine3.9"
+
+primary_tag="2.0-lua52compat-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-alpine"
 docker push "$image_name:2-lua52compat-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-alpine3.9"
-docker push "$image_name:2-lua52compat-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-alpine3.10"
+docker push "$image_name:2-lua52compat-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-lua52compat-alpine"
 docker push "$image_name:2.0-lua52compat-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-alpine"
 docker push "$image_name:2.0.5-lua52compat-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-alpine3.9"
-docker push "$image_name:2.0.5-lua52compat-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-alpine3.10"
+docker push "$image_name:2.0.5-lua52compat-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:lua52compat-alpine"
 docker push "$image_name:lua52compat-alpine"
 
-primary_tag="2.0-lua52compat-luarocks-alpine3.9"
-docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-alpine3.9
+primary_tag="2.0-lua52compat-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-alpine3.9
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-alpine3.9"
+docker push "$image_name:2-lua52compat-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-alpine3.9"
+docker push "$image_name:2.0.5-lua52compat-alpine3.9"
+
+primary_tag="2.0-lua52compat-luarocks-alpine3.10"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-alpine3.10
 docker push "$image_name:$primary_tag"
 docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-alpine"
 docker push "$image_name:2-lua52compat-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-alpine3.9"
-docker push "$image_name:2-lua52compat-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-alpine3.10"
+docker push "$image_name:2-lua52compat-luarocks-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:2.0-lua52compat-luarocks-alpine"
 docker push "$image_name:2.0-lua52compat-luarocks-alpine"
 docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-alpine"
 docker push "$image_name:2.0.5-lua52compat-luarocks-alpine"
-docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-alpine3.9"
-docker push "$image_name:2.0.5-lua52compat-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-alpine3.10"
+docker push "$image_name:2.0.5-lua52compat-luarocks-alpine3.10"
 docker tag "$image_name:$primary_tag" "$image_name:lua52compat-luarocks-alpine"
 docker push "$image_name:lua52compat-luarocks-alpine"
+
+primary_tag="2.0-lua52compat-luarocks-alpine3.9"
+docker build -t "$image_name:$primary_tag" luajit-2.0/lua52compat-luarocks-alpine3.9
+docker push "$image_name:$primary_tag"
+docker tag "$image_name:$primary_tag" "$image_name:2-lua52compat-luarocks-alpine3.9"
+docker push "$image_name:2-lua52compat-luarocks-alpine3.9"
+docker tag "$image_name:$primary_tag" "$image_name:2.0.5-lua52compat-luarocks-alpine3.9"
+docker push "$image_name:2.0.5-lua52compat-luarocks-alpine3.9"
 
 primary_tag="2.0-bionic"
 docker build -t "$image_name:$primary_tag" luajit-2.0/bionic
