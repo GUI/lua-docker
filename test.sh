@@ -7,7 +7,7 @@ case "$LANG" in
   lua)
     lua_version=$(lua -v)
     case "$lua_version" in
-      "Lua * Copyright")
+      "Lua "*" Copyright"*)
         ;;
       *)
         echo "lua command not working as expected"
