@@ -5,7 +5,7 @@ exitcode=0
 
 case "$LANG" in
   lua)
-    lua_version=$(lua -v)
+    lua_version=$(lua -v 2>&1)
     case "$lua_version" in
       "Lua "*" Copyright"*)
         ;;
