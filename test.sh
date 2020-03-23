@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -euxo pipefail
+set -eux
 exitcode=0
 
 case "$LANG" in
