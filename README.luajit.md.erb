@@ -1,43 +1,22 @@
-# lua-docker
+# luajit-docker
 
-Minimal, automated, and up-to-date Docker images for different Lua and LuaJIT versions.
+Minimal, automated, and up-to-date Docker images for different LuaJIT versions.
 
 Provides variants for:
 
 - Debian, Alpine, Ubuntu, and CentOS base images
 - With LuaRocks
-- LuaJIT
 - LuaJIT built with Lua 5.2 compatibility mode
 
-This repo provides the source for both Lua and LuaJIT images. The different images can be found at:
-
-- [`nickblah/lua`](https://hub.docker.com/r/nickblah/lua/): Lua images.
-- [`nickblah/luajit`](https://hub.docker.com/r/nickblah/luajit/): LuaJIT images.
-
-New versions of Lua, LuaJIT, and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/master/.github/workflows/main.yml).
+New versions of LuaJIT and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/master/.github/workflows/main.yml).
 
 ## Supported Tags and Respective Dockerfile Links
 
-<% tags.each do |lang, files| -%>
-### [`nickblah/<%= lang %>`](https://hub.docker.com/r/nickblah/<%= lang %>/)
-<% files.each do |file, file_tags| -%>
+<% tags.fetch("luajit").each do |file, file_tags| -%>
 - <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](https://github.com/GUI/lua-docker/blob/master/<%= file %>)
-<% end -%>
 <% end -%>
 
 ## Image Variants
-
-### `nickblah/lua:<version>`
-The default Lua image. Provides Lua. Uses Debian Linux for base image.
-
-### `nickblah/lua:<version>-alpine`
-Provides Lua. Uses Alpine Linux for base image.
-
-### `nickblah/lua:<version>-luarocks`
-Provides Lua and LuaRocks. Uses Debian Linux for base image.
-
-### `nickblah/lua:<version>-luarocks-alpine`
-Provides Lua and LuaRocks. Uses Alpine Linux for base image.
 
 ### `nickblah/luajit:<version>`
 The default LuaJIT image. Provides LuaJIT. Uses Debian Linux for base image.

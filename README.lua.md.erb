@@ -1,0 +1,43 @@
+# lua-docker
+
+Minimal, automated, and up-to-date Docker images for different Lua versions.
+
+Provides variants for:
+
+- Debian, Alpine, Ubuntu, and CentOS base images
+- With LuaRocks
+
+New versions of Lua and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/master/.github/workflows/main.yml).
+
+## Supported Tags and Respective Dockerfile Links
+
+<% tags.fetch("lua").each do |file, file_tags| -%>
+- <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](https://github.com/GUI/lua-docker/blob/master/<%= file %>)
+<% end -%>
+
+## Image Variants
+
+### `nickblah/lua:<version>`
+The default Lua image. Provides Lua. Uses Debian Linux for base image.
+
+### `nickblah/lua:<version>-alpine`
+Provides Lua. Uses Alpine Linux for base image.
+
+### `nickblah/lua:<version>-luarocks`
+Provides Lua and LuaRocks. Uses Debian Linux for base image.
+
+### `nickblah/lua:<version>-luarocks-alpine`
+Provides Lua and LuaRocks. Uses Alpine Linux for base image.
+
+## Installing C Libraries
+
+These base images are minimal, so they only contain the necessary dependencies for running Lua and installing pure-Lua LuaRocks modules. If you need to install LuaRocks modules that include C extensions or need compiling/building, then you'll first need to install the necessary dependencies (for example, make, gcc, etc). The exact dependencies may vary depending on the module's requirements, but to install basic build dependencies, the following installation commands can be used:
+
+- For Debian based images:
+    ```sh
+    apt-get update && apt-get install -y build-essential
+    ```
+- For Alpine based images:
+    ```sh
+    apk add --no-cache build-base
+    ```

@@ -187,3 +187,13 @@ template = ERB.new(File.read("README.md.erb"), nil, "-").result_with_hash({
   :tags => tags,
 })
 File.open("README.md", "w") { |f| f.write(template) }
+
+template = ERB.new(File.read("README.lua.md.erb"), nil, "-").result_with_hash({
+  :tags => tags,
+})
+File.open("README.lua.md", "w") { |f| f.write(template) }
+
+template = ERB.new(File.read("README.luajit.md.erb"), nil, "-").result_with_hash({
+  :tags => tags,
+})
+File.open("README.luajit.md", "w") { |f| f.write(template) }
