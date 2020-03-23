@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "39 3 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+      - name: Update Dockerfiles
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./update-ci
+      - name: Docker Build
+        run: ./docker-build
+      - name: Test
+        run: ./test
+      - name: Docker Registry Login
+        run: docker login --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Docker Push
+        run: ./docker-push
+      - name: Docker Hub Description lua
+        uses: peter-evans/dockerhub-description@v2.1.0
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERHUB_REPOSITORY: nickblah/lua
+      - name: Docker Hub Description luajit
+        uses: peter-evans/dockerhub-description@v2.1.0
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERHUB_REPOSITORY: nickblah/luajit

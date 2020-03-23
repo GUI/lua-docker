@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -Eeuxo pipefail
+
+<%- tags.each do |lang, files| -%>
+  <%- files.each do |file, data| -%>
+    docker pull '<%= "#{data.fetch(:docker_image)}:#{data.fetch(:tag)}" %>' || true && docker build --pull --cache-from '<%= "#{data.fetch(:docker_image)}:#{data.fetch(:tag)}" %>' <%= data.fetch(:tags).map { |tag| "--tag '#{data.fetch(:docker_image)}:#{tag}'" }.join(" ") %> --file <%= file %> .
+  <%- end -%>
+<%- end -%>

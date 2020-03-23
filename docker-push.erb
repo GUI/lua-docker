@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -Eeuxo pipefail
+
+<%- tags.each do |lang, files| -%>
+  <%- files.each do |file, data| -%>
+    <%- data.fetch(:tags).each do |tag| -%>
+      docker push '<%= "#{data.fetch(:docker_image)}:#{tag}" %>'
+    <%- end -%>
+  <%- end -%>
+<%- end -%>

@@ -81,7 +81,7 @@ This could possibly be automated more, but the current process for handling upda
 <% tags.each do |lang, files| -%>
 - [`nickblah/<%= lang %>`](https://cloud.docker.com/repository/docker/nickblah/<%= lang %>/builds/edit)
 <% files.sort_by { |file, file_tags| file }.each do |file, file_tags| -%>
-  - Docker Tag: `<%= file_tags.fetch(:primary_tag) %>`  
+  - Docker Tag: `<%= file_tags.fetch(:tag) %>`  
     Build Context: `/<%= File.dirname(file) %>/`
 <% end -%>
 <% end -%>

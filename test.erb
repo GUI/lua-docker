@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+exitcode=0
+
+<%- tags.each do |lang, files| -%>
+  <%- files.each do |file, data| -%>
+    printf "<%= data.fetch(:tag) %>: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=<%= lang %>" -e "LUAROCKS=<%= data.fetch(:variant).include?("luarocks") ? "true" : "false" %>" --rm <%= "#{data.fetch(:docker_image)}:#{data.fetch(:tag)}" %> /test.sh 2>&1 || true)
+    if [[ $output =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo $output
+      echo
+    elif [[ $output =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo $output
+      echo
+    fi
+
+  <%- end -%>
+<%- end -%>
+
+exit "$exitcode"

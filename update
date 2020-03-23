@@ -42,7 +42,7 @@ versions.keys.each do |lang|
   when "lua"
     content = Net::HTTP.get_response(URI.parse("https://www.lua.org/ftp/")).body
     content += Net::HTTP.get_response(URI.parse("https://www.lua.org/work/")).body
-    content.scan(/lua-([\d\.]+(?:-alpha-rc\d+)?)\.tar\.gz/).flatten.compact.uniq
+    content.scan(/lua-([\d\.]+(?:-beta-rc\d+)?)\.tar\.gz/).flatten.compact.uniq
   when "luajit"
     content = Net::HTTP.get_response(URI.parse("https://luajit.org/download.html")).body
     content.scan(/LuaJIT-([\d\.]+(?:-beta\d+)?)\.tar\.gz/).flatten.compact.uniq
@@ -57,7 +57,7 @@ versions.keys.each do |lang|
     version_name = version_minor
     case lang
     when "lua"
-      version_name += "-alpha-rc" if version.prerelease?
+      version_name += "-beta-rc" if version.prerelease?
     when "luajit"
       version_name += "-beta" if version.prerelease?
     end
@@ -154,9 +154,10 @@ versions.each_value do |lang_versions|
           lang = version.fetch(:lang)
           tags[lang] ||= {}
           tags[lang][filename] = {
+            :docker_image => "nickblah/#{lang}",
             :tags => image_tags,
-            :primary_tag => primary_tag,
-            :secondary_tags => image_tags - [primary_tag],
+            :tag => primary_tag,
+            :variant => variant,
           }
         end
       end
@@ -164,11 +165,23 @@ versions.each_value do |lang_versions|
   end
 end
 
-template = ERB.new(File.read("publish.erb"), nil, "-").result_with_hash({
+template = ERB.new(File.read("docker-build.erb"), nil, "-").result_with_hash({
   :tags => tags,
 })
-File.open("publish", "w") { |f| f.write(template) }
-File.chmod(0755, "publish")
+File.open("docker-build", "w") { |f| f.write(template) }
+FileUtils.chmod(0755, "docker-build")
+
+template = ERB.new(File.read("docker-push.erb"), nil, "-").result_with_hash({
+  :tags => tags,
+})
+File.open("docker-push", "w") { |f| f.write(template) }
+FileUtils.chmod(0755, "docker-push")
+
+template = ERB.new(File.read("test.erb"), nil, "-").result_with_hash({
+  :tags => tags,
+})
+File.open("test", "w") { |f| f.write(template) }
+FileUtils.chmod(0755, "test")
 
 template = ERB.new(File.read("README.md.erb"), nil, "-").result_with_hash({
   :tags => tags,
