@@ -14,16 +14,16 @@ RUN set -ex \
                             dirmngr \
         gnupg2 \
         unzip \
-          && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.3.5.tar.gz" \
+          && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.3.6.tar.gz" \
   && cd /tmp \
-  && echo "4f4b4f323fd3514a68e0ab3da8ce3455 *lua.tar.gz" | md5sum -c - \
+  && echo "83f23dbd5230140a3770d5f54076948d *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
       && make linux \
     && make install \
-        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.3.1.tar.gz" \
-    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.3.1.tar.gz.asc" \
+        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.4.0.tar.gz" \
+    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.4.0.tar.gz.asc" \
     && cd /tmp \
     && export GNUPGHOME="$(mktemp -d)" \
     && export GPG_KEYS="8460980B2B79786DE0C7FCC83FD8F43C2BB3C478" \
