@@ -12,7 +12,7 @@ RUN set -ex \
       make \
                 && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-2.0.5.tar.gz" \
   && cd /tmp \
-  && echo "48353202cbcacab84ee41a5a70ea0a2c *lua.tar.gz" | md5sum -c - \
+  && echo "419ed8f4278c82e05b48806d30c1e979 *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \

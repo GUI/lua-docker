@@ -15,7 +15,7 @@ RUN set -ex \
         unzip \
           && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz" \
   && cd /tmp \
-  && echo "eae40bc29d06ee5e3078f9444fcea39b *lua.tar.gz" | md5sum -c - \
+  && echo "123237a28c746b21295b63c9e785d9c3 *lua.tar.gz" | md5sum -c - \
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
