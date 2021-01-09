@@ -24,9 +24,9 @@ VARIANTS = {
 
 DISTROS = {
   "debian" => ["buster", "stretch", "jessie"],
-  "alpine" => ["3.10", "3.9"],
-  "ubuntu" => ["bionic", "xenial"],
-  "centos" => ["7"],
+  "alpine" => ["3.12", "3.11", "3.10", "3.9"],
+  "ubuntu" => ["focal", "bionic", "xenial"],
+  "centos" => ["8", "7"],
 }
 
 FileUtils.rm_rf(Dir.glob("lua-*"))
