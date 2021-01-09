@@ -99,6 +99,38 @@ exitcode=0
       echo
     fi
 
+    printf "5.4-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.4-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.4-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -117,6 +149,38 @@ exitcode=0
 
     printf "5.4-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.4-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.4-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.4-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.4-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -163,6 +227,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.4-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.4-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -181,6 +261,22 @@ exitcode=0
 
     printf "5.4-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.4-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.4-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -227,6 +323,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.4-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-centos8 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.4-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -243,8 +355,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.4-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.4-centos6 /test.sh 2>&1 || true)
+    printf "5.4-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.4-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -261,22 +373,6 @@ exitcode=0
 
     printf "5.4-luarocks-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.4-luarocks-centos7 /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
-    printf "5.4-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.4-luarocks-centos6 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -387,6 +483,38 @@ exitcode=0
       echo
     fi
 
+    printf "5.3-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.3-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.3-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -405,6 +533,38 @@ exitcode=0
 
     printf "5.3-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.3-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.3-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.3-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.3-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -451,6 +611,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.3-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.3-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -469,6 +645,22 @@ exitcode=0
 
     printf "5.3-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.3-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.3-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -515,6 +707,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.3-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-centos8 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.3-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -531,8 +739,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.3-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.3-centos6 /test.sh 2>&1 || true)
+    printf "5.3-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.3-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -549,22 +757,6 @@ exitcode=0
 
     printf "5.3-luarocks-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.3-luarocks-centos7 /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
-    printf "5.3-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.3-luarocks-centos6 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -675,6 +867,38 @@ exitcode=0
       echo
     fi
 
+    printf "5.2-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.2-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.2-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -693,6 +917,38 @@ exitcode=0
 
     printf "5.2-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.2-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.2-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.2-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.2-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -739,6 +995,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.2-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.2-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -757,6 +1029,22 @@ exitcode=0
 
     printf "5.2-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.2-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.2-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -803,6 +1091,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.2-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-centos8 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.2-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -819,8 +1123,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.2-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.2-centos6 /test.sh 2>&1 || true)
+    printf "5.2-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.2-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -837,22 +1141,6 @@ exitcode=0
 
     printf "5.2-luarocks-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.2-luarocks-centos7 /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
-    printf "5.2-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.2-luarocks-centos6 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -963,6 +1251,38 @@ exitcode=0
       echo
     fi
 
+    printf "5.1-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.1-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.1-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -981,6 +1301,38 @@ exitcode=0
 
     printf "5.1-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.1-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.1-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.1-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.1-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1027,6 +1379,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.1-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.1-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1045,6 +1413,22 @@ exitcode=0
 
     printf "5.1-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.1-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.1-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1091,6 +1475,22 @@ exitcode=0
       echo
     fi
 
+    printf "5.1-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-centos8 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.1-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1107,8 +1507,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.1-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.1-centos6 /test.sh 2>&1 || true)
+    printf "5.1-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.1-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1125,22 +1525,6 @@ exitcode=0
 
     printf "5.1-luarocks-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.1-luarocks-centos7 /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
-    printf "5.1-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm nickblah/lua:5.1-luarocks-centos6 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1203,6 +1587,38 @@ exitcode=0
       echo
     fi
 
+    printf "5.0-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.0-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "5.0-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1221,6 +1637,22 @@ exitcode=0
 
     printf "5.0-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.0-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1267,8 +1699,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.0-centos7: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-centos7 /test.sh 2>&1 || true)
+    printf "5.0-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1283,8 +1715,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.0-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-centos6 /test.sh 2>&1 || true)
+    printf "5.0-centos7: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm nickblah/lua:5.0-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1491,6 +1923,38 @@ exitcode=0
       echo
     fi
 
+    printf "2.1-beta-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.1-beta-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1509,6 +1973,38 @@ exitcode=0
 
     printf "2.1-beta-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1555,6 +2051,38 @@ exitcode=0
       echo
     fi
 
+    printf "2.1-beta-lua52compat-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-lua52compat-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.1-beta-lua52compat-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1573,6 +2101,38 @@ exitcode=0
 
     printf "2.1-beta-lua52compat-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-lua52compat-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-lua52compat-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1619,6 +2179,22 @@ exitcode=0
       echo
     fi
 
+    printf "2.1-beta-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.1-beta-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1637,6 +2213,22 @@ exitcode=0
 
     printf "2.1-beta-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1683,6 +2275,22 @@ exitcode=0
       echo
     fi
 
+    printf "2.1-beta-lua52compat-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.1-beta-lua52compat-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1701,6 +2309,22 @@ exitcode=0
 
     printf "2.1-beta-lua52compat-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-lua52compat-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-lua52compat-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1747,6 +2371,22 @@ exitcode=0
       echo
     fi
 
+    printf "2.1-beta-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-centos8 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.1-beta-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1763,8 +2403,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-centos6 /test.sh 2>&1 || true)
+    printf "2.1-beta-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1795,8 +2435,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-luarocks-centos6 /test.sh 2>&1 || true)
+    printf "2.1-beta-lua52compat-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1827,8 +2467,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-lua52compat-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.1-beta-lua52compat-centos6 /test.sh 2>&1 || true)
+    printf "2.1-beta-lua52compat-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-lua52compat-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1845,22 +2485,6 @@ exitcode=0
 
     printf "2.1-beta-lua52compat-luarocks-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-lua52compat-luarocks-centos7 /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
-    printf "2.1-beta-lua52compat-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.1-beta-lua52compat-luarocks-centos6 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2067,6 +2691,38 @@ exitcode=0
       echo
     fi
 
+    printf "2.0-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.0-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -2085,6 +2741,38 @@ exitcode=0
 
     printf "2.0-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2131,6 +2819,38 @@ exitcode=0
       echo
     fi
 
+    printf "2.0-lua52compat-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-lua52compat-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-alpine3.11 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.0-lua52compat-alpine3.10: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-alpine3.10 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -2149,6 +2869,38 @@ exitcode=0
 
     printf "2.0-lua52compat-alpine3.9: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-alpine3.9 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-lua52compat-luarocks-alpine3.12: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-lua52compat-luarocks-alpine3.12 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-lua52compat-luarocks-alpine3.11: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-lua52compat-luarocks-alpine3.11 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2195,6 +2947,22 @@ exitcode=0
       echo
     fi
 
+    printf "2.0-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.0-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -2213,6 +2981,22 @@ exitcode=0
 
     printf "2.0-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2259,6 +3043,22 @@ exitcode=0
       echo
     fi
 
+    printf "2.0-lua52compat-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-focal /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.0-lua52compat-bionic: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-bionic /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -2277,6 +3077,22 @@ exitcode=0
 
     printf "2.0-lua52compat-xenial: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-xenial /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-lua52compat-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-lua52compat-luarocks-focal /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2323,6 +3139,22 @@ exitcode=0
       echo
     fi
 
+    printf "2.0-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-centos8 /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
     printf "2.0-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-centos7 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -2339,8 +3171,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-centos6 /test.sh 2>&1 || true)
+    printf "2.0-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2371,8 +3203,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-luarocks-centos6 /test.sh 2>&1 || true)
+    printf "2.0-lua52compat-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2403,8 +3235,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-lua52compat-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm nickblah/luajit:2.0-lua52compat-centos6 /test.sh 2>&1 || true)
+    printf "2.0-lua52compat-luarocks-centos8: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-lua52compat-luarocks-centos8 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -2421,22 +3253,6 @@ exitcode=0
 
     printf "2.0-lua52compat-luarocks-centos7: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-lua52compat-luarocks-centos7 /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
-    printf "2.0-lua52compat-luarocks-centos6: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm nickblah/luajit:2.0-lua52compat-luarocks-centos6 /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
