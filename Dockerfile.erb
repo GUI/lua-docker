@@ -43,6 +43,11 @@ RUN set -ex \
         unzip \
       <% end -%>
   <% elsif distro == "centos" -%>
+    <% if distro_version == "8" -%>
+      && yum -y upgrade \
+        ca-certificates \
+        curl
+    <% end %>
     && yum -y install \
       ca-certificates \
       curl \
