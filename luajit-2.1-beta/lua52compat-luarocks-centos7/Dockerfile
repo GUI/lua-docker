@@ -4,7 +4,8 @@
 FROM centos:7
 
 RUN set -ex \
-      && yum -y install \
+      
+    && yum -y install \
       ca-certificates \
       curl \
       gcc \
