@@ -6,7 +6,7 @@ FROM centos:8
 RUN set -ex \
             && yum -y upgrade \
         ca-certificates \
-        curl
+        curl \
     
     && yum -y install \
       ca-certificates \
