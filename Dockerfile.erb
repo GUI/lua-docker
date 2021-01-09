@@ -46,7 +46,7 @@ RUN set -ex \
     <% if distro_version == "8" -%>
       && yum -y upgrade \
         ca-certificates \
-        curl
+        curl \
     <% end %>
     && yum -y install \
       ca-certificates \
