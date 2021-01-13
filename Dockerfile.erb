@@ -47,7 +47,7 @@ RUN set -ex \
       && yum -y upgrade \
         ca-certificates \
         curl \
-    <% end %>
+    <% end -%>
     && yum -y install \
       ca-certificates \
       curl \
@@ -68,7 +68,11 @@ RUN set -ex \
   <% end -%>
   && curl -fsSL -o /tmp/lua.tar.gz "<%= archive_url %>" \
   && cd /tmp \
-  && echo "<%= archive_md5 %> *lua.tar.gz" | md5sum -c - \
+  <% if archive_sha1 %>
+    && echo "<%= archive_sha1 %> *lua.tar.gz" | sha1sum -c - \
+  <% else -%>
+    && echo "<%= archive_sha256 %> *lua.tar.gz" | sha256sum -c - \
+  <% end -%>
   && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \

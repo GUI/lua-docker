@@ -7,8 +7,7 @@ RUN set -ex \
             && yum -y upgrade \
         ca-certificates \
         curl \
-    
-    && yum -y install \
+        && yum -y install \
       ca-certificates \
       curl \
       gcc \
@@ -16,8 +15,8 @@ RUN set -ex \
       make \
                 && curl -fsSL -o /tmp/lua.tar.gz "https://luajit.org/download/LuaJIT-2.0.5.tar.gz" \
   && cd /tmp \
-  && echo "419ed8f4278c82e05b48806d30c1e979 *lua.tar.gz" | md5sum -c - \
-  && mkdir /tmp/lua \
+      && echo "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979 *lua.tar.gz" | sha256sum -c - \
+    && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
       && make CFLAGS="-DLUAJIT_ENABLE_LUA52COMPAT" \

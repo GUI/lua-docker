@@ -4,8 +4,7 @@
 FROM centos:7
 
 RUN set -ex \
-      
-    && yum -y install \
+          && yum -y install \
       ca-certificates \
       curl \
       gcc \
@@ -14,8 +13,9 @@ RUN set -ex \
               readline-devel \
                         && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.2.tar.gz" \
   && cd /tmp \
-  && echo "49c92d6a49faba342c35c52e1ac3f81e *lua.tar.gz" | md5sum -c - \
-  && mkdir /tmp/lua \
+  
+    && echo "96d4a21393c94bed286b8dc0568f4bdde8730b22 *lua.tar.gz" | sha1sum -c - \
+    && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
       && make linux \

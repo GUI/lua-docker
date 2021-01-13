@@ -7,8 +7,7 @@ RUN set -ex \
             && yum -y upgrade \
         ca-certificates \
         curl \
-    
-    && yum -y install \
+        && yum -y install \
       ca-certificates \
       curl \
       gcc \
@@ -17,8 +16,9 @@ RUN set -ex \
               readline-devel \
                         && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.2.4.tar.gz" \
   && cd /tmp \
-  && echo "913fdb32207046b273fdb17aad70be13 *lua.tar.gz" | md5sum -c - \
-  && mkdir /tmp/lua \
+  
+    && echo "ef15259421197e3d85b7d6e4871b8c26fd82c1cf *lua.tar.gz" | sha1sum -c - \
+    && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
       && make linux \

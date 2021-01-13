@@ -67,11 +67,11 @@ versions.keys.each do |lang|
       when "lua"
         filename = "lua-#{version_full}.tar.gz"
         archive_url = (version.prerelease?) ? "https://www.lua.org/work/#{filename}" : "https://www.lua.org/ftp/#{filename}"
-        archive_md5 = content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?md5:\s+([a-f0-9]{32})/im)[1]
+        archive_sha1 = content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?sha1:\s+([a-f0-9]{40})\b/im)[1]
       when "luajit"
         filename = "LuaJIT-#{version_full}.tar.gz"
         archive_url = "https://luajit.org/download/#{filename}"
-        archive_md5 = content.match(/([a-f0-9]{32})\s+#{Regexp.escape(filename)}/)[1]
+        archive_sha256 = content.match(/\b([a-f0-9]{64})\s+#{Regexp.escape(filename)}/)[1]
       end
 
       versions[lang][version_name] = {
@@ -82,7 +82,8 @@ versions.keys.each do |lang|
         :version_minor => version_minor,
         :version_full => version_full,
         :archive_url => archive_url,
-        :archive_md5 => archive_md5,
+        :archive_sha1 => archive_sha1,
+        :archive_sha256 => archive_sha256,
       }
     end
   end
