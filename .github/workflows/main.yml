@@ -1,11 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: "39 3 * * *"
+on: [push, pull_request]
 
 jobs:
   build:
@@ -19,28 +14,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./update-ci
-      - name: Docker Build
-        run: ./docker-build
-      - name: Test
-        run: ./test
-      - name: Docker Registry Login
-        run: docker login --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Docker Push
-        run: ./docker-push
-      - name: Docker Hub Description lua
-        uses: peter-evans/dockerhub-description@v2.1.0
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKERHUB_REPOSITORY: nickblah/lua
-          README_FILEPATH: ./README.lua.md
-      - name: Docker Hub Description luajit
-        uses: peter-evans/dockerhub-description@v2.1.0
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKERHUB_REPOSITORY: nickblah/luajit
-          README_FILEPATH: ./README.luajit.md
