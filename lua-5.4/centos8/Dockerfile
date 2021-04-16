@@ -14,10 +14,10 @@ RUN set -ex \
       glibc-devel \
       make \
               readline-devel \
-                        && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.2.tar.gz" \
+                        && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.3.tar.gz" \
   && cd /tmp \
   
-    && echo "96d4a21393c94bed286b8dc0568f4bdde8730b22 *lua.tar.gz" | sha1sum -c - \
+    && echo "1dda2ef23a9828492b4595c0197766de6e784bc7 *lua.tar.gz" | sha1sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
