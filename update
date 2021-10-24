@@ -24,7 +24,7 @@ VARIANTS = {
 
 DISTROS = {
   "debian" => ["buster", "stretch", "jessie"],
-  "alpine" => ["3.12", "3.11", "3.10", "3.9"],
+  "alpine" => ["3.14", "3.12", "3.11", "3.10", "3.9"],
   "ubuntu" => ["focal", "bionic", "xenial"],
   "centos" => ["8", "7"],
 }
