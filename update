@@ -230,7 +230,7 @@ versions.each_value do |lang_versions|
             :build_cache_tag => build_cache_tag,
             :docker_image_tags => docker_image_tags,
             :filename => filename,
-            :platforms => variant,
+            :platforms => platforms,
           }
         end
       end
