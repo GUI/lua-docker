@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: "39 3 * * *"
 
@@ -12,35 +12,69 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v3
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+
       - name: Update Dockerfiles
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./update-ci
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: amd64,arm64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          driver-opts: network=host
+
+      - name: Log in to the GitHub container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Log in to the Docker Hub container registry
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Docker Build
         run: ./docker-build
+
       - name: Test
         run: ./test
-      - name: Docker Registry Login
-        run: docker login --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Docker Push
         run: ./docker-push
-      - name: Docker Hub Description lua
-        uses: peter-evans/dockerhub-description@v2.1.0
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKERHUB_REPOSITORY: nickblah/lua
-          README_FILEPATH: ./README.lua.md
-      - name: Docker Hub Description luajit
-        uses: peter-evans/dockerhub-description@v2.1.0
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKERHUB_REPOSITORY: nickblah/luajit
-          README_FILEPATH: ./README.luajit.md
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: nickblah/lua
+          readme-filepath: ./README.lua.md
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: nickblah/luajit
+          readme-filepath: ./README.luajit.md

@@ -8,12 +8,12 @@ Provides variants for:
 - With LuaRocks
 - LuaJIT built with Lua 5.2 compatibility mode
 
-New versions of LuaJIT and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/master/.github/workflows/main.yml).
+New versions of LuaJIT and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/main/.github/workflows/main.yml).
 
 ## Supported Tags and Respective Dockerfile Links
 
-<% tags.fetch("luajit").each do |file, file_tags| -%>
-- <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](https://github.com/GUI/lua-docker/blob/master/<%= file %>)
+<% tags.fetch("luajit").each do |data| -%>
+- <%= data.fetch(:variant_tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= data.fetch(:filename) %>](https://github.com/GUI/lua-docker/blob/main/<%= data.fetch(:filename) %>)
 <% end -%>
 
 ## Image Variants

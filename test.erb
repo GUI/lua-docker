@@ -3,10 +3,10 @@
 set -Eeuo pipefail
 exitcode=0
 
-<%- tags.each do |lang, files| -%>
-  <%- files.each do |file, data| -%>
-    printf "<%= data.fetch(:tag) %>: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=<%= lang %>" -e "LUAROCKS=<%= data.fetch(:variant).include?("luarocks") ? "true" : "false" %>" --rm <%= "#{data.fetch(:docker_image)}:#{data.fetch(:tag)}" %> /test.sh 2>&1 || true)
+<%- tags.each do |lang, variant_versions| -%>
+  <%- variant_versions.each do |data| -%>
+    printf "<%= data.fetch(:variant_tag) %>: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=<%= lang %>" -e "LUAROCKS=<%= data.fetch(:variant).include?("luarocks") ? "true" : "false" %>" --rm '<%= "localhost:5000/#{data.fetch(:build_cache_tag)}" %>' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"

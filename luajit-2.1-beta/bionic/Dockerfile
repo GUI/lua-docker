@@ -30,3 +30,6 @@ RUN set -ex \
     && luajit -v
 
 CMD ["luajit"]
+
+LABEL org.opencontainers.image.source="https://github.com/GUI/lua-docker" \
+  org.opencontainers.image.licenses="MIT"

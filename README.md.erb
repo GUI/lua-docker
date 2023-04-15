@@ -4,7 +4,7 @@ Minimal, automated, and up-to-date Docker images for different Lua and LuaJIT ve
 
 Provides variants for:
 
-- Debian, Alpine, Ubuntu, and CentOS base images
+- Debian, Alpine, and Ubuntu base images
 - With LuaRocks
 - LuaJIT
 - LuaJIT built with Lua 5.2 compatibility mode
@@ -14,14 +14,14 @@ This repo provides the source for both Lua and LuaJIT images. The different imag
 - [`nickblah/lua`](https://hub.docker.com/r/nickblah/lua/): Lua images.
 - [`nickblah/luajit`](https://hub.docker.com/r/nickblah/luajit/): LuaJIT images.
 
-New versions of Lua, LuaJIT, and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/master/.github/workflows/main.yml).
+New versions of Lua, LuaJIT, and LuaRocks should automatically be detected and trigger new docker images to built, tagged, and pushed by a daily [GitHub Actions workflow](https://github.com/GUI/lua-docker/blob/main/.github/workflows/main.yml).
 
 ## Supported Tags and Respective Dockerfile Links
 
-<% tags.each do |lang, files| -%>
+<% tags.each do |lang, variant_versions| -%>
 ### [`nickblah/<%= lang %>`](https://hub.docker.com/r/nickblah/<%= lang %>/)
-<% files.each do |file, file_tags| -%>
-- <%= file_tags.fetch(:tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= file %>](https://github.com/GUI/lua-docker/blob/master/<%= file %>)
+<% variant_versions.each do |data| -%>
+- <%= data.fetch(:variant_tags).map { |t| "`#{t}`" }.join(", ") %>: [<%= data.fetch(:filename) %>](https://github.com/GUI/lua-docker/blob/main/<%= data.fetch(:filename) %>)
 <% end -%>
 <% end -%>
 

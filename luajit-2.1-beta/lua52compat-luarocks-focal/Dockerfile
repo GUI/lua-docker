@@ -24,8 +24,8 @@ RUN set -ex \
       && make CFLAGS="-DLUAJIT_ENABLE_LUA52COMPAT" \
     && make install \
       && ln -s /usr/local/bin/luajit-2.1.0-beta3 /usr/local/bin/luajit \
-        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.7.0.tar.gz" \
-    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.7.0.tar.gz.asc" \
+        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.9.2.tar.gz" \
+    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.9.2.tar.gz.asc" \
     && cd /tmp \
     && export GNUPGHOME="$(mktemp -d)" \
     && export GPG_KEYS="8460980B2B79786DE0C7FCC83FD8F43C2BB3C478" \
@@ -53,3 +53,6 @@ RUN set -ex \
     && luajit -v
 
 CMD ["luajit"]
+
+LABEL org.opencontainers.image.source="https://github.com/GUI/lua-docker" \
+  org.opencontainers.image.licenses="MIT"

@@ -16,7 +16,7 @@ RUN set -ex \
                         && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.0.3.tar.gz" \
   && cd /tmp \
   
-    && echo "e7e91f78b8a8deb09b13436829bed557a46af8ae *lua.tar.gz" | sha1sum -c - \
+    && echo "fb02a79eaa054270acff6fb32b1a258b866e867b *lua.tar.gz" | sha1sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
@@ -32,3 +32,6 @@ RUN set -ex \
     && lua -v
 
 CMD ["lua"]
+
+LABEL org.opencontainers.image.source="https://github.com/GUI/lua-docker" \
+  org.opencontainers.image.licenses="MIT"

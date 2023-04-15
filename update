@@ -2,9 +2,8 @@
 
 require "erb"
 require "fileutils"
-require "net/http"
+require "open-uri"
 require "set"
-require "uri"
 
 VERSION_CONSTRAINTS = {
   "lua" => Gem::Dependency.new("lua", ">= 5.0", ">= 5.0.pre"),
@@ -22,29 +21,66 @@ VARIANTS = {
   ],
 }
 
-DISTROS = {
-  "debian" => ["buster", "stretch", "jessie"],
-  "alpine" => ["3.12", "3.11", "3.10", "3.9"],
-  "ubuntu" => ["focal", "bionic", "xenial"],
-  "centos" => ["8", "7"],
-}
+DISTROS = [
+  "debian",
+  "alpine",
+  "ubuntu",
+]
 
 FileUtils.rm_rf(Dir.glob("lua-*"))
 FileUtils.rm_rf(Dir.glob("luajit-*"))
+
+github_lua_image = "ghcr.io/gui/lua"
+github_luajit_image = "ghcr.io/gui/luajit"
+docker_hub_lua_image = "nickblah/lua"
+docker_hub_luajit_image = "nickblah/luajit"
 
 versions = {
   "lua" => {},
   "luajit" => {},
 }
 
+distros = {}
+DISTROS.each do |distro_name|
+  library = URI.open("https://raw.githubusercontent.com/docker-library/official-images/master/library/#{distro_name}")
+    .read
+    .split(/[\r\n]{2,}/)
+    .select { |lines| lines.include?("Tags:") }
+    .map { |lines| Hash[lines.split(/[\r\n]/).map { |r| r.split(/:\s+/, 2) }] }
+  library.each do |distro|
+    distro_tags = distro.fetch("Tags").split(/,\s*/)
+    distro_version_tags = distro_tags - ["latest"]
+
+    case distro_name
+    when "debian"
+      distro_version_tags.reject! { |t| t =~ /^(\d+|testing|rc-buggy|oldstable|sid|stable|unstable|experimental|.*-backports|.*-slim)/ }
+    when "ubuntu"
+      distro_version_tags.reject! { |t| t =~ /^(\d+)/ }
+    when "alpine"
+      distro_version_tags.reject! { |t| t =~ /^(edge|\d{8})/ }
+    end
+
+    distro_version_tags.sort_by! { |t| t.length }
+    distro_tag = distro_version_tags.last
+    distro_version = distro_version_tags.first
+    if distro_version
+      distros[distro_name] ||= []
+      distros[distro_name] << {
+        :distro_version => distro_version,
+        :latest => distro_tags.include?("latest"),
+      }
+    end
+  end
+end
+
 versions.keys.each do |lang|
   archive_versions = case lang
   when "lua"
-    content = Net::HTTP.get_response(URI.parse("https://www.lua.org/ftp/")).body
-    content += Net::HTTP.get_response(URI.parse("https://www.lua.org/work/")).body
+    content = URI.open("https://www.lua.org/ftp/").read
+    content += URI.open("https://www.lua.org/work/").read
     content.scan(/lua-([\d\.]+(?:-beta-rc\d+)?)\.tar\.gz/).flatten.compact.uniq
   when "luajit"
-    content = Net::HTTP.get_response(URI.parse("https://luajit.org/download.html")).body
+    content = URI.open("https://luajit.org/download.html").read
     content.scan(/LuaJIT-([\d\.]+(?:-beta\d+)?)\.tar\.gz/).flatten.compact.uniq
   end
 
@@ -94,13 +130,13 @@ versions.each_value do |lang_versions|
   latest_version[:latest] = true
 end
 
-content = Net::HTTP.get_response(URI.parse("https://luarocks.github.io/luarocks/releases/")).body
+content = URI.open("https://luarocks.github.io/luarocks/releases/").read
 luarocks_version = content.scan(/luarocks-([\d\.]+)\.tar\.gz/).flatten.compact.uniq.sort_by { |version| Gem::Version.new(version) }.last
 
 tags = {}
 versions.each_value do |lang_versions|
   lang_versions.values.sort_by { |v| v.fetch(:version) }.reverse.each do |version|
-    DISTROS.each do |distro, distro_versions|
+    distros.each do |distro, distro_versions|
       variants = [[]] + VARIANTS.fetch(version.fetch(:lang))
 
       variants.each do |variant|
@@ -109,56 +145,92 @@ versions.each_value do |lang_versions|
           next
         end
 
-        distro_versions.each_with_index do |distro_version, distro_index|
-          template = ERB.new(File.read("Dockerfile.erb"), nil, "-").result_with_hash(version.merge({
+        distro_versions.each_with_index do |distro_data, distro_index|
+          template = ERB.new(File.read("Dockerfile.erb"), trim_mode: "-").result_with_hash(version.merge({
             :distro => distro,
-            :distro_version => distro_version,
+            :distro_version => distro_data.fetch(:distro_version),
             :variant => variant,
             :luarocks_version => luarocks_version,
           }))
 
-          distro_version_name = (distro == "debian" || distro == "ubuntu") ? distro_version : "#{distro}#{distro_version}"
+          distro_version_name = (distro == "debian" || distro == "ubuntu") ? distro_data.fetch(:distro_version) : "#{distro}#{distro_data.fetch(:distro_version)}"
           variant_name = (variant.empty?) ? nil : variant.join("-")
-          filename = File.join("#{version.fetch(:lang)}-#{version.fetch(:version_name)}", [variant_name, distro_version_name].compact.join("-"), "Dockerfile")
+          filename = File.join("#{version.fetch(:lang)}-#{version.fetch(:version_name)}", [variant_name, distro_data.fetch(:distro_version)].compact.join("-"), "Dockerfile")
           FileUtils.mkdir_p(File.dirname(filename))
           File.open(filename, "w") { |f| f.write(template) }
 
-          primary_tag = [version.fetch(:version_name), variant_name, distro_version_name].compact.join("-")
-          image_tags = []
-          image_tags << primary_tag
-          image_tags << [version.fetch(:version_full), variant_name, distro_version_name].compact.join("-")
+          variant_tag = [version.fetch(:version_name), variant_name, distro_data.fetch(:distro_version)].compact.join("-")
+          variant_tags = [
+            variant_tag,
+            [version.fetch(:version_full), variant_name, distro_data.fetch(:distro_version)].compact.join("-"),
+          ]
 
           if version[:latest]
-            image_tags << [version.fetch(:version_major), variant_name, distro_version_name].compact.join("-")
+            variant_tags << [version.fetch(:version_major), variant_name, distro_data.fetch(:distro_version)].compact.join("-")
           end
 
           # Default distro tags
-          if distro_index == 0
-            distro_default_version_name = (distro == "debian") ? nil : distro
-
-            image_tags << [version.fetch(:version_name), variant_name, distro_default_version_name].compact.join("-")
-            image_tags << [version.fetch(:version_full), variant_name, distro_default_version_name].compact.join("-")
+          if distro_data.fetch(:latest)
+            variant_tags << [version.fetch(:version_name), variant_name, distro].compact.join("-")
+            variant_tags << [version.fetch(:version_full), variant_name, distro].compact.join("-")
+            if distro == "debian"
+              variant_tags << [version.fetch(:version_name), variant_name].compact.join("-")
+              variant_tags << [version.fetch(:version_full), variant_name].compact.join("-")
+            end
 
             if version[:latest]
-              image_tags << [version.fetch(:version_major), variant_name, distro_default_version_name].compact.join("-")
-              if variant_name || distro_default_version_name
-                image_tags << [variant_name, distro_default_version_name].compact.join("-")
-              else
-                image_tags << "latest"
+              variant_tags << [version.fetch(:version_major), variant_name, distro].compact.join("-")
+              variant_tags << [variant_name, distro].compact.join("-")
+
+              if distro == "debian"
+                variant_tags << [version.fetch(:version_major), variant_name].compact.join("-")
+                if variant_name
+                  variant_tags << [variant_name].compact.join("-")
+                else
+                  variant_tags << "latest"
+                end
               end
             end
           end
 
-          image_tags.uniq!
-          image_tags.sort!
+          variant_tags.uniq!
+          variant_tags.sort!
+
+          platforms = [
+            "linux/amd64",
+            "linux/arm64",
+          ]
+
+          docker_image_tags = variant_tags.map do |tag|
+            if version.fetch(:lang) == "luajit"
+              [
+                "#{github_luajit_image}:#{tag}",
+                "#{docker_hub_luajit_image}:#{tag}",
+              ]
+            else
+              [
+                "#{github_lua_image}:#{tag}",
+                "#{docker_hub_lua_image}:#{tag}",
+              ]
+            end
+          end.flatten
+
+          if version.fetch(:lang) == "luajit"
+            build_cache_tag = "#{github_luajit_image}:build-cache-#{variant_tag}"
+          else
+            build_cache_tag = "#{github_lua_image}:build-cache-#{variant_tag}"
+          end
 
           lang = version.fetch(:lang)
-          tags[lang] ||= {}
-          tags[lang][filename] = {
-            :docker_image => "nickblah/#{lang}",
-            :tags => image_tags,
-            :tag => primary_tag,
+          tags[lang] ||= []
+          tags[lang] << {
             :variant => variant,
+            :variant_tag => variant_tag,
+            :variant_tags => variant_tags,
+            :build_cache_tag => build_cache_tag,
+            :docker_image_tags => docker_image_tags,
+            :filename => filename,
+            :platforms => variant,
           }
         end
       end
@@ -166,35 +238,35 @@ versions.each_value do |lang_versions|
   end
 end
 
-template = ERB.new(File.read("docker-build.erb"), nil, "-").result_with_hash({
+template = ERB.new(File.read("docker-build.erb"), trim_mode: "-").result_with_hash({
   :tags => tags,
 })
 File.open("docker-build", "w") { |f| f.write(template) }
 FileUtils.chmod(0755, "docker-build")
 
-template = ERB.new(File.read("docker-push.erb"), nil, "-").result_with_hash({
+template = ERB.new(File.read("docker-push.erb"), trim_mode: "-").result_with_hash({
   :tags => tags,
 })
 File.open("docker-push", "w") { |f| f.write(template) }
 FileUtils.chmod(0755, "docker-push")
 
-template = ERB.new(File.read("test.erb"), nil, "-").result_with_hash({
+template = ERB.new(File.read("test.erb"), trim_mode: "-").result_with_hash({
   :tags => tags,
 })
 File.open("test", "w") { |f| f.write(template) }
 FileUtils.chmod(0755, "test")
 
-template = ERB.new(File.read("README.md.erb"), nil, "-").result_with_hash({
+template = ERB.new(File.read("README.md.erb"), trim_mode: "-").result_with_hash({
   :tags => tags,
 })
 File.open("README.md", "w") { |f| f.write(template) }
 
-template = ERB.new(File.read("README.lua.md.erb"), nil, "-").result_with_hash({
+template = ERB.new(File.read("README.lua.md.erb"), trim_mode: "-").result_with_hash({
   :tags => tags,
 })
 File.open("README.lua.md", "w") { |f| f.write(template) }
 
-template = ERB.new(File.read("README.luajit.md.erb"), nil, "-").result_with_hash({
-  :tags => tags,
+template = ERB.new(File.read("README.luajit.md.erb"), trim_mode: "-").result_with_hash({
+  :versions => versions,
 })
 File.open("README.luajit.md", "w") { |f| f.write(template) }

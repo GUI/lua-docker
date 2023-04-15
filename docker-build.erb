@@ -2,8 +2,16 @@
 
 set -Eeuxo pipefail
 
-<%- tags.each do |lang, files| -%>
-  <%- files.each do |file, data| -%>
-    docker pull '<%= "#{data.fetch(:docker_image)}:#{data.fetch(:tag)}" %>' || true && docker build --pull --cache-from '<%= "#{data.fetch(:docker_image)}:#{data.fetch(:tag)}" %>' <%= data.fetch(:tags).map { |tag| "--tag '#{data.fetch(:docker_image)}:#{tag}'" }.join(" ") %> --file <%= file %> .
+<%- tags.each do |lang, variant_versions| -%>
+  <%- variant_versions.each do |data| -%>
+    docker buildx build \
+      --platform '<%= data.fetch(:platforms).join(",") %>' \
+      --pull \
+      --push \
+      --cache-from '<%= "type=registry,ref=#{data.fetch(:build_cache_tag)}" %>' \
+      --cache-to '<%= "type=registry,ref=#{data.fetch(:build_cache_tag)},mode=max" %>' \
+      --tag '<%= "localhost:5000/#{data.fetch(:build_cache_tag)}" %>' \
+      --file <%= data.fetch(:filename) %> \
+      .
   <%- end -%>
 <%- end -%>

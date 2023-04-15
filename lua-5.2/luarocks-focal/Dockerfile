@@ -19,14 +19,14 @@ RUN set -ex \
           && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.2.4.tar.gz" \
   && cd /tmp \
   
-    && echo "ef15259421197e3d85b7d6e4871b8c26fd82c1cf *lua.tar.gz" | sha1sum -c - \
+    && echo "fb02a79eaa054270acff6fb32b1a258b866e867b *lua.tar.gz" | sha1sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
       && make linux \
     && make install \
-        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.7.0.tar.gz" \
-    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.7.0.tar.gz.asc" \
+        && curl -fsSL -o /tmp/luarocks.tar.gz "https://luarocks.org/releases/luarocks-3.9.2.tar.gz" \
+    && curl -fsSL -o /tmp/luarocks.tar.gz.asc "https://luarocks.org/releases/luarocks-3.9.2.tar.gz.asc" \
     && cd /tmp \
     && export GNUPGHOME="$(mktemp -d)" \
     && export GPG_KEYS="8460980B2B79786DE0C7FCC83FD8F43C2BB3C478" \
@@ -55,3 +55,6 @@ RUN set -ex \
     && lua -v
 
 CMD ["lua"]
+
+LABEL org.opencontainers.image.source="https://github.com/GUI/lua-docker" \
+  org.opencontainers.image.licenses="MIT"

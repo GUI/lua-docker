@@ -2,207 +2,1839 @@
 
 set -Eeuxo pipefail
 
-    docker pull 'nickblah/lua:5.4-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.4-buster' --tag 'nickblah/lua:5' --tag 'nickblah/lua:5-buster' --tag 'nickblah/lua:5.4' --tag 'nickblah/lua:5.4-buster' --tag 'nickblah/lua:5.4.3' --tag 'nickblah/lua:5.4.3-buster' --tag 'nickblah/lua:latest' --file lua-5.4/buster/Dockerfile .
-    docker pull 'nickblah/lua:5.4-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.4-stretch' --tag 'nickblah/lua:5-stretch' --tag 'nickblah/lua:5.4-stretch' --tag 'nickblah/lua:5.4.3-stretch' --file lua-5.4/stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.4-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.4-jessie' --tag 'nickblah/lua:5-jessie' --tag 'nickblah/lua:5.4-jessie' --tag 'nickblah/lua:5.4.3-jessie' --file lua-5.4/jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-buster' --tag 'nickblah/lua:5-luarocks' --tag 'nickblah/lua:5-luarocks-buster' --tag 'nickblah/lua:5.4-luarocks' --tag 'nickblah/lua:5.4-luarocks-buster' --tag 'nickblah/lua:5.4.3-luarocks' --tag 'nickblah/lua:5.4.3-luarocks-buster' --tag 'nickblah/lua:luarocks' --file lua-5.4/luarocks-buster/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-stretch' --tag 'nickblah/lua:5-luarocks-stretch' --tag 'nickblah/lua:5.4-luarocks-stretch' --tag 'nickblah/lua:5.4.3-luarocks-stretch' --file lua-5.4/luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-jessie' --tag 'nickblah/lua:5-luarocks-jessie' --tag 'nickblah/lua:5.4-luarocks-jessie' --tag 'nickblah/lua:5.4.3-luarocks-jessie' --file lua-5.4/luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.4-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.4-alpine3.12' --tag 'nickblah/lua:5-alpine' --tag 'nickblah/lua:5-alpine3.12' --tag 'nickblah/lua:5.4-alpine' --tag 'nickblah/lua:5.4-alpine3.12' --tag 'nickblah/lua:5.4.3-alpine' --tag 'nickblah/lua:5.4.3-alpine3.12' --tag 'nickblah/lua:alpine' --file lua-5.4/alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.4-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.4-alpine3.11' --tag 'nickblah/lua:5-alpine3.11' --tag 'nickblah/lua:5.4-alpine3.11' --tag 'nickblah/lua:5.4.3-alpine3.11' --file lua-5.4/alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.4-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.4-alpine3.10' --tag 'nickblah/lua:5-alpine3.10' --tag 'nickblah/lua:5.4-alpine3.10' --tag 'nickblah/lua:5.4.3-alpine3.10' --file lua-5.4/alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.4-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.4-alpine3.9' --tag 'nickblah/lua:5-alpine3.9' --tag 'nickblah/lua:5.4-alpine3.9' --tag 'nickblah/lua:5.4.3-alpine3.9' --file lua-5.4/alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-alpine3.12' --tag 'nickblah/lua:5-luarocks-alpine' --tag 'nickblah/lua:5-luarocks-alpine3.12' --tag 'nickblah/lua:5.4-luarocks-alpine' --tag 'nickblah/lua:5.4-luarocks-alpine3.12' --tag 'nickblah/lua:5.4.3-luarocks-alpine' --tag 'nickblah/lua:5.4.3-luarocks-alpine3.12' --tag 'nickblah/lua:luarocks-alpine' --file lua-5.4/luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-alpine3.11' --tag 'nickblah/lua:5-luarocks-alpine3.11' --tag 'nickblah/lua:5.4-luarocks-alpine3.11' --tag 'nickblah/lua:5.4.3-luarocks-alpine3.11' --file lua-5.4/luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-alpine3.10' --tag 'nickblah/lua:5-luarocks-alpine3.10' --tag 'nickblah/lua:5.4-luarocks-alpine3.10' --tag 'nickblah/lua:5.4.3-luarocks-alpine3.10' --file lua-5.4/luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-alpine3.9' --tag 'nickblah/lua:5-luarocks-alpine3.9' --tag 'nickblah/lua:5.4-luarocks-alpine3.9' --tag 'nickblah/lua:5.4.3-luarocks-alpine3.9' --file lua-5.4/luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.4-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.4-focal' --tag 'nickblah/lua:5-focal' --tag 'nickblah/lua:5-ubuntu' --tag 'nickblah/lua:5.4-focal' --tag 'nickblah/lua:5.4-ubuntu' --tag 'nickblah/lua:5.4.3-focal' --tag 'nickblah/lua:5.4.3-ubuntu' --tag 'nickblah/lua:ubuntu' --file lua-5.4/focal/Dockerfile .
-    docker pull 'nickblah/lua:5.4-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.4-bionic' --tag 'nickblah/lua:5-bionic' --tag 'nickblah/lua:5.4-bionic' --tag 'nickblah/lua:5.4.3-bionic' --file lua-5.4/bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.4-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.4-xenial' --tag 'nickblah/lua:5-xenial' --tag 'nickblah/lua:5.4-xenial' --tag 'nickblah/lua:5.4.3-xenial' --file lua-5.4/xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-focal' --tag 'nickblah/lua:5-luarocks-focal' --tag 'nickblah/lua:5-luarocks-ubuntu' --tag 'nickblah/lua:5.4-luarocks-focal' --tag 'nickblah/lua:5.4-luarocks-ubuntu' --tag 'nickblah/lua:5.4.3-luarocks-focal' --tag 'nickblah/lua:5.4.3-luarocks-ubuntu' --tag 'nickblah/lua:luarocks-ubuntu' --file lua-5.4/luarocks-focal/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-bionic' --tag 'nickblah/lua:5-luarocks-bionic' --tag 'nickblah/lua:5.4-luarocks-bionic' --tag 'nickblah/lua:5.4.3-luarocks-bionic' --file lua-5.4/luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-xenial' --tag 'nickblah/lua:5-luarocks-xenial' --tag 'nickblah/lua:5.4-luarocks-xenial' --tag 'nickblah/lua:5.4.3-luarocks-xenial' --file lua-5.4/luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.4-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.4-centos8' --tag 'nickblah/lua:5-centos' --tag 'nickblah/lua:5-centos8' --tag 'nickblah/lua:5.4-centos' --tag 'nickblah/lua:5.4-centos8' --tag 'nickblah/lua:5.4.3-centos' --tag 'nickblah/lua:5.4.3-centos8' --tag 'nickblah/lua:centos' --file lua-5.4/centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.4-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.4-centos7' --tag 'nickblah/lua:5-centos7' --tag 'nickblah/lua:5.4-centos7' --tag 'nickblah/lua:5.4.3-centos7' --file lua-5.4/centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-centos8' --tag 'nickblah/lua:5-luarocks-centos' --tag 'nickblah/lua:5-luarocks-centos8' --tag 'nickblah/lua:5.4-luarocks-centos' --tag 'nickblah/lua:5.4-luarocks-centos8' --tag 'nickblah/lua:5.4.3-luarocks-centos' --tag 'nickblah/lua:5.4.3-luarocks-centos8' --tag 'nickblah/lua:luarocks-centos' --file lua-5.4/luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.4-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.4-luarocks-centos7' --tag 'nickblah/lua:5-luarocks-centos7' --tag 'nickblah/lua:5.4-luarocks-centos7' --tag 'nickblah/lua:5.4.3-luarocks-centos7' --file lua-5.4/luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.3-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.3-buster' --tag 'nickblah/lua:5.3' --tag 'nickblah/lua:5.3-buster' --tag 'nickblah/lua:5.3.6' --tag 'nickblah/lua:5.3.6-buster' --file lua-5.3/buster/Dockerfile .
-    docker pull 'nickblah/lua:5.3-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.3-stretch' --tag 'nickblah/lua:5.3-stretch' --tag 'nickblah/lua:5.3.6-stretch' --file lua-5.3/stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.3-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.3-jessie' --tag 'nickblah/lua:5.3-jessie' --tag 'nickblah/lua:5.3.6-jessie' --file lua-5.3/jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-buster' --tag 'nickblah/lua:5.3-luarocks' --tag 'nickblah/lua:5.3-luarocks-buster' --tag 'nickblah/lua:5.3.6-luarocks' --tag 'nickblah/lua:5.3.6-luarocks-buster' --file lua-5.3/luarocks-buster/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-stretch' --tag 'nickblah/lua:5.3-luarocks-stretch' --tag 'nickblah/lua:5.3.6-luarocks-stretch' --file lua-5.3/luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-jessie' --tag 'nickblah/lua:5.3-luarocks-jessie' --tag 'nickblah/lua:5.3.6-luarocks-jessie' --file lua-5.3/luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.3-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.3-alpine3.12' --tag 'nickblah/lua:5.3-alpine' --tag 'nickblah/lua:5.3-alpine3.12' --tag 'nickblah/lua:5.3.6-alpine' --tag 'nickblah/lua:5.3.6-alpine3.12' --file lua-5.3/alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.3-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.3-alpine3.11' --tag 'nickblah/lua:5.3-alpine3.11' --tag 'nickblah/lua:5.3.6-alpine3.11' --file lua-5.3/alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.3-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.3-alpine3.10' --tag 'nickblah/lua:5.3-alpine3.10' --tag 'nickblah/lua:5.3.6-alpine3.10' --file lua-5.3/alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.3-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.3-alpine3.9' --tag 'nickblah/lua:5.3-alpine3.9' --tag 'nickblah/lua:5.3.6-alpine3.9' --file lua-5.3/alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-alpine3.12' --tag 'nickblah/lua:5.3-luarocks-alpine' --tag 'nickblah/lua:5.3-luarocks-alpine3.12' --tag 'nickblah/lua:5.3.6-luarocks-alpine' --tag 'nickblah/lua:5.3.6-luarocks-alpine3.12' --file lua-5.3/luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-alpine3.11' --tag 'nickblah/lua:5.3-luarocks-alpine3.11' --tag 'nickblah/lua:5.3.6-luarocks-alpine3.11' --file lua-5.3/luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-alpine3.10' --tag 'nickblah/lua:5.3-luarocks-alpine3.10' --tag 'nickblah/lua:5.3.6-luarocks-alpine3.10' --file lua-5.3/luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-alpine3.9' --tag 'nickblah/lua:5.3-luarocks-alpine3.9' --tag 'nickblah/lua:5.3.6-luarocks-alpine3.9' --file lua-5.3/luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.3-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.3-focal' --tag 'nickblah/lua:5.3-focal' --tag 'nickblah/lua:5.3-ubuntu' --tag 'nickblah/lua:5.3.6-focal' --tag 'nickblah/lua:5.3.6-ubuntu' --file lua-5.3/focal/Dockerfile .
-    docker pull 'nickblah/lua:5.3-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.3-bionic' --tag 'nickblah/lua:5.3-bionic' --tag 'nickblah/lua:5.3.6-bionic' --file lua-5.3/bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.3-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.3-xenial' --tag 'nickblah/lua:5.3-xenial' --tag 'nickblah/lua:5.3.6-xenial' --file lua-5.3/xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-focal' --tag 'nickblah/lua:5.3-luarocks-focal' --tag 'nickblah/lua:5.3-luarocks-ubuntu' --tag 'nickblah/lua:5.3.6-luarocks-focal' --tag 'nickblah/lua:5.3.6-luarocks-ubuntu' --file lua-5.3/luarocks-focal/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-bionic' --tag 'nickblah/lua:5.3-luarocks-bionic' --tag 'nickblah/lua:5.3.6-luarocks-bionic' --file lua-5.3/luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-xenial' --tag 'nickblah/lua:5.3-luarocks-xenial' --tag 'nickblah/lua:5.3.6-luarocks-xenial' --file lua-5.3/luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.3-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.3-centos8' --tag 'nickblah/lua:5.3-centos' --tag 'nickblah/lua:5.3-centos8' --tag 'nickblah/lua:5.3.6-centos' --tag 'nickblah/lua:5.3.6-centos8' --file lua-5.3/centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.3-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.3-centos7' --tag 'nickblah/lua:5.3-centos7' --tag 'nickblah/lua:5.3.6-centos7' --file lua-5.3/centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-centos8' --tag 'nickblah/lua:5.3-luarocks-centos' --tag 'nickblah/lua:5.3-luarocks-centos8' --tag 'nickblah/lua:5.3.6-luarocks-centos' --tag 'nickblah/lua:5.3.6-luarocks-centos8' --file lua-5.3/luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.3-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.3-luarocks-centos7' --tag 'nickblah/lua:5.3-luarocks-centos7' --tag 'nickblah/lua:5.3.6-luarocks-centos7' --file lua-5.3/luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.2-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.2-buster' --tag 'nickblah/lua:5.2' --tag 'nickblah/lua:5.2-buster' --tag 'nickblah/lua:5.2.4' --tag 'nickblah/lua:5.2.4-buster' --file lua-5.2/buster/Dockerfile .
-    docker pull 'nickblah/lua:5.2-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.2-stretch' --tag 'nickblah/lua:5.2-stretch' --tag 'nickblah/lua:5.2.4-stretch' --file lua-5.2/stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.2-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.2-jessie' --tag 'nickblah/lua:5.2-jessie' --tag 'nickblah/lua:5.2.4-jessie' --file lua-5.2/jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-buster' --tag 'nickblah/lua:5.2-luarocks' --tag 'nickblah/lua:5.2-luarocks-buster' --tag 'nickblah/lua:5.2.4-luarocks' --tag 'nickblah/lua:5.2.4-luarocks-buster' --file lua-5.2/luarocks-buster/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-stretch' --tag 'nickblah/lua:5.2-luarocks-stretch' --tag 'nickblah/lua:5.2.4-luarocks-stretch' --file lua-5.2/luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-jessie' --tag 'nickblah/lua:5.2-luarocks-jessie' --tag 'nickblah/lua:5.2.4-luarocks-jessie' --file lua-5.2/luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.2-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.2-alpine3.12' --tag 'nickblah/lua:5.2-alpine' --tag 'nickblah/lua:5.2-alpine3.12' --tag 'nickblah/lua:5.2.4-alpine' --tag 'nickblah/lua:5.2.4-alpine3.12' --file lua-5.2/alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.2-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.2-alpine3.11' --tag 'nickblah/lua:5.2-alpine3.11' --tag 'nickblah/lua:5.2.4-alpine3.11' --file lua-5.2/alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.2-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.2-alpine3.10' --tag 'nickblah/lua:5.2-alpine3.10' --tag 'nickblah/lua:5.2.4-alpine3.10' --file lua-5.2/alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.2-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.2-alpine3.9' --tag 'nickblah/lua:5.2-alpine3.9' --tag 'nickblah/lua:5.2.4-alpine3.9' --file lua-5.2/alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-alpine3.12' --tag 'nickblah/lua:5.2-luarocks-alpine' --tag 'nickblah/lua:5.2-luarocks-alpine3.12' --tag 'nickblah/lua:5.2.4-luarocks-alpine' --tag 'nickblah/lua:5.2.4-luarocks-alpine3.12' --file lua-5.2/luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-alpine3.11' --tag 'nickblah/lua:5.2-luarocks-alpine3.11' --tag 'nickblah/lua:5.2.4-luarocks-alpine3.11' --file lua-5.2/luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-alpine3.10' --tag 'nickblah/lua:5.2-luarocks-alpine3.10' --tag 'nickblah/lua:5.2.4-luarocks-alpine3.10' --file lua-5.2/luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-alpine3.9' --tag 'nickblah/lua:5.2-luarocks-alpine3.9' --tag 'nickblah/lua:5.2.4-luarocks-alpine3.9' --file lua-5.2/luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.2-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.2-focal' --tag 'nickblah/lua:5.2-focal' --tag 'nickblah/lua:5.2-ubuntu' --tag 'nickblah/lua:5.2.4-focal' --tag 'nickblah/lua:5.2.4-ubuntu' --file lua-5.2/focal/Dockerfile .
-    docker pull 'nickblah/lua:5.2-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.2-bionic' --tag 'nickblah/lua:5.2-bionic' --tag 'nickblah/lua:5.2.4-bionic' --file lua-5.2/bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.2-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.2-xenial' --tag 'nickblah/lua:5.2-xenial' --tag 'nickblah/lua:5.2.4-xenial' --file lua-5.2/xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-focal' --tag 'nickblah/lua:5.2-luarocks-focal' --tag 'nickblah/lua:5.2-luarocks-ubuntu' --tag 'nickblah/lua:5.2.4-luarocks-focal' --tag 'nickblah/lua:5.2.4-luarocks-ubuntu' --file lua-5.2/luarocks-focal/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-bionic' --tag 'nickblah/lua:5.2-luarocks-bionic' --tag 'nickblah/lua:5.2.4-luarocks-bionic' --file lua-5.2/luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-xenial' --tag 'nickblah/lua:5.2-luarocks-xenial' --tag 'nickblah/lua:5.2.4-luarocks-xenial' --file lua-5.2/luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.2-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.2-centos8' --tag 'nickblah/lua:5.2-centos' --tag 'nickblah/lua:5.2-centos8' --tag 'nickblah/lua:5.2.4-centos' --tag 'nickblah/lua:5.2.4-centos8' --file lua-5.2/centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.2-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.2-centos7' --tag 'nickblah/lua:5.2-centos7' --tag 'nickblah/lua:5.2.4-centos7' --file lua-5.2/centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-centos8' --tag 'nickblah/lua:5.2-luarocks-centos' --tag 'nickblah/lua:5.2-luarocks-centos8' --tag 'nickblah/lua:5.2.4-luarocks-centos' --tag 'nickblah/lua:5.2.4-luarocks-centos8' --file lua-5.2/luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.2-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.2-luarocks-centos7' --tag 'nickblah/lua:5.2-luarocks-centos7' --tag 'nickblah/lua:5.2.4-luarocks-centos7' --file lua-5.2/luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.1-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.1-buster' --tag 'nickblah/lua:5.1' --tag 'nickblah/lua:5.1-buster' --tag 'nickblah/lua:5.1.5' --tag 'nickblah/lua:5.1.5-buster' --file lua-5.1/buster/Dockerfile .
-    docker pull 'nickblah/lua:5.1-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.1-stretch' --tag 'nickblah/lua:5.1-stretch' --tag 'nickblah/lua:5.1.5-stretch' --file lua-5.1/stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.1-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.1-jessie' --tag 'nickblah/lua:5.1-jessie' --tag 'nickblah/lua:5.1.5-jessie' --file lua-5.1/jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-buster' --tag 'nickblah/lua:5.1-luarocks' --tag 'nickblah/lua:5.1-luarocks-buster' --tag 'nickblah/lua:5.1.5-luarocks' --tag 'nickblah/lua:5.1.5-luarocks-buster' --file lua-5.1/luarocks-buster/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-stretch' --tag 'nickblah/lua:5.1-luarocks-stretch' --tag 'nickblah/lua:5.1.5-luarocks-stretch' --file lua-5.1/luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-jessie' --tag 'nickblah/lua:5.1-luarocks-jessie' --tag 'nickblah/lua:5.1.5-luarocks-jessie' --file lua-5.1/luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.1-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.1-alpine3.12' --tag 'nickblah/lua:5.1-alpine' --tag 'nickblah/lua:5.1-alpine3.12' --tag 'nickblah/lua:5.1.5-alpine' --tag 'nickblah/lua:5.1.5-alpine3.12' --file lua-5.1/alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.1-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.1-alpine3.11' --tag 'nickblah/lua:5.1-alpine3.11' --tag 'nickblah/lua:5.1.5-alpine3.11' --file lua-5.1/alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.1-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.1-alpine3.10' --tag 'nickblah/lua:5.1-alpine3.10' --tag 'nickblah/lua:5.1.5-alpine3.10' --file lua-5.1/alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.1-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.1-alpine3.9' --tag 'nickblah/lua:5.1-alpine3.9' --tag 'nickblah/lua:5.1.5-alpine3.9' --file lua-5.1/alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-alpine3.12' --tag 'nickblah/lua:5.1-luarocks-alpine' --tag 'nickblah/lua:5.1-luarocks-alpine3.12' --tag 'nickblah/lua:5.1.5-luarocks-alpine' --tag 'nickblah/lua:5.1.5-luarocks-alpine3.12' --file lua-5.1/luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-alpine3.11' --tag 'nickblah/lua:5.1-luarocks-alpine3.11' --tag 'nickblah/lua:5.1.5-luarocks-alpine3.11' --file lua-5.1/luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-alpine3.10' --tag 'nickblah/lua:5.1-luarocks-alpine3.10' --tag 'nickblah/lua:5.1.5-luarocks-alpine3.10' --file lua-5.1/luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-alpine3.9' --tag 'nickblah/lua:5.1-luarocks-alpine3.9' --tag 'nickblah/lua:5.1.5-luarocks-alpine3.9' --file lua-5.1/luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.1-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.1-focal' --tag 'nickblah/lua:5.1-focal' --tag 'nickblah/lua:5.1-ubuntu' --tag 'nickblah/lua:5.1.5-focal' --tag 'nickblah/lua:5.1.5-ubuntu' --file lua-5.1/focal/Dockerfile .
-    docker pull 'nickblah/lua:5.1-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.1-bionic' --tag 'nickblah/lua:5.1-bionic' --tag 'nickblah/lua:5.1.5-bionic' --file lua-5.1/bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.1-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.1-xenial' --tag 'nickblah/lua:5.1-xenial' --tag 'nickblah/lua:5.1.5-xenial' --file lua-5.1/xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-focal' --tag 'nickblah/lua:5.1-luarocks-focal' --tag 'nickblah/lua:5.1-luarocks-ubuntu' --tag 'nickblah/lua:5.1.5-luarocks-focal' --tag 'nickblah/lua:5.1.5-luarocks-ubuntu' --file lua-5.1/luarocks-focal/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-bionic' --tag 'nickblah/lua:5.1-luarocks-bionic' --tag 'nickblah/lua:5.1.5-luarocks-bionic' --file lua-5.1/luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-xenial' --tag 'nickblah/lua:5.1-luarocks-xenial' --tag 'nickblah/lua:5.1.5-luarocks-xenial' --file lua-5.1/luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.1-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.1-centos8' --tag 'nickblah/lua:5.1-centos' --tag 'nickblah/lua:5.1-centos8' --tag 'nickblah/lua:5.1.5-centos' --tag 'nickblah/lua:5.1.5-centos8' --file lua-5.1/centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.1-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.1-centos7' --tag 'nickblah/lua:5.1-centos7' --tag 'nickblah/lua:5.1.5-centos7' --file lua-5.1/centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-centos8' --tag 'nickblah/lua:5.1-luarocks-centos' --tag 'nickblah/lua:5.1-luarocks-centos8' --tag 'nickblah/lua:5.1.5-luarocks-centos' --tag 'nickblah/lua:5.1.5-luarocks-centos8' --file lua-5.1/luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.1-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.1-luarocks-centos7' --tag 'nickblah/lua:5.1-luarocks-centos7' --tag 'nickblah/lua:5.1.5-luarocks-centos7' --file lua-5.1/luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/lua:5.0-buster' || true && docker build --pull --cache-from 'nickblah/lua:5.0-buster' --tag 'nickblah/lua:5.0' --tag 'nickblah/lua:5.0-buster' --tag 'nickblah/lua:5.0.3' --tag 'nickblah/lua:5.0.3-buster' --file lua-5.0/buster/Dockerfile .
-    docker pull 'nickblah/lua:5.0-stretch' || true && docker build --pull --cache-from 'nickblah/lua:5.0-stretch' --tag 'nickblah/lua:5.0-stretch' --tag 'nickblah/lua:5.0.3-stretch' --file lua-5.0/stretch/Dockerfile .
-    docker pull 'nickblah/lua:5.0-jessie' || true && docker build --pull --cache-from 'nickblah/lua:5.0-jessie' --tag 'nickblah/lua:5.0-jessie' --tag 'nickblah/lua:5.0.3-jessie' --file lua-5.0/jessie/Dockerfile .
-    docker pull 'nickblah/lua:5.0-alpine3.12' || true && docker build --pull --cache-from 'nickblah/lua:5.0-alpine3.12' --tag 'nickblah/lua:5.0-alpine' --tag 'nickblah/lua:5.0-alpine3.12' --tag 'nickblah/lua:5.0.3-alpine' --tag 'nickblah/lua:5.0.3-alpine3.12' --file lua-5.0/alpine3.12/Dockerfile .
-    docker pull 'nickblah/lua:5.0-alpine3.11' || true && docker build --pull --cache-from 'nickblah/lua:5.0-alpine3.11' --tag 'nickblah/lua:5.0-alpine3.11' --tag 'nickblah/lua:5.0.3-alpine3.11' --file lua-5.0/alpine3.11/Dockerfile .
-    docker pull 'nickblah/lua:5.0-alpine3.10' || true && docker build --pull --cache-from 'nickblah/lua:5.0-alpine3.10' --tag 'nickblah/lua:5.0-alpine3.10' --tag 'nickblah/lua:5.0.3-alpine3.10' --file lua-5.0/alpine3.10/Dockerfile .
-    docker pull 'nickblah/lua:5.0-alpine3.9' || true && docker build --pull --cache-from 'nickblah/lua:5.0-alpine3.9' --tag 'nickblah/lua:5.0-alpine3.9' --tag 'nickblah/lua:5.0.3-alpine3.9' --file lua-5.0/alpine3.9/Dockerfile .
-    docker pull 'nickblah/lua:5.0-focal' || true && docker build --pull --cache-from 'nickblah/lua:5.0-focal' --tag 'nickblah/lua:5.0-focal' --tag 'nickblah/lua:5.0-ubuntu' --tag 'nickblah/lua:5.0.3-focal' --tag 'nickblah/lua:5.0.3-ubuntu' --file lua-5.0/focal/Dockerfile .
-    docker pull 'nickblah/lua:5.0-bionic' || true && docker build --pull --cache-from 'nickblah/lua:5.0-bionic' --tag 'nickblah/lua:5.0-bionic' --tag 'nickblah/lua:5.0.3-bionic' --file lua-5.0/bionic/Dockerfile .
-    docker pull 'nickblah/lua:5.0-xenial' || true && docker build --pull --cache-from 'nickblah/lua:5.0-xenial' --tag 'nickblah/lua:5.0-xenial' --tag 'nickblah/lua:5.0.3-xenial' --file lua-5.0/xenial/Dockerfile .
-    docker pull 'nickblah/lua:5.0-centos8' || true && docker build --pull --cache-from 'nickblah/lua:5.0-centos8' --tag 'nickblah/lua:5.0-centos' --tag 'nickblah/lua:5.0-centos8' --tag 'nickblah/lua:5.0.3-centos' --tag 'nickblah/lua:5.0.3-centos8' --file lua-5.0/centos8/Dockerfile .
-    docker pull 'nickblah/lua:5.0-centos7' || true && docker build --pull --cache-from 'nickblah/lua:5.0-centos7' --tag 'nickblah/lua:5.0-centos7' --tag 'nickblah/lua:5.0.3-centos7' --file lua-5.0/centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-buster' --tag 'nickblah/luajit:2.1-beta' --tag 'nickblah/luajit:2.1-beta-buster' --tag 'nickblah/luajit:2.1.0-beta3' --tag 'nickblah/luajit:2.1.0-beta3-buster' --file luajit-2.1-beta/buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-stretch' --tag 'nickblah/luajit:2.1-beta-stretch' --tag 'nickblah/luajit:2.1.0-beta3-stretch' --file luajit-2.1-beta/stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-jessie' --tag 'nickblah/luajit:2.1-beta-jessie' --tag 'nickblah/luajit:2.1.0-beta3-jessie' --file luajit-2.1-beta/jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-buster' --tag 'nickblah/luajit:2.1-beta-luarocks' --tag 'nickblah/luajit:2.1-beta-luarocks-buster' --tag 'nickblah/luajit:2.1.0-beta3-luarocks' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-buster' --file luajit-2.1-beta/luarocks-buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-stretch' --tag 'nickblah/luajit:2.1-beta-luarocks-stretch' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-stretch' --file luajit-2.1-beta/luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-jessie' --tag 'nickblah/luajit:2.1-beta-luarocks-jessie' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-jessie' --file luajit-2.1-beta/luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-buster' --tag 'nickblah/luajit:2.1-beta-lua52compat' --tag 'nickblah/luajit:2.1-beta-lua52compat-buster' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-buster' --file luajit-2.1-beta/lua52compat-buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-stretch' --tag 'nickblah/luajit:2.1-beta-lua52compat-stretch' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-stretch' --file luajit-2.1-beta/lua52compat-stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-jessie' --tag 'nickblah/luajit:2.1-beta-lua52compat-jessie' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-jessie' --file luajit-2.1-beta/lua52compat-jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-buster' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-buster' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-buster' --file luajit-2.1-beta/lua52compat-luarocks-buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-stretch' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-stretch' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-stretch' --file luajit-2.1-beta/lua52compat-luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-jessie' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-jessie' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-jessie' --file luajit-2.1-beta/lua52compat-luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-alpine3.12' --tag 'nickblah/luajit:2.1-beta-alpine' --tag 'nickblah/luajit:2.1-beta-alpine3.12' --tag 'nickblah/luajit:2.1.0-beta3-alpine' --tag 'nickblah/luajit:2.1.0-beta3-alpine3.12' --file luajit-2.1-beta/alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-alpine3.11' --tag 'nickblah/luajit:2.1-beta-alpine3.11' --tag 'nickblah/luajit:2.1.0-beta3-alpine3.11' --file luajit-2.1-beta/alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-alpine3.10' --tag 'nickblah/luajit:2.1-beta-alpine3.10' --tag 'nickblah/luajit:2.1.0-beta3-alpine3.10' --file luajit-2.1-beta/alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-alpine3.9' --tag 'nickblah/luajit:2.1-beta-alpine3.9' --tag 'nickblah/luajit:2.1.0-beta3-alpine3.9' --file luajit-2.1-beta/alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-alpine3.12' --tag 'nickblah/luajit:2.1-beta-luarocks-alpine' --tag 'nickblah/luajit:2.1-beta-luarocks-alpine3.12' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-alpine' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-alpine3.12' --file luajit-2.1-beta/luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-alpine3.11' --tag 'nickblah/luajit:2.1-beta-luarocks-alpine3.11' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-alpine3.11' --file luajit-2.1-beta/luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-alpine3.10' --tag 'nickblah/luajit:2.1-beta-luarocks-alpine3.10' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-alpine3.10' --file luajit-2.1-beta/luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-alpine3.9' --tag 'nickblah/luajit:2.1-beta-luarocks-alpine3.9' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-alpine3.9' --file luajit-2.1-beta/luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-alpine3.12' --tag 'nickblah/luajit:2.1-beta-lua52compat-alpine' --tag 'nickblah/luajit:2.1-beta-lua52compat-alpine3.12' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-alpine' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-alpine3.12' --file luajit-2.1-beta/lua52compat-alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-alpine3.11' --tag 'nickblah/luajit:2.1-beta-lua52compat-alpine3.11' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-alpine3.11' --file luajit-2.1-beta/lua52compat-alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-alpine3.10' --tag 'nickblah/luajit:2.1-beta-lua52compat-alpine3.10' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-alpine3.10' --file luajit-2.1-beta/lua52compat-alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-alpine3.9' --tag 'nickblah/luajit:2.1-beta-lua52compat-alpine3.9' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-alpine3.9' --file luajit-2.1-beta/lua52compat-alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.12' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.12' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-alpine3.12' --file luajit-2.1-beta/lua52compat-luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.11' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.11' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-alpine3.11' --file luajit-2.1-beta/lua52compat-luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.10' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.10' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-alpine3.10' --file luajit-2.1-beta/lua52compat-luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.9' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-alpine3.9' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-alpine3.9' --file luajit-2.1-beta/lua52compat-luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-focal' --tag 'nickblah/luajit:2.1-beta-focal' --tag 'nickblah/luajit:2.1-beta-ubuntu' --tag 'nickblah/luajit:2.1.0-beta3-focal' --tag 'nickblah/luajit:2.1.0-beta3-ubuntu' --file luajit-2.1-beta/focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-bionic' --tag 'nickblah/luajit:2.1-beta-bionic' --tag 'nickblah/luajit:2.1.0-beta3-bionic' --file luajit-2.1-beta/bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-xenial' --tag 'nickblah/luajit:2.1-beta-xenial' --tag 'nickblah/luajit:2.1.0-beta3-xenial' --file luajit-2.1-beta/xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-focal' --tag 'nickblah/luajit:2.1-beta-luarocks-focal' --tag 'nickblah/luajit:2.1-beta-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-focal' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-ubuntu' --file luajit-2.1-beta/luarocks-focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-bionic' --tag 'nickblah/luajit:2.1-beta-luarocks-bionic' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-bionic' --file luajit-2.1-beta/luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-xenial' --tag 'nickblah/luajit:2.1-beta-luarocks-xenial' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-xenial' --file luajit-2.1-beta/luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-focal' --tag 'nickblah/luajit:2.1-beta-lua52compat-focal' --tag 'nickblah/luajit:2.1-beta-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-focal' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-ubuntu' --file luajit-2.1-beta/lua52compat-focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-bionic' --tag 'nickblah/luajit:2.1-beta-lua52compat-bionic' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-bionic' --file luajit-2.1-beta/lua52compat-bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-xenial' --tag 'nickblah/luajit:2.1-beta-lua52compat-xenial' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-xenial' --file luajit-2.1-beta/lua52compat-xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-ubuntu' --file luajit-2.1-beta/lua52compat-luarocks-focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-bionic' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-bionic' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-bionic' --file luajit-2.1-beta/lua52compat-luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-xenial' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-xenial' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-xenial' --file luajit-2.1-beta/lua52compat-luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-centos8' --tag 'nickblah/luajit:2.1-beta-centos' --tag 'nickblah/luajit:2.1-beta-centos8' --tag 'nickblah/luajit:2.1.0-beta3-centos' --tag 'nickblah/luajit:2.1.0-beta3-centos8' --file luajit-2.1-beta/centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-centos7' --tag 'nickblah/luajit:2.1-beta-centos7' --tag 'nickblah/luajit:2.1.0-beta3-centos7' --file luajit-2.1-beta/centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-centos8' --tag 'nickblah/luajit:2.1-beta-luarocks-centos' --tag 'nickblah/luajit:2.1-beta-luarocks-centos8' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-centos' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-centos8' --file luajit-2.1-beta/luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-luarocks-centos7' --tag 'nickblah/luajit:2.1-beta-luarocks-centos7' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-centos7' --file luajit-2.1-beta/luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-centos8' --tag 'nickblah/luajit:2.1-beta-lua52compat-centos' --tag 'nickblah/luajit:2.1-beta-lua52compat-centos8' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-centos' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-centos8' --file luajit-2.1-beta/lua52compat-centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-centos7' --tag 'nickblah/luajit:2.1-beta-lua52compat-centos7' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-centos7' --file luajit-2.1-beta/lua52compat-centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos8' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos8' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-centos' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-centos8' --file luajit-2.1-beta/lua52compat-luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos7' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-centos7' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-centos7' --file luajit-2.1-beta/lua52compat-luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-buster' --tag 'nickblah/luajit:2' --tag 'nickblah/luajit:2-buster' --tag 'nickblah/luajit:2.0' --tag 'nickblah/luajit:2.0-buster' --tag 'nickblah/luajit:2.0.5' --tag 'nickblah/luajit:2.0.5-buster' --tag 'nickblah/luajit:latest' --file luajit-2.0/buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-stretch' --tag 'nickblah/luajit:2-stretch' --tag 'nickblah/luajit:2.0-stretch' --tag 'nickblah/luajit:2.0.5-stretch' --file luajit-2.0/stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-jessie' --tag 'nickblah/luajit:2-jessie' --tag 'nickblah/luajit:2.0-jessie' --tag 'nickblah/luajit:2.0.5-jessie' --file luajit-2.0/jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-buster' --tag 'nickblah/luajit:2-luarocks' --tag 'nickblah/luajit:2-luarocks-buster' --tag 'nickblah/luajit:2.0-luarocks' --tag 'nickblah/luajit:2.0-luarocks-buster' --tag 'nickblah/luajit:2.0.5-luarocks' --tag 'nickblah/luajit:2.0.5-luarocks-buster' --tag 'nickblah/luajit:luarocks' --file luajit-2.0/luarocks-buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-stretch' --tag 'nickblah/luajit:2-luarocks-stretch' --tag 'nickblah/luajit:2.0-luarocks-stretch' --tag 'nickblah/luajit:2.0.5-luarocks-stretch' --file luajit-2.0/luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-jessie' --tag 'nickblah/luajit:2-luarocks-jessie' --tag 'nickblah/luajit:2.0-luarocks-jessie' --tag 'nickblah/luajit:2.0.5-luarocks-jessie' --file luajit-2.0/luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-buster' --tag 'nickblah/luajit:2-lua52compat' --tag 'nickblah/luajit:2-lua52compat-buster' --tag 'nickblah/luajit:2.0-lua52compat' --tag 'nickblah/luajit:2.0-lua52compat-buster' --tag 'nickblah/luajit:2.0.5-lua52compat' --tag 'nickblah/luajit:2.0.5-lua52compat-buster' --tag 'nickblah/luajit:lua52compat' --file luajit-2.0/lua52compat-buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-stretch' --tag 'nickblah/luajit:2-lua52compat-stretch' --tag 'nickblah/luajit:2.0-lua52compat-stretch' --tag 'nickblah/luajit:2.0.5-lua52compat-stretch' --file luajit-2.0/lua52compat-stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-jessie' --tag 'nickblah/luajit:2-lua52compat-jessie' --tag 'nickblah/luajit:2.0-lua52compat-jessie' --tag 'nickblah/luajit:2.0.5-lua52compat-jessie' --file luajit-2.0/lua52compat-jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-buster' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-buster' --tag 'nickblah/luajit:2-lua52compat-luarocks' --tag 'nickblah/luajit:2-lua52compat-luarocks-buster' --tag 'nickblah/luajit:2.0-lua52compat-luarocks' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-buster' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-buster' --tag 'nickblah/luajit:lua52compat-luarocks' --file luajit-2.0/lua52compat-luarocks-buster/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-stretch' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-stretch' --tag 'nickblah/luajit:2-lua52compat-luarocks-stretch' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-stretch' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-stretch' --file luajit-2.0/lua52compat-luarocks-stretch/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-jessie' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-jessie' --tag 'nickblah/luajit:2-lua52compat-luarocks-jessie' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-jessie' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-jessie' --file luajit-2.0/lua52compat-luarocks-jessie/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-alpine3.12' --tag 'nickblah/luajit:2-alpine' --tag 'nickblah/luajit:2-alpine3.12' --tag 'nickblah/luajit:2.0-alpine' --tag 'nickblah/luajit:2.0-alpine3.12' --tag 'nickblah/luajit:2.0.5-alpine' --tag 'nickblah/luajit:2.0.5-alpine3.12' --tag 'nickblah/luajit:alpine' --file luajit-2.0/alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-alpine3.11' --tag 'nickblah/luajit:2-alpine3.11' --tag 'nickblah/luajit:2.0-alpine3.11' --tag 'nickblah/luajit:2.0.5-alpine3.11' --file luajit-2.0/alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-alpine3.10' --tag 'nickblah/luajit:2-alpine3.10' --tag 'nickblah/luajit:2.0-alpine3.10' --tag 'nickblah/luajit:2.0.5-alpine3.10' --file luajit-2.0/alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-alpine3.9' --tag 'nickblah/luajit:2-alpine3.9' --tag 'nickblah/luajit:2.0-alpine3.9' --tag 'nickblah/luajit:2.0.5-alpine3.9' --file luajit-2.0/alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-alpine3.12' --tag 'nickblah/luajit:2-luarocks-alpine' --tag 'nickblah/luajit:2-luarocks-alpine3.12' --tag 'nickblah/luajit:2.0-luarocks-alpine' --tag 'nickblah/luajit:2.0-luarocks-alpine3.12' --tag 'nickblah/luajit:2.0.5-luarocks-alpine' --tag 'nickblah/luajit:2.0.5-luarocks-alpine3.12' --tag 'nickblah/luajit:luarocks-alpine' --file luajit-2.0/luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-alpine3.11' --tag 'nickblah/luajit:2-luarocks-alpine3.11' --tag 'nickblah/luajit:2.0-luarocks-alpine3.11' --tag 'nickblah/luajit:2.0.5-luarocks-alpine3.11' --file luajit-2.0/luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-alpine3.10' --tag 'nickblah/luajit:2-luarocks-alpine3.10' --tag 'nickblah/luajit:2.0-luarocks-alpine3.10' --tag 'nickblah/luajit:2.0.5-luarocks-alpine3.10' --file luajit-2.0/luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-alpine3.9' --tag 'nickblah/luajit:2-luarocks-alpine3.9' --tag 'nickblah/luajit:2.0-luarocks-alpine3.9' --tag 'nickblah/luajit:2.0.5-luarocks-alpine3.9' --file luajit-2.0/luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-alpine3.12' --tag 'nickblah/luajit:2-lua52compat-alpine' --tag 'nickblah/luajit:2-lua52compat-alpine3.12' --tag 'nickblah/luajit:2.0-lua52compat-alpine' --tag 'nickblah/luajit:2.0-lua52compat-alpine3.12' --tag 'nickblah/luajit:2.0.5-lua52compat-alpine' --tag 'nickblah/luajit:2.0.5-lua52compat-alpine3.12' --tag 'nickblah/luajit:lua52compat-alpine' --file luajit-2.0/lua52compat-alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-alpine3.11' --tag 'nickblah/luajit:2-lua52compat-alpine3.11' --tag 'nickblah/luajit:2.0-lua52compat-alpine3.11' --tag 'nickblah/luajit:2.0.5-lua52compat-alpine3.11' --file luajit-2.0/lua52compat-alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-alpine3.10' --tag 'nickblah/luajit:2-lua52compat-alpine3.10' --tag 'nickblah/luajit:2.0-lua52compat-alpine3.10' --tag 'nickblah/luajit:2.0.5-lua52compat-alpine3.10' --file luajit-2.0/lua52compat-alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-alpine3.9' --tag 'nickblah/luajit:2-lua52compat-alpine3.9' --tag 'nickblah/luajit:2.0-lua52compat-alpine3.9' --tag 'nickblah/luajit:2.0.5-lua52compat-alpine3.9' --file luajit-2.0/lua52compat-alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.12' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.12' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.12' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.12' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-alpine3.12' --tag 'nickblah/luajit:lua52compat-luarocks-alpine' --file luajit-2.0/lua52compat-luarocks-alpine3.12/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.11' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.11' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.11' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.11' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-alpine3.11' --file luajit-2.0/lua52compat-luarocks-alpine3.11/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.10' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.10' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.10' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.10' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-alpine3.10' --file luajit-2.0/lua52compat-luarocks-alpine3.10/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.9' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.9' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.9' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-alpine3.9' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-alpine3.9' --file luajit-2.0/lua52compat-luarocks-alpine3.9/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-focal' --tag 'nickblah/luajit:2-focal' --tag 'nickblah/luajit:2-ubuntu' --tag 'nickblah/luajit:2.0-focal' --tag 'nickblah/luajit:2.0-ubuntu' --tag 'nickblah/luajit:2.0.5-focal' --tag 'nickblah/luajit:2.0.5-ubuntu' --tag 'nickblah/luajit:ubuntu' --file luajit-2.0/focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-bionic' --tag 'nickblah/luajit:2-bionic' --tag 'nickblah/luajit:2.0-bionic' --tag 'nickblah/luajit:2.0.5-bionic' --file luajit-2.0/bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-xenial' --tag 'nickblah/luajit:2-xenial' --tag 'nickblah/luajit:2.0-xenial' --tag 'nickblah/luajit:2.0.5-xenial' --file luajit-2.0/xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-focal' --tag 'nickblah/luajit:2-luarocks-focal' --tag 'nickblah/luajit:2-luarocks-ubuntu' --tag 'nickblah/luajit:2.0-luarocks-focal' --tag 'nickblah/luajit:2.0-luarocks-ubuntu' --tag 'nickblah/luajit:2.0.5-luarocks-focal' --tag 'nickblah/luajit:2.0.5-luarocks-ubuntu' --tag 'nickblah/luajit:luarocks-ubuntu' --file luajit-2.0/luarocks-focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-bionic' --tag 'nickblah/luajit:2-luarocks-bionic' --tag 'nickblah/luajit:2.0-luarocks-bionic' --tag 'nickblah/luajit:2.0.5-luarocks-bionic' --file luajit-2.0/luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-xenial' --tag 'nickblah/luajit:2-luarocks-xenial' --tag 'nickblah/luajit:2.0-luarocks-xenial' --tag 'nickblah/luajit:2.0.5-luarocks-xenial' --file luajit-2.0/luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-focal' --tag 'nickblah/luajit:2-lua52compat-focal' --tag 'nickblah/luajit:2-lua52compat-ubuntu' --tag 'nickblah/luajit:2.0-lua52compat-focal' --tag 'nickblah/luajit:2.0-lua52compat-ubuntu' --tag 'nickblah/luajit:2.0.5-lua52compat-focal' --tag 'nickblah/luajit:2.0.5-lua52compat-ubuntu' --tag 'nickblah/luajit:lua52compat-ubuntu' --file luajit-2.0/lua52compat-focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-bionic' --tag 'nickblah/luajit:2-lua52compat-bionic' --tag 'nickblah/luajit:2.0-lua52compat-bionic' --tag 'nickblah/luajit:2.0.5-lua52compat-bionic' --file luajit-2.0/lua52compat-bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-xenial' --tag 'nickblah/luajit:2-lua52compat-xenial' --tag 'nickblah/luajit:2.0-lua52compat-xenial' --tag 'nickblah/luajit:2.0.5-lua52compat-xenial' --file luajit-2.0/lua52compat-xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-focal' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:lua52compat-luarocks-ubuntu' --file luajit-2.0/lua52compat-luarocks-focal/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-bionic' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-bionic' --tag 'nickblah/luajit:2-lua52compat-luarocks-bionic' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-bionic' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-bionic' --file luajit-2.0/lua52compat-luarocks-bionic/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-xenial' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-xenial' --tag 'nickblah/luajit:2-lua52compat-luarocks-xenial' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-xenial' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-xenial' --file luajit-2.0/lua52compat-luarocks-xenial/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-centos8' --tag 'nickblah/luajit:2-centos' --tag 'nickblah/luajit:2-centos8' --tag 'nickblah/luajit:2.0-centos' --tag 'nickblah/luajit:2.0-centos8' --tag 'nickblah/luajit:2.0.5-centos' --tag 'nickblah/luajit:2.0.5-centos8' --tag 'nickblah/luajit:centos' --file luajit-2.0/centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-centos7' --tag 'nickblah/luajit:2-centos7' --tag 'nickblah/luajit:2.0-centos7' --tag 'nickblah/luajit:2.0.5-centos7' --file luajit-2.0/centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-centos8' --tag 'nickblah/luajit:2-luarocks-centos' --tag 'nickblah/luajit:2-luarocks-centos8' --tag 'nickblah/luajit:2.0-luarocks-centos' --tag 'nickblah/luajit:2.0-luarocks-centos8' --tag 'nickblah/luajit:2.0.5-luarocks-centos' --tag 'nickblah/luajit:2.0.5-luarocks-centos8' --tag 'nickblah/luajit:luarocks-centos' --file luajit-2.0/luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-luarocks-centos7' --tag 'nickblah/luajit:2-luarocks-centos7' --tag 'nickblah/luajit:2.0-luarocks-centos7' --tag 'nickblah/luajit:2.0.5-luarocks-centos7' --file luajit-2.0/luarocks-centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-centos8' --tag 'nickblah/luajit:2-lua52compat-centos' --tag 'nickblah/luajit:2-lua52compat-centos8' --tag 'nickblah/luajit:2.0-lua52compat-centos' --tag 'nickblah/luajit:2.0-lua52compat-centos8' --tag 'nickblah/luajit:2.0.5-lua52compat-centos' --tag 'nickblah/luajit:2.0.5-lua52compat-centos8' --tag 'nickblah/luajit:lua52compat-centos' --file luajit-2.0/lua52compat-centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-centos7' --tag 'nickblah/luajit:2-lua52compat-centos7' --tag 'nickblah/luajit:2.0-lua52compat-centos7' --tag 'nickblah/luajit:2.0.5-lua52compat-centos7' --file luajit-2.0/lua52compat-centos7/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-centos8' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-centos8' --tag 'nickblah/luajit:2-lua52compat-luarocks-centos' --tag 'nickblah/luajit:2-lua52compat-luarocks-centos8' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-centos' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-centos8' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-centos' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-centos8' --tag 'nickblah/luajit:lua52compat-luarocks-centos' --file luajit-2.0/lua52compat-luarocks-centos8/Dockerfile .
-    docker pull 'nickblah/luajit:2.0-lua52compat-luarocks-centos7' || true && docker build --pull --cache-from 'nickblah/luajit:2.0-lua52compat-luarocks-centos7' --tag 'nickblah/luajit:2-lua52compat-luarocks-centos7' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-centos7' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-centos7' --file luajit-2.0/lua52compat-luarocks-centos7/Dockerfile .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-bookworm' \
+      --file lua-5.4/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-bullseye' \
+      --file lua-5.4/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-buster' \
+      --file lua-5.4/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-bookworm' \
+      --file lua-5.4/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-bullseye' \
+      --file lua-5.4/luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-buster' \
+      --file lua-5.4/luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-3' \
+      --file lua-5.4/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-3.16' \
+      --file lua-5.4/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-3.15' \
+      --file lua-5.4/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-3.14' \
+      --file lua-5.4/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-3' \
+      --file lua-5.4/luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-3.16' \
+      --file lua-5.4/luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-3.15' \
+      --file lua-5.4/luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-3.14' \
+      --file lua-5.4/luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-bionic' \
+      --file lua-5.4/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-focal' \
+      --file lua-5.4/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-jammy' \
+      --file lua-5.4/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-kinetic' \
+      --file lua-5.4/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-lunar' \
+      --file lua-5.4/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-bionic' \
+      --file lua-5.4/luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-focal' \
+      --file lua-5.4/luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-jammy' \
+      --file lua-5.4/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-kinetic' \
+      --file lua-5.4/luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.4-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.4-luarocks-lunar' \
+      --file lua-5.4/luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-bookworm' \
+      --file lua-5.3/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-bullseye' \
+      --file lua-5.3/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-buster' \
+      --file lua-5.3/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-bookworm' \
+      --file lua-5.3/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-bullseye' \
+      --file lua-5.3/luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-buster' \
+      --file lua-5.3/luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-3' \
+      --file lua-5.3/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-3.16' \
+      --file lua-5.3/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-3.15' \
+      --file lua-5.3/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-3.14' \
+      --file lua-5.3/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-3' \
+      --file lua-5.3/luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-3.16' \
+      --file lua-5.3/luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-3.15' \
+      --file lua-5.3/luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-3.14' \
+      --file lua-5.3/luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-bionic' \
+      --file lua-5.3/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-focal' \
+      --file lua-5.3/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-jammy' \
+      --file lua-5.3/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-kinetic' \
+      --file lua-5.3/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-lunar' \
+      --file lua-5.3/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-bionic' \
+      --file lua-5.3/luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-focal' \
+      --file lua-5.3/luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-jammy' \
+      --file lua-5.3/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-kinetic' \
+      --file lua-5.3/luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.3-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.3-luarocks-lunar' \
+      --file lua-5.3/luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-bookworm' \
+      --file lua-5.2/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-bullseye' \
+      --file lua-5.2/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-buster' \
+      --file lua-5.2/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-bookworm' \
+      --file lua-5.2/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-bullseye' \
+      --file lua-5.2/luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-buster' \
+      --file lua-5.2/luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-3' \
+      --file lua-5.2/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-3.16' \
+      --file lua-5.2/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-3.15' \
+      --file lua-5.2/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-3.14' \
+      --file lua-5.2/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-3' \
+      --file lua-5.2/luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-3.16' \
+      --file lua-5.2/luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-3.15' \
+      --file lua-5.2/luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-3.14' \
+      --file lua-5.2/luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-bionic' \
+      --file lua-5.2/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-focal' \
+      --file lua-5.2/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-jammy' \
+      --file lua-5.2/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-kinetic' \
+      --file lua-5.2/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-lunar' \
+      --file lua-5.2/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-bionic' \
+      --file lua-5.2/luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-focal' \
+      --file lua-5.2/luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-jammy' \
+      --file lua-5.2/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-kinetic' \
+      --file lua-5.2/luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.2-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.2-luarocks-lunar' \
+      --file lua-5.2/luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-bookworm' \
+      --file lua-5.1/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-bullseye' \
+      --file lua-5.1/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-buster' \
+      --file lua-5.1/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-bookworm' \
+      --file lua-5.1/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-bullseye' \
+      --file lua-5.1/luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-buster' \
+      --file lua-5.1/luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-3' \
+      --file lua-5.1/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-3.16' \
+      --file lua-5.1/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-3.15' \
+      --file lua-5.1/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-3.14' \
+      --file lua-5.1/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-3' \
+      --file lua-5.1/luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-3.16' \
+      --file lua-5.1/luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-3.15' \
+      --file lua-5.1/luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-3.14' \
+      --file lua-5.1/luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-bionic' \
+      --file lua-5.1/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-focal' \
+      --file lua-5.1/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-jammy' \
+      --file lua-5.1/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-kinetic' \
+      --file lua-5.1/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-lunar' \
+      --file lua-5.1/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-bionic' \
+      --file lua-5.1/luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-focal' \
+      --file lua-5.1/luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-jammy' \
+      --file lua-5.1/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-kinetic' \
+      --file lua-5.1/luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.1-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.1-luarocks-lunar' \
+      --file lua-5.1/luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-bookworm' \
+      --file lua-5.0/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-bullseye' \
+      --file lua-5.0/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-buster' \
+      --file lua-5.0/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-3' \
+      --file lua-5.0/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-3.16' \
+      --file lua-5.0/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-3.15' \
+      --file lua-5.0/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-3.14' \
+      --file lua-5.0/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-bionic' \
+      --file lua-5.0/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-focal' \
+      --file lua-5.0/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-jammy' \
+      --file lua-5.0/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-kinetic' \
+      --file lua-5.0/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua:build-cache-5.0-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua:build-cache-5.0-lunar' \
+      --file lua-5.0/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-bookworm' \
+      --file luajit-2.1-beta/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-bullseye' \
+      --file luajit-2.1-beta/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-buster' \
+      --file luajit-2.1-beta/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bookworm' \
+      --file luajit-2.1-beta/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bullseye' \
+      --file luajit-2.1-beta/luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-buster' \
+      --file luajit-2.1-beta/luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bookworm' \
+      --file luajit-2.1-beta/lua52compat-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bullseye' \
+      --file luajit-2.1-beta/lua52compat-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-buster' \
+      --file luajit-2.1-beta/lua52compat-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bookworm' \
+      --file luajit-2.1-beta/lua52compat-luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bullseye' \
+      --file luajit-2.1-beta/lua52compat-luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-buster' \
+      --file luajit-2.1-beta/lua52compat-luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-3' \
+      --file luajit-2.1-beta/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-3.16' \
+      --file luajit-2.1-beta/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-3.15' \
+      --file luajit-2.1-beta/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-3.14' \
+      --file luajit-2.1-beta/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3' \
+      --file luajit-2.1-beta/luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.16' \
+      --file luajit-2.1-beta/luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.15' \
+      --file luajit-2.1-beta/luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-3.14' \
+      --file luajit-2.1-beta/luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3' \
+      --file luajit-2.1-beta/lua52compat-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.16' \
+      --file luajit-2.1-beta/lua52compat-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.15' \
+      --file luajit-2.1-beta/lua52compat-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-3.14' \
+      --file luajit-2.1-beta/lua52compat-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3' \
+      --file luajit-2.1-beta/lua52compat-luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.16' \
+      --file luajit-2.1-beta/lua52compat-luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.15' \
+      --file luajit-2.1-beta/lua52compat-luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-3.14' \
+      --file luajit-2.1-beta/lua52compat-luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-bionic' \
+      --file luajit-2.1-beta/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-focal' \
+      --file luajit-2.1-beta/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-jammy' \
+      --file luajit-2.1-beta/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-kinetic' \
+      --file luajit-2.1-beta/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lunar' \
+      --file luajit-2.1-beta/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-bionic' \
+      --file luajit-2.1-beta/luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-focal' \
+      --file luajit-2.1-beta/luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-jammy' \
+      --file luajit-2.1-beta/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-kinetic' \
+      --file luajit-2.1-beta/luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-luarocks-lunar' \
+      --file luajit-2.1-beta/luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-bionic' \
+      --file luajit-2.1-beta/lua52compat-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-focal' \
+      --file luajit-2.1-beta/lua52compat-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-jammy' \
+      --file luajit-2.1-beta/lua52compat-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-kinetic' \
+      --file luajit-2.1-beta/lua52compat-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-lunar' \
+      --file luajit-2.1-beta/lua52compat-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-bionic' \
+      --file luajit-2.1-beta/lua52compat-luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-focal' \
+      --file luajit-2.1-beta/lua52compat-luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-jammy' \
+      --file luajit-2.1-beta/lua52compat-luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-kinetic' \
+      --file luajit-2.1-beta/lua52compat-luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.1-beta-lua52compat-luarocks-lunar' \
+      --file luajit-2.1-beta/lua52compat-luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-bookworm' \
+      --file luajit-2.0/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-bullseye' \
+      --file luajit-2.0/bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-buster' \
+      --file luajit-2.0/buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-bookworm' \
+      --file luajit-2.0/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-bullseye' \
+      --file luajit-2.0/luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-buster' \
+      --file luajit-2.0/luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bookworm' \
+      --file luajit-2.0/lua52compat-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bullseye' \
+      --file luajit-2.0/lua52compat-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-buster' \
+      --file luajit-2.0/lua52compat-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bookworm' \
+      --file luajit-2.0/lua52compat-luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bullseye' \
+      --file luajit-2.0/lua52compat-luarocks-bullseye/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-buster' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-buster,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-buster' \
+      --file luajit-2.0/lua52compat-luarocks-buster/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-3' \
+      --file luajit-2.0/3/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-3.16' \
+      --file luajit-2.0/3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-3.15' \
+      --file luajit-2.0/3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-3.14' \
+      --file luajit-2.0/3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-3' \
+      --file luajit-2.0/luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.16' \
+      --file luajit-2.0/luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.15' \
+      --file luajit-2.0/luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-3.14' \
+      --file luajit-2.0/luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3' \
+      --file luajit-2.0/lua52compat-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.16' \
+      --file luajit-2.0/lua52compat-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.15' \
+      --file luajit-2.0/lua52compat-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-3.14' \
+      --file luajit-2.0/lua52compat-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3' \
+      --file luajit-2.0/lua52compat-luarocks-3/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.16' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.16,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.16' \
+      --file luajit-2.0/lua52compat-luarocks-3.16/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.15' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.15,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.15' \
+      --file luajit-2.0/lua52compat-luarocks-3.15/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.14' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.14,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-3.14' \
+      --file luajit-2.0/lua52compat-luarocks-3.14/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-bionic' \
+      --file luajit-2.0/bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-focal' \
+      --file luajit-2.0/focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-jammy' \
+      --file luajit-2.0/jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-kinetic' \
+      --file luajit-2.0/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform '' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lunar' \
+      --file luajit-2.0/lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-bionic' \
+      --file luajit-2.0/luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-focal' \
+      --file luajit-2.0/luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-jammy' \
+      --file luajit-2.0/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-kinetic' \
+      --file luajit-2.0/luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-luarocks-lunar' \
+      --file luajit-2.0/luarocks-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-bionic' \
+      --file luajit-2.0/lua52compat-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-focal' \
+      --file luajit-2.0/lua52compat-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-jammy' \
+      --file luajit-2.0/lua52compat-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-kinetic' \
+      --file luajit-2.0/lua52compat-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-lunar' \
+      --file luajit-2.0/lua52compat-lunar/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bionic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bionic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-bionic' \
+      --file luajit-2.0/lua52compat-luarocks-bionic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-focal' \
+      --file luajit-2.0/lua52compat-luarocks-focal/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-jammy' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-jammy,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-jammy' \
+      --file luajit-2.0/lua52compat-luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-kinetic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-kinetic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-kinetic' \
+      --file luajit-2.0/lua52compat-luarocks-kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'lua52compat,luarocks' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-lunar' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-lunar,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/luajit:build-cache-2.0-lua52compat-luarocks-lunar' \
+      --file luajit-2.0/lua52compat-luarocks-lunar/Dockerfile \
+      .
