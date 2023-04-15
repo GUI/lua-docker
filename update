@@ -103,7 +103,12 @@ versions.keys.each do |lang|
       when "lua"
         filename = "lua-#{version_full}.tar.gz"
         archive_url = (version.prerelease?) ? "https://www.lua.org/work/#{filename}" : "https://www.lua.org/ftp/#{filename}"
-        archive_sha1 = content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?sha1:\s+([a-f0-9]{40})\b/im)[1]
+        archive_sha = content.match(/href=.?[^>]*#{Regexp.escape(filename)}.*?<td class="sum">(\s*([a-f0-9]{64})|[^<]*sha1:\s*([a-f0-9]{40}))\b/im)[1]
+        if archive_sha.length == 64
+          archive_sha256 = archive_sha
+        else
+          archive_sha1 = archive_sha
+        end
       when "luajit"
         filename = "LuaJIT-#{version_full}.tar.gz"
         archive_url = "https://luajit.org/download/#{filename}"

@@ -18,8 +18,7 @@ RUN set -ex \
         unzip \
           && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.4.tar.gz" \
   && cd /tmp \
-  
-    && echo "fb02a79eaa054270acff6fb32b1a258b866e867b *lua.tar.gz" | sha1sum -c - \
+      && echo "164c7849653b80ae67bec4b7473b884bf5cc8d2dca05653475ec2ed27b9ebf61 *lua.tar.gz" | sha256sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \

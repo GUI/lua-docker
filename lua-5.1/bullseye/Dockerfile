@@ -16,8 +16,7 @@ RUN set -ex \
                   libncurses-dev \
                         && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.1.5.tar.gz" \
   && cd /tmp \
-  
-    && echo "fb02a79eaa054270acff6fb32b1a258b866e867b *lua.tar.gz" | sha1sum -c - \
+      && echo "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333 *lua.tar.gz" | sha256sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \

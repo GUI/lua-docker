@@ -13,8 +13,7 @@ RUN set -ex \
               readline-dev \
                         && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.2.4.tar.gz" \
   && cd /tmp \
-  
-    && echo "fb02a79eaa054270acff6fb32b1a258b866e867b *lua.tar.gz" | sha1sum -c - \
+      && echo "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b *lua.tar.gz" | sha256sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
