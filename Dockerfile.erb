@@ -83,7 +83,9 @@ RUN set -ex \
   && cd / \
   <% if distro == "debian" || distro == "ubuntu" -%>
     && apt-mark auto '.*' > /dev/null \
-    && apt-mark manual $saved_apt_mark \
+    && if [ -n "$saved_apt_mark" ]; then \
+      apt-mark manual $saved_apt_mark; \
+    fi \
     <% if lang == "lua" -%>
       && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline\d+$' | xargs apt-mark manual \
       <% if version_minor == "5.1" -%>
@@ -97,7 +99,7 @@ RUN set -ex \
         unzip \
     <% end -%>
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/* /var/lib/dpkg/*-old /var/cache/* /var/log/* \
   <% elsif distro == "alpine" -%>
     && apk add --no-network --no-cache --virtual .lua-rundeps \
       <% if lang == "lua" -%>
