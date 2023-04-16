@@ -32,6 +32,7 @@ FileUtils.rm_rf(Dir.glob("luajit-*"))
 
 github_lua_image = "ghcr.io/gui/lua"
 github_luajit_image = "ghcr.io/gui/luajit"
+github_build_cache_repo = "ghcr.io/gui/lua-docker-build-cache"
 docker_hub_lua_image = "nickblah/lua"
 docker_hub_luajit_image = "nickblah/luajit"
 
@@ -160,18 +161,18 @@ versions.each_value do |lang_versions|
 
           distro_version_name = (distro == "debian" || distro == "ubuntu") ? distro_data.fetch(:distro_version) : "#{distro}#{distro_data.fetch(:distro_version)}"
           variant_name = (variant.empty?) ? nil : variant.join("-")
-          filename = File.join("#{version.fetch(:lang)}-#{version.fetch(:version_name)}", [variant_name, distro_data.fetch(:distro_version)].compact.join("-"), "Dockerfile")
+          filename = File.join("#{version.fetch(:lang)}-#{version.fetch(:version_name)}", [variant_name, distro_version_name].compact.join("-"), "Dockerfile")
           FileUtils.mkdir_p(File.dirname(filename))
           File.open(filename, "w") { |f| f.write(template) }
 
-          variant_tag = [version.fetch(:version_name), variant_name, distro_data.fetch(:distro_version)].compact.join("-")
+          variant_tag = [version.fetch(:version_name), variant_name, distro_version_name].compact.join("-")
           variant_tags = [
             variant_tag,
-            [version.fetch(:version_full), variant_name, distro_data.fetch(:distro_version)].compact.join("-"),
+            [version.fetch(:version_full), variant_name, distro_version_name].compact.join("-"),
           ]
 
           if version[:latest]
-            variant_tags << [version.fetch(:version_major), variant_name, distro_data.fetch(:distro_version)].compact.join("-")
+            variant_tags << [version.fetch(:version_major), variant_name, distro_version_name].compact.join("-")
           end
 
           # Default distro tags
@@ -220,11 +221,7 @@ versions.each_value do |lang_versions|
             end
           end.flatten
 
-          if version.fetch(:lang) == "luajit"
-            build_cache_tag = "#{github_luajit_image}:build-cache-#{variant_tag}"
-          else
-            build_cache_tag = "#{github_lua_image}:build-cache-#{variant_tag}"
-          end
+          build_cache_tag = "#{github_build_cache_repo}:#{variant_tag}"
 
           lang = version.fetch(:lang)
           tags[lang] ||= []
