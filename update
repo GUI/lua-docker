@@ -228,8 +228,11 @@ versions.each_value do |lang_versions|
 
           platforms = [
             "linux/amd64",
-            "linux/arm64",
           ]
+
+          if version.fetch(:lang) != "luajit" || version.fetch(:version) >= Gem::Version.new("2.1.0-beta0")
+            platforms << "linux/arm64"
+          end
 
           docker_image_tags = variant_tags.map do |tag|
             if version.fetch(:lang) == "luajit"

@@ -543,7 +543,7 @@ set -Eeuxo pipefail
       --file luajit-2.1-beta/lua52compat-luarocks-focal/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bullseye' \
@@ -552,7 +552,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/bullseye/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-buster' \
@@ -561,7 +561,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/buster/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bullseye' \
@@ -570,7 +570,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/luarocks-bullseye/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-buster' \
@@ -579,7 +579,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/luarocks-buster/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bullseye' \
@@ -588,7 +588,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-bullseye/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-buster' \
@@ -597,7 +597,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-buster/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bullseye' \
@@ -606,7 +606,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-luarocks-bullseye/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-buster' \
@@ -615,7 +615,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-luarocks-buster/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-alpine3' \
@@ -624,7 +624,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/alpine3/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-alpine3.16' \
@@ -633,7 +633,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/alpine3.16/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3' \
@@ -642,7 +642,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/luarocks-alpine3/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3.16' \
@@ -651,7 +651,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/luarocks-alpine3.16/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3' \
@@ -660,7 +660,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-alpine3/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3.16' \
@@ -669,7 +669,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-alpine3.16/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3' \
@@ -678,7 +678,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-luarocks-alpine3/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3.16' \
@@ -687,7 +687,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-luarocks-alpine3.16/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-jammy' \
@@ -696,7 +696,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/jammy/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-focal' \
@@ -705,7 +705,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/focal/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-jammy' \
@@ -714,7 +714,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/luarocks-jammy/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' \
@@ -723,7 +723,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/luarocks-focal/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-jammy' \
@@ -732,7 +732,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-jammy/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' \
@@ -741,7 +741,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-focal/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy' \
@@ -750,7 +750,7 @@ set -Eeuxo pipefail
       --file luajit-2.0/lua52compat-luarocks-jammy/Dockerfile \
       .
     docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
+      --platform 'linux/amd64' \
       --pull \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' \
