@@ -54,8 +54,16 @@ DISTROS.each do |distro_name|
 
     case distro_name
     when "debian"
+      if distro_tags.none? { |t| t =~ /^\d+$/ }
+        next
+      end
+
       distro_version_tags.reject! { |t| t =~ /^(\d+|testing|rc-buggy|oldstable|sid|stable|unstable|experimental|.*-backports|.*-slim)/ }
     when "ubuntu"
+      if distro_tags.include?("rolling") || distro_tags.include?("devel")
+        next
+      end
+
       distro_version_tags.reject! { |t| t =~ /^(\d+)/ }
     when "alpine"
       distro_version_tags.reject! { |t| t =~ /^(edge|\d{8})/ }
@@ -65,13 +73,21 @@ DISTROS.each do |distro_name|
     distro_tag = distro_version_tags.last
     distro_version = distro_version_tags.first
     if distro_version
+      distro_numeric_version = Gem::Version.new(distro_tags.sort_by { |t| t.length }.reverse.find { |t| t =~ /^([\d.]+)$/ })
       distros[distro_name] ||= []
       distros[distro_name] << {
         :distro_version => distro_version,
+        :distro_numeric_version => distro_numeric_version,
         :latest => distro_tags.include?("latest"),
       }
     end
   end
+end
+
+distros.each do |distro, distro_versions|
+  distro_versions.sort_by! { |v| v.fetch(:distro_numeric_version) }
+  distro_versions.reverse!
+  distros[distro] = distro_versions.take(2)
 end
 
 versions.keys.each do |lang|
@@ -131,9 +147,17 @@ versions.keys.each do |lang|
   end
 end
 
-versions.each_value do |lang_versions|
+versions.each do |lang, lang_versions|
   latest_version = lang_versions.values.reject { |v| v.fetch(:version).prerelease? }.sort_by { |v| v.fetch(:version) }.last
   latest_version[:latest] = true
+
+  lang_versions = lang_versions.values.sort_by { |v| v.fetch(:version) }
+  lang_versions.reverse!
+  if lang == "lua"
+    versions[lang] = lang_versions.take(3)
+  else
+    versions[lang] = lang_versions.take(2)
+  end
 end
 
 content = URI.open("https://luarocks.github.io/luarocks/releases/").read
@@ -141,7 +165,7 @@ luarocks_version = content.scan(/luarocks-([\d\.]+)\.tar\.gz/).flatten.compact.u
 
 tags = {}
 versions.each_value do |lang_versions|
-  lang_versions.values.sort_by { |v| v.fetch(:version) }.reverse.each do |version|
+  lang_versions.each do |version|
     distros.each do |distro, distro_versions|
       variants = [[]] + VARIANTS.fetch(version.fetch(:lang))
 
