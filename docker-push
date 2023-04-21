@@ -61,6 +61,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-kinetic' \
+      --tag 'ghcr.io/gui/lua:5-kinetic' --tag 'nickblah/lua:5-kinetic' --tag 'ghcr.io/gui/lua:5.4-kinetic' --tag 'nickblah/lua:5.4-kinetic' --tag 'ghcr.io/gui/lua:5.4.4-kinetic' --tag 'nickblah/lua:5.4.4-kinetic' \
+      --file lua-5.4/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-jammy' \
       --tag 'ghcr.io/gui/lua:5-jammy' --tag 'nickblah/lua:5-jammy' --tag 'ghcr.io/gui/lua:5-ubuntu' --tag 'nickblah/lua:5-ubuntu' --tag 'ghcr.io/gui/lua:5.4-jammy' --tag 'nickblah/lua:5.4-jammy' --tag 'ghcr.io/gui/lua:5.4-ubuntu' --tag 'nickblah/lua:5.4-ubuntu' --tag 'ghcr.io/gui/lua:5.4.4-jammy' --tag 'nickblah/lua:5.4.4-jammy' --tag 'ghcr.io/gui/lua:5.4.4-ubuntu' --tag 'nickblah/lua:5.4.4-ubuntu' --tag 'ghcr.io/gui/lua:ubuntu' --tag 'nickblah/lua:ubuntu' \
       --file lua-5.4/jammy/Dockerfile \
@@ -68,9 +75,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-focal' \
-      --tag 'ghcr.io/gui/lua:5-focal' --tag 'nickblah/lua:5-focal' --tag 'ghcr.io/gui/lua:5.4-focal' --tag 'nickblah/lua:5.4-focal' --tag 'ghcr.io/gui/lua:5.4.4-focal' --tag 'nickblah/lua:5.4.4-focal' \
-      --file lua-5.4/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-kinetic' --tag 'nickblah/lua:5-luarocks-kinetic' --tag 'ghcr.io/gui/lua:5.4-luarocks-kinetic' --tag 'nickblah/lua:5.4-luarocks-kinetic' --tag 'ghcr.io/gui/lua:5.4.4-luarocks-kinetic' --tag 'nickblah/lua:5.4.4-luarocks-kinetic' \
+      --file lua-5.4/luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -78,13 +85,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy' \
       --tag 'ghcr.io/gui/lua:5-luarocks-jammy' --tag 'nickblah/lua:5-luarocks-jammy' --tag 'ghcr.io/gui/lua:5-luarocks-ubuntu' --tag 'nickblah/lua:5-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.4-luarocks-jammy' --tag 'nickblah/lua:5.4-luarocks-jammy' --tag 'ghcr.io/gui/lua:5.4-luarocks-ubuntu' --tag 'nickblah/lua:5.4-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.4.4-luarocks-jammy' --tag 'nickblah/lua:5.4.4-luarocks-jammy' --tag 'ghcr.io/gui/lua:5.4.4-luarocks-ubuntu' --tag 'nickblah/lua:5.4.4-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:luarocks-ubuntu' --tag 'nickblah/lua:luarocks-ubuntu' \
       --file lua-5.4/luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-focal' --tag 'nickblah/lua:5-luarocks-focal' --tag 'ghcr.io/gui/lua:5.4-luarocks-focal' --tag 'nickblah/lua:5.4-luarocks-focal' --tag 'ghcr.io/gui/lua:5.4.4-luarocks-focal' --tag 'nickblah/lua:5.4.4-luarocks-focal' \
-      --file lua-5.4/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -145,6 +145,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-kinetic' \
+      --tag 'ghcr.io/gui/lua:5.3-kinetic' --tag 'nickblah/lua:5.3-kinetic' --tag 'ghcr.io/gui/lua:5.3.6-kinetic' --tag 'nickblah/lua:5.3.6-kinetic' \
+      --file lua-5.3/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-jammy' \
       --tag 'ghcr.io/gui/lua:5.3-jammy' --tag 'nickblah/lua:5.3-jammy' --tag 'ghcr.io/gui/lua:5.3-ubuntu' --tag 'nickblah/lua:5.3-ubuntu' --tag 'ghcr.io/gui/lua:5.3.6-jammy' --tag 'nickblah/lua:5.3.6-jammy' --tag 'ghcr.io/gui/lua:5.3.6-ubuntu' --tag 'nickblah/lua:5.3.6-ubuntu' \
       --file lua-5.3/jammy/Dockerfile \
@@ -152,9 +159,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-focal' \
-      --tag 'ghcr.io/gui/lua:5.3-focal' --tag 'nickblah/lua:5.3-focal' --tag 'ghcr.io/gui/lua:5.3.6-focal' --tag 'nickblah/lua:5.3.6-focal' \
-      --file lua-5.3/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/lua:5.3-luarocks-kinetic' --tag 'nickblah/lua:5.3-luarocks-kinetic' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-kinetic' --tag 'nickblah/lua:5.3.6-luarocks-kinetic' \
+      --file lua-5.3/luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -162,13 +169,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy' \
       --tag 'ghcr.io/gui/lua:5.3-luarocks-jammy' --tag 'nickblah/lua:5.3-luarocks-jammy' --tag 'ghcr.io/gui/lua:5.3-luarocks-ubuntu' --tag 'nickblah/lua:5.3-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-jammy' --tag 'nickblah/lua:5.3.6-luarocks-jammy' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-ubuntu' --tag 'nickblah/lua:5.3.6-luarocks-ubuntu' \
       --file lua-5.3/luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal' \
-      --tag 'ghcr.io/gui/lua:5.3-luarocks-focal' --tag 'nickblah/lua:5.3-luarocks-focal' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-focal' --tag 'nickblah/lua:5.3.6-luarocks-focal' \
-      --file lua-5.3/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -229,6 +229,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-kinetic' \
+      --tag 'ghcr.io/gui/lua:5.2-kinetic' --tag 'nickblah/lua:5.2-kinetic' --tag 'ghcr.io/gui/lua:5.2.4-kinetic' --tag 'nickblah/lua:5.2.4-kinetic' \
+      --file lua-5.2/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-jammy' \
       --tag 'ghcr.io/gui/lua:5.2-jammy' --tag 'nickblah/lua:5.2-jammy' --tag 'ghcr.io/gui/lua:5.2-ubuntu' --tag 'nickblah/lua:5.2-ubuntu' --tag 'ghcr.io/gui/lua:5.2.4-jammy' --tag 'nickblah/lua:5.2.4-jammy' --tag 'ghcr.io/gui/lua:5.2.4-ubuntu' --tag 'nickblah/lua:5.2.4-ubuntu' \
       --file lua-5.2/jammy/Dockerfile \
@@ -236,9 +243,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-focal' \
-      --tag 'ghcr.io/gui/lua:5.2-focal' --tag 'nickblah/lua:5.2-focal' --tag 'ghcr.io/gui/lua:5.2.4-focal' --tag 'nickblah/lua:5.2.4-focal' \
-      --file lua-5.2/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/lua:5.2-luarocks-kinetic' --tag 'nickblah/lua:5.2-luarocks-kinetic' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-kinetic' --tag 'nickblah/lua:5.2.4-luarocks-kinetic' \
+      --file lua-5.2/luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -246,13 +253,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy' \
       --tag 'ghcr.io/gui/lua:5.2-luarocks-jammy' --tag 'nickblah/lua:5.2-luarocks-jammy' --tag 'ghcr.io/gui/lua:5.2-luarocks-ubuntu' --tag 'nickblah/lua:5.2-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-jammy' --tag 'nickblah/lua:5.2.4-luarocks-jammy' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-ubuntu' --tag 'nickblah/lua:5.2.4-luarocks-ubuntu' \
       --file lua-5.2/luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks-focal' --tag 'nickblah/lua:5.2-luarocks-focal' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-focal' --tag 'nickblah/lua:5.2.4-luarocks-focal' \
-      --file lua-5.2/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -369,6 +369,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2.1-beta-kinetic' --tag 'nickblah/luajit:2.1-beta-kinetic' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-kinetic' --tag 'nickblah/luajit:2.1.0-beta3-kinetic' \
+      --file luajit-2.1-beta/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy' \
       --tag 'ghcr.io/gui/luajit:2.1-beta-jammy' --tag 'nickblah/luajit:2.1-beta-jammy' --tag 'ghcr.io/gui/luajit:2.1-beta-ubuntu' --tag 'nickblah/luajit:2.1-beta-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-jammy' --tag 'nickblah/luajit:2.1.0-beta3-jammy' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-ubuntu' --tag 'nickblah/luajit:2.1.0-beta3-ubuntu' \
       --file luajit-2.1-beta/jammy/Dockerfile \
@@ -376,9 +383,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal' \
-      --tag 'ghcr.io/gui/luajit:2.1-beta-focal' --tag 'nickblah/luajit:2.1-beta-focal' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-focal' --tag 'nickblah/luajit:2.1.0-beta3-focal' \
-      --file luajit-2.1-beta/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2.1-beta-luarocks-kinetic' --tag 'nickblah/luajit:2.1-beta-luarocks-kinetic' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-luarocks-kinetic' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-kinetic' \
+      --file luajit-2.1-beta/luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -390,9 +397,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal' \
-      --tag 'ghcr.io/gui/luajit:2.1-beta-luarocks-focal' --tag 'nickblah/luajit:2.1-beta-luarocks-focal' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-luarocks-focal' --tag 'nickblah/luajit:2.1.0-beta3-luarocks-focal' \
-      --file luajit-2.1-beta/luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2.1-beta-lua52compat-kinetic' --tag 'nickblah/luajit:2.1-beta-lua52compat-kinetic' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-lua52compat-kinetic' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-kinetic' \
+      --file luajit-2.1-beta/lua52compat-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -404,9 +411,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal' \
-      --tag 'ghcr.io/gui/luajit:2.1-beta-lua52compat-focal' --tag 'nickblah/luajit:2.1-beta-lua52compat-focal' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-lua52compat-focal' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-focal' \
-      --file luajit-2.1-beta/lua52compat-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2.1-beta-lua52compat-luarocks-kinetic' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-kinetic' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-lua52compat-luarocks-kinetic' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-kinetic' \
+      --file luajit-2.1-beta/lua52compat-luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -414,13 +421,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy' \
       --tag 'ghcr.io/gui/luajit:2.1-beta-lua52compat-luarocks-jammy' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-jammy' --tag 'ghcr.io/gui/luajit:2.1-beta-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-lua52compat-luarocks-jammy' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-jammy' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-ubuntu' \
       --file luajit-2.1-beta/lua52compat-luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal' \
-      --tag 'ghcr.io/gui/luajit:2.1-beta-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.1-beta-lua52compat-luarocks-focal' --tag 'ghcr.io/gui/luajit:2.1.0-beta3-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.1.0-beta3-lua52compat-luarocks-focal' \
-      --file luajit-2.1-beta/lua52compat-luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -537,6 +537,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2-kinetic' --tag 'nickblah/luajit:2-kinetic' --tag 'ghcr.io/gui/luajit:2.0-kinetic' --tag 'nickblah/luajit:2.0-kinetic' --tag 'ghcr.io/gui/luajit:2.0.5-kinetic' --tag 'nickblah/luajit:2.0.5-kinetic' \
+      --file luajit-2.0/kinetic/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-jammy' \
       --tag 'ghcr.io/gui/luajit:2-jammy' --tag 'nickblah/luajit:2-jammy' --tag 'ghcr.io/gui/luajit:2-ubuntu' --tag 'nickblah/luajit:2-ubuntu' --tag 'ghcr.io/gui/luajit:2.0-jammy' --tag 'nickblah/luajit:2.0-jammy' --tag 'ghcr.io/gui/luajit:2.0-ubuntu' --tag 'nickblah/luajit:2.0-ubuntu' --tag 'ghcr.io/gui/luajit:2.0.5-jammy' --tag 'nickblah/luajit:2.0.5-jammy' --tag 'ghcr.io/gui/luajit:2.0.5-ubuntu' --tag 'nickblah/luajit:2.0.5-ubuntu' --tag 'ghcr.io/gui/luajit:ubuntu' --tag 'nickblah/luajit:ubuntu' \
       --file luajit-2.0/jammy/Dockerfile \
@@ -544,9 +551,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-focal' \
-      --tag 'ghcr.io/gui/luajit:2-focal' --tag 'nickblah/luajit:2-focal' --tag 'ghcr.io/gui/luajit:2.0-focal' --tag 'nickblah/luajit:2.0-focal' --tag 'ghcr.io/gui/luajit:2.0.5-focal' --tag 'nickblah/luajit:2.0.5-focal' \
-      --file luajit-2.0/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-kinetic' --tag 'nickblah/luajit:2-luarocks-kinetic' --tag 'ghcr.io/gui/luajit:2.0-luarocks-kinetic' --tag 'nickblah/luajit:2.0-luarocks-kinetic' --tag 'ghcr.io/gui/luajit:2.0.5-luarocks-kinetic' --tag 'nickblah/luajit:2.0.5-luarocks-kinetic' \
+      --file luajit-2.0/luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -558,9 +565,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-focal' --tag 'nickblah/luajit:2-luarocks-focal' --tag 'ghcr.io/gui/luajit:2.0-luarocks-focal' --tag 'nickblah/luajit:2.0-luarocks-focal' --tag 'ghcr.io/gui/luajit:2.0.5-luarocks-focal' --tag 'nickblah/luajit:2.0.5-luarocks-focal' \
-      --file luajit-2.0/luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-kinetic' --tag 'nickblah/luajit:2-lua52compat-kinetic' --tag 'ghcr.io/gui/luajit:2.0-lua52compat-kinetic' --tag 'nickblah/luajit:2.0-lua52compat-kinetic' --tag 'ghcr.io/gui/luajit:2.0.5-lua52compat-kinetic' --tag 'nickblah/luajit:2.0.5-lua52compat-kinetic' \
+      --file luajit-2.0/lua52compat-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -572,9 +579,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-focal' --tag 'nickblah/luajit:2-lua52compat-focal' --tag 'ghcr.io/gui/luajit:2.0-lua52compat-focal' --tag 'nickblah/luajit:2.0-lua52compat-focal' --tag 'ghcr.io/gui/luajit:2.0.5-lua52compat-focal' --tag 'nickblah/luajit:2.0.5-lua52compat-focal' \
-      --file luajit-2.0/lua52compat-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-kinetic' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-kinetic' --tag 'nickblah/luajit:2-lua52compat-luarocks-kinetic' --tag 'ghcr.io/gui/luajit:2.0-lua52compat-luarocks-kinetic' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-kinetic' --tag 'ghcr.io/gui/luajit:2.0.5-lua52compat-luarocks-kinetic' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-kinetic' \
+      --file luajit-2.0/lua52compat-luarocks-kinetic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -582,11 +589,4 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy' \
       --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-jammy' --tag 'nickblah/luajit:2-lua52compat-luarocks-jammy' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.0-lua52compat-luarocks-jammy' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-jammy' --tag 'ghcr.io/gui/luajit:2.0-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.0.5-lua52compat-luarocks-jammy' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-jammy' --tag 'ghcr.io/gui/luajit:2.0.5-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:lua52compat-luarocks-ubuntu' \
       --file luajit-2.0/lua52compat-luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2-lua52compat-luarocks-focal' --tag 'ghcr.io/gui/luajit:2.0-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.0-lua52compat-luarocks-focal' --tag 'ghcr.io/gui/luajit:2.0.5-lua52compat-luarocks-focal' --tag 'nickblah/luajit:2.0.5-lua52compat-luarocks-focal' \
-      --file luajit-2.0/lua52compat-luarocks-focal/Dockerfile \
       .
