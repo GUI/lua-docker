@@ -6,6 +6,15 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-bookworm' \
+      --file lua-5.4/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-bullseye' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-bullseye' \
@@ -15,10 +24,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-buster' \
-      --file lua-5.4/buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-bookworm' \
+      --file lua-5.4/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -28,15 +37,6 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-bullseye' \
       --file lua-5.4/luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-buster' \
-      --file lua-5.4/luarocks-buster/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -114,6 +114,15 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-bookworm' \
+      --file lua-5.3/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-bullseye' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-bullseye' \
@@ -123,10 +132,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-buster' \
-      --file lua-5.3/buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-bookworm' \
+      --file lua-5.3/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -136,15 +145,6 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-bullseye' \
       --file lua-5.3/luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-buster' \
-      --file lua-5.3/luarocks-buster/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -222,6 +222,15 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-bookworm' \
+      --file lua-5.2/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-bullseye' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-bullseye' \
@@ -231,10 +240,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-buster' \
-      --file lua-5.2/buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-bookworm' \
+      --file lua-5.2/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -244,15 +253,6 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-bullseye' \
       --file lua-5.2/luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-buster' \
-      --file lua-5.2/luarocks-buster/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -330,6 +330,15 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-bookworm' \
+      --file luajit-2.1-beta/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bullseye' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-bullseye' \
@@ -339,10 +348,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-buster' \
-      --file luajit-2.1-beta/buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bookworm' \
+      --file luajit-2.1-beta/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -357,10 +366,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-buster' \
-      --file luajit-2.1-beta/luarocks-buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bookworm' \
+      --file luajit-2.1-beta/lua52compat-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -375,10 +384,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-buster' \
-      --file luajit-2.1-beta/lua52compat-buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bookworm' \
+      --file luajit-2.1-beta/lua52compat-luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -388,15 +397,6 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bullseye' \
       --file luajit-2.1-beta/lua52compat-luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-buster' \
-      --file luajit-2.1-beta/lua52compat-luarocks-buster/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -546,6 +546,15 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-bookworm' \
+      --file luajit-2.0/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64' \
+      --pull \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bullseye' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-bullseye' \
@@ -555,10 +564,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-buster' \
-      --file luajit-2.0/buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bookworm' \
+      --file luajit-2.0/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -573,10 +582,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-buster' \
-      --file luajit-2.0/luarocks-buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bookworm' \
+      --file luajit-2.0/lua52compat-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -591,10 +600,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-buster' \
-      --file luajit-2.0/lua52compat-buster/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bookworm' \
+      --file luajit-2.0/lua52compat-luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -604,15 +613,6 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bullseye,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bullseye' \
       --file luajit-2.0/lua52compat-luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-buster' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-buster,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-buster' \
-      --file luajit-2.0/lua52compat-luarocks-buster/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
