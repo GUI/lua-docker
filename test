@@ -131,22 +131,6 @@ exitcode=0
       echo
     fi
 
-    printf "5.4-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-kinetic' /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
     printf "5.4-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -163,8 +147,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.4-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "5.4-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -181,6 +165,22 @@ exitcode=0
 
     printf "5.4-luarocks-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy' /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.4-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -323,22 +323,6 @@ exitcode=0
       echo
     fi
 
-    printf "5.3-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-kinetic' /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
     printf "5.3-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -355,8 +339,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.3-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "5.3-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -373,6 +357,22 @@ exitcode=0
 
     printf "5.3-luarocks-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy' /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.3-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -515,22 +515,6 @@ exitcode=0
       echo
     fi
 
-    printf "5.2-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-kinetic' /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
     printf "5.2-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -547,8 +531,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.2-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "5.2-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -565,6 +549,22 @@ exitcode=0
 
     printf "5.2-luarocks-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy' /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "5.2-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -835,22 +835,6 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-kinetic' /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
     printf "2.1-beta-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -867,8 +851,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "2.1-beta-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -899,8 +883,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-lua52compat-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-kinetic' /test.sh 2>&1 || true)
+    printf "2.1-beta-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -931,8 +915,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-beta-lua52compat-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "2.1-beta-lua52compat-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -949,6 +933,22 @@ exitcode=0
 
     printf "2.1-beta-lua52compat-luarocks-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy' /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.1-beta-lua52compat-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1219,22 +1219,6 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-kinetic' /test.sh 2>&1 || true)
-    if [[ "$output" =~ "Lua Tests: Error" ]]; then
-      exitcode=1
-      echo "Error"
-      echo "$output"
-      echo
-    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
-      echo "OK"
-    else
-      exitcode=1
-      echo "Unexpected Error"
-      echo "$output"
-      echo
-    fi
-
     printf "2.0-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
@@ -1251,8 +1235,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "2.0-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1283,8 +1267,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-lua52compat-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-kinetic' /test.sh 2>&1 || true)
+    printf "2.0-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1315,8 +1299,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.0-lua52compat-luarocks-kinetic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-kinetic' /test.sh 2>&1 || true)
+    printf "2.0-lua52compat-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -1333,6 +1317,22 @@ exitcode=0
 
     printf "2.0-lua52compat-luarocks-jammy: "
     output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy' /test.sh 2>&1 || true)
+    if [[ "$output" =~ "Lua Tests: Error" ]]; then
+      exitcode=1
+      echo "Error"
+      echo "$output"
+      echo
+    elif [[ "$output" =~ "Lua Tests: OK" ]]; then
+      echo "OK"
+    else
+      exitcode=1
+      echo "Unexpected Error"
+      echo "$output"
+      echo
+    fi
+
+    printf "2.0-lua52compat-luarocks-focal: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"

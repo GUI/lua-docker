@@ -78,15 +78,6 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-kinetic' \
-      --file lua-5.4/kinetic/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-jammy' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-jammy' \
@@ -96,10 +87,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-kinetic' \
-      --file lua-5.4/luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-focal' \
+      --file lua-5.4/focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -109,6 +100,15 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy' \
       --file lua-5.4/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal' \
+      --file lua-5.4/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -186,15 +186,6 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-kinetic' \
-      --file lua-5.3/kinetic/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-jammy' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-jammy' \
@@ -204,10 +195,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-kinetic' \
-      --file lua-5.3/luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-focal' \
+      --file lua-5.3/focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -217,6 +208,15 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy' \
       --file lua-5.3/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal' \
+      --file lua-5.3/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -294,15 +294,6 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-kinetic' \
-      --file lua-5.2/kinetic/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-jammy' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-jammy' \
@@ -312,10 +303,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-kinetic' \
-      --file lua-5.2/luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-focal' \
+      --file lua-5.2/focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -325,6 +316,15 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy' \
       --file lua-5.2/luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal' \
+      --file lua-5.2/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -474,15 +474,6 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-kinetic' \
-      --file luajit-2.1-beta/kinetic/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --pull \
-      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy' \
@@ -492,10 +483,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-kinetic' \
-      --file luajit-2.1-beta/luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal' \
+      --file luajit-2.1-beta/focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -510,10 +501,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-kinetic' \
-      --file luajit-2.1-beta/lua52compat-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal' \
+      --file luajit-2.1-beta/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -528,10 +519,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-kinetic' \
-      --file luajit-2.1-beta/lua52compat-luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal' \
+      --file luajit-2.1-beta/lua52compat-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -541,6 +532,15 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy' \
       --file luajit-2.1-beta/lua52compat-luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal' \
+      --file luajit-2.1-beta/lua52compat-luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -690,15 +690,6 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-kinetic' \
-      --file luajit-2.0/kinetic/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-jammy' \
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-jammy' \
@@ -708,10 +699,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-kinetic' \
-      --file luajit-2.0/luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-focal' \
+      --file luajit-2.0/focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -726,10 +717,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-kinetic' \
-      --file luajit-2.0/lua52compat-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' \
+      --file luajit-2.0/luarocks-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -744,10 +735,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-kinetic' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-kinetic,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-kinetic' \
-      --file luajit-2.0/lua52compat-luarocks-kinetic/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' \
+      --file luajit-2.0/lua52compat-focal/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64' \
@@ -757,4 +748,13 @@ set -Eeuxo pipefail
       --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy,mode=max' \
       --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy' \
       --file luajit-2.0/lua52compat-luarocks-jammy/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64' \
+      --pull \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' \
+      --file luajit-2.0/lua52compat-luarocks-focal/Dockerfile \
       .
