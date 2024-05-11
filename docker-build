@@ -42,73 +42,73 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-alpine3' \
-      --file lua-5.4/alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.19' \
+      --file lua-5.4/alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.17' \
-      --file lua-5.4/alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.18' \
+      --file lua-5.4/alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3' \
-      --file lua-5.4/luarocks-alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.19' \
+      --file lua-5.4/luarocks-alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.17' \
-      --file lua-5.4/luarocks-alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.18' \
+      --file lua-5.4/luarocks-alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-jammy' \
-      --file lua-5.4/jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-noble' \
+      --file lua-5.4/noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-focal' \
-      --file lua-5.4/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-mantic' \
+      --file lua-5.4/mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy' \
-      --file lua-5.4/luarocks-jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble' \
+      --file lua-5.4/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-focal' \
-      --file lua-5.4/luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-mantic' \
+      --file lua-5.4/luarocks-mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -150,73 +150,73 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-alpine3' \
-      --file lua-5.3/alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.19' \
+      --file lua-5.3/alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.17' \
-      --file lua-5.3/alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-alpine3.18' \
+      --file lua-5.3/alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3' \
-      --file lua-5.3/luarocks-alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.19' \
+      --file lua-5.3/luarocks-alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.17' \
-      --file lua-5.3/luarocks-alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-alpine3.18' \
+      --file lua-5.3/luarocks-alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-jammy' \
-      --file lua-5.3/jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-noble' \
+      --file lua-5.3/noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-focal' \
-      --file lua-5.3/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-mantic' \
+      --file lua-5.3/mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy' \
-      --file lua-5.3/luarocks-jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble' \
+      --file lua-5.3/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-focal' \
-      --file lua-5.3/luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-mantic' \
+      --file lua-5.3/luarocks-mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -258,503 +258,287 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-alpine3' \
-      --file lua-5.2/alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.19' \
+      --file lua-5.2/alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.17' \
-      --file lua-5.2/alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.18' \
+      --file lua-5.2/alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3' \
-      --file lua-5.2/luarocks-alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.19' \
+      --file lua-5.2/luarocks-alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.17' \
-      --file lua-5.2/luarocks-alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.18' \
+      --file lua-5.2/luarocks-alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-jammy' \
-      --file lua-5.2/jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-noble' \
+      --file lua-5.2/noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-focal' \
-      --file lua-5.2/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-mantic' \
+      --file lua-5.2/mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy' \
-      --file lua-5.2/luarocks-jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-noble' \
+      --file lua-5.2/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-focal' \
-      --file lua-5.2/luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-mantic' \
+      --file lua-5.2/luarocks-mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-bookworm' \
-      --file luajit-2.1-beta/bookworm/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-bookworm' \
+      --file luajit-2.1/bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-bullseye' \
-      --file luajit-2.1-beta/bullseye/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-bullseye' \
+      --file luajit-2.1/bullseye/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bookworm' \
-      --file luajit-2.1-beta/luarocks-bookworm/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bookworm' \
+      --file luajit-2.1/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-bullseye' \
-      --file luajit-2.1-beta/luarocks-bullseye/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bullseye' \
+      --file luajit-2.1/luarocks-bullseye/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bookworm' \
-      --file luajit-2.1-beta/lua52compat-bookworm/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bookworm' \
+      --file luajit-2.1/lua52compat-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-bullseye' \
-      --file luajit-2.1-beta/lua52compat-bullseye/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bullseye' \
+      --file luajit-2.1/lua52compat-bullseye/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bookworm' \
-      --file luajit-2.1-beta/lua52compat-luarocks-bookworm/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bookworm' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bookworm,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bookworm' \
+      --file luajit-2.1/lua52compat-luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-bullseye' \
-      --file luajit-2.1-beta/lua52compat-luarocks-bullseye/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bullseye' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bullseye,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bullseye' \
+      --file luajit-2.1/lua52compat-luarocks-bullseye/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-alpine3' \
-      --file luajit-2.1-beta/alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.19' \
+      --file luajit-2.1/alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-alpine3.17' \
-      --file luajit-2.1-beta/alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.18' \
+      --file luajit-2.1/alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-alpine3' \
-      --file luajit-2.1-beta/luarocks-alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.19' \
+      --file luajit-2.1/luarocks-alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-alpine3.17' \
-      --file luajit-2.1-beta/luarocks-alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.18' \
+      --file luajit-2.1/luarocks-alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-alpine3' \
-      --file luajit-2.1-beta/lua52compat-alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.19' \
+      --file luajit-2.1/lua52compat-alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-alpine3.17' \
-      --file luajit-2.1-beta/lua52compat-alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.18' \
+      --file luajit-2.1/lua52compat-alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-alpine3' \
-      --file luajit-2.1-beta/lua52compat-luarocks-alpine3/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.19' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.19,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.19' \
+      --file luajit-2.1/lua52compat-luarocks-alpine3.19/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-alpine3.17' \
-      --file luajit-2.1-beta/lua52compat-luarocks-alpine3.17/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.18' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.18,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.18' \
+      --file luajit-2.1/lua52compat-luarocks-alpine3.18/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-jammy' \
-      --file luajit-2.1-beta/jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-noble' \
+      --file luajit-2.1/noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-focal' \
-      --file luajit-2.1-beta/focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-mantic' \
+      --file luajit-2.1/mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-jammy' \
-      --file luajit-2.1-beta/luarocks-jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble' \
+      --file luajit-2.1/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-luarocks-focal' \
-      --file luajit-2.1-beta/luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-mantic' \
+      --file luajit-2.1/luarocks-mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-jammy' \
-      --file luajit-2.1-beta/lua52compat-jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble' \
+      --file luajit-2.1/lua52compat-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-focal' \
-      --file luajit-2.1-beta/lua52compat-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-mantic' \
+      --file luajit-2.1/lua52compat-mantic/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-jammy' \
-      --file luajit-2.1-beta/lua52compat-luarocks-jammy/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble' \
+      --file luajit-2.1/lua52compat-luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-beta-lua52compat-luarocks-focal' \
-      --file luajit-2.1-beta/lua52compat-luarocks-focal/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-bookworm' \
-      --file luajit-2.0/bookworm/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-bullseye' \
-      --file luajit-2.0/bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bookworm' \
-      --file luajit-2.0/luarocks-bookworm/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-bullseye' \
-      --file luajit-2.0/luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bookworm' \
-      --file luajit-2.0/lua52compat-bookworm/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-bullseye' \
-      --file luajit-2.0/lua52compat-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bookworm' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bookworm,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bookworm' \
-      --file luajit-2.0/lua52compat-luarocks-bookworm/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bullseye' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bullseye,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-bullseye' \
-      --file luajit-2.0/lua52compat-luarocks-bullseye/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-alpine3' \
-      --file luajit-2.0/alpine3/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-alpine3.17' \
-      --file luajit-2.0/alpine3.17/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3' \
-      --file luajit-2.0/luarocks-alpine3/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-alpine3.17' \
-      --file luajit-2.0/luarocks-alpine3.17/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3' \
-      --file luajit-2.0/lua52compat-alpine3/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-alpine3.17' \
-      --file luajit-2.0/lua52compat-alpine3.17/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3' \
-      --file luajit-2.0/lua52compat-luarocks-alpine3/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3.17' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3.17,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-alpine3.17' \
-      --file luajit-2.0/lua52compat-luarocks-alpine3.17/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-jammy' \
-      --file luajit-2.0/jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-focal' \
-      --file luajit-2.0/focal/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-jammy' \
-      --file luajit-2.0/luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-luarocks-focal' \
-      --file luajit-2.0/luarocks-focal/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-jammy' \
-      --file luajit-2.0/lua52compat-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-focal' \
-      --file luajit-2.0/lua52compat-focal/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-jammy' \
-      --file luajit-2.0/lua52compat-luarocks-jammy/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64' \
-      --pull \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.0-lua52compat-luarocks-focal' \
-      --file luajit-2.0/lua52compat-luarocks-focal/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-mantic' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-mantic,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-mantic' \
+      --file luajit-2.1/lua52compat-luarocks-mantic/Dockerfile \
       .
