@@ -2,8 +2,10 @@
 
 require "erb"
 require "fileutils"
+require "json"
 require "open-uri"
 require "set"
+require "time"
 
 VERSION_CONSTRAINTS = {
   "lua" => Gem::Dependency.new("lua", ">= 5.0", ">= 5.0.pre"),
@@ -60,7 +62,7 @@ DISTROS.each do |distro_name|
 
       distro_version_tags.reject! { |t| t =~ /^(\d+|testing|rc-buggy|oldstable|sid|stable|unstable|experimental|.*-backports|.*-slim)/ }
     when "ubuntu"
-      if distro_tags.include?("rolling") || distro_tags.include?("devel")
+      if distro_tags.include?("devel")
         next
       end
 
@@ -70,15 +72,20 @@ DISTROS.each do |distro_name|
     end
 
     distro_version_tags.sort_by! { |t| t.length }
+    if distro_name == "alpine" && distro_version_tags.first =~ /^\d+$/
+      major_version_tag = distro_version_tags.shift
+    end
     distro_tag = distro_version_tags.last
     distro_version = distro_version_tags.first
     if distro_version
       distro_numeric_version = Gem::Version.new(distro_tags.sort_by { |t| t.length }.reverse.find { |t| t =~ /^([\d.]+)$/ })
       distros[distro_name] ||= []
       distros[distro_name] << {
+        :distro_tag => distro_tag,
         :distro_version => distro_version,
         :distro_numeric_version => distro_numeric_version,
         :latest => distro_tags.include?("latest"),
+        :major_version_tag => major_version_tag,
       }
     end
   end
@@ -97,8 +104,9 @@ versions.keys.each do |lang|
     content += URI.open("https://www.lua.org/work/").read
     content.scan(/lua-([\d\.]+(?:-beta-rc\d+)?)\.tar\.gz/).flatten.compact.uniq
   when "luajit"
-    content = URI.open("https://luajit.org/download.html").read
-    content.scan(/LuaJIT-([\d\.]+(?:-beta\d+)?)\.tar\.gz/).flatten.compact.uniq
+    data = JSON.parse(URI.open("https://api.github.com/repos/LuaJIT/LuaJIT/branches/v2.1").read)
+    timestamp = Time.iso8601(data.fetch("commit").fetch("commit").fetch("committer").fetch("date")).to_i
+    ["2.1.#{timestamp}"]
   end
 
   archive_versions.each do |version_full|
@@ -127,9 +135,8 @@ versions.keys.each do |lang|
           archive_sha1 = archive_sha
         end
       when "luajit"
-        filename = "LuaJIT-#{version_full}.tar.gz"
-        archive_url = "https://luajit.org/download/#{filename}"
-        archive_sha256 = content.match(/\b([a-f0-9]{64})\s+#{Regexp.escape(filename)}/)[1]
+        filename = "LuaJIT-#{data.fetch("commit").fetch("sha")}.tar.gz"
+        archive_url = "https://github.com/LuaJIT/LuaJIT/archive/#{data.fetch("commit").fetch("sha")}.tar.gz"
       end
 
       versions[lang][version_name] = {
@@ -178,7 +185,7 @@ versions.each_value do |lang_versions|
         distro_versions.each_with_index do |distro_data, distro_index|
           template = ERB.new(File.read("Dockerfile.erb"), trim_mode: "-").result_with_hash(version.merge({
             :distro => distro,
-            :distro_version => distro_data.fetch(:distro_version),
+            :distro_tag => distro_data.fetch(:distro_tag),
             :variant => variant,
             :luarocks_version => luarocks_version,
           }))
@@ -197,6 +204,11 @@ versions.each_value do |lang_versions|
 
           if version[:latest]
             variant_tags << [version.fetch(:version_major), variant_name, distro_version_name].compact.join("-")
+          end
+
+          if distro_data[:major_version_tag]
+            variant_tags << [version.fetch(:version_full), variant_name, "#{distro}#{distro_data.fetch(:major_version_tag)}"].compact.join("-")
+            variant_tags << [version.fetch(:version_major), variant_name, "#{distro}#{distro_data.fetch(:major_version_tag)}"].compact.join("-")
           end
 
           # Default distro tags
