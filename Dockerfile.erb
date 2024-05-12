@@ -87,9 +87,9 @@ RUN set -ex \
       apt-mark manual $saved_apt_mark; \
     fi \
     <% if lang == "lua" -%>
-      && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline\d+$' | xargs apt-mark manual \
+      && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline[t\d]+$' | xargs apt-mark manual \
       <% if version_minor == "5.1" -%>
-        && dpkg-query --show --showformat '${package}\n' | grep -P '^libncurses\d+$' | xargs apt-mark manual \
+        && dpkg-query --show --showformat '${package}\n' | grep -P '^libncurses[t\d]+$' | xargs apt-mark manual \
       <% end -%>
     <% end -%>
     <% if variant.include?("luarocks") -%>
