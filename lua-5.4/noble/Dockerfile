@@ -26,7 +26,7 @@ RUN set -ex \
     && if [ -n "$saved_apt_mark" ]; then \
       apt-mark manual $saved_apt_mark; \
     fi \
-          && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline\d+$' | xargs apt-mark manual \
+          && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline[t\d]+$' | xargs apt-mark manual \
                   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && rm -rf /var/lib/apt/lists/* /var/lib/dpkg/*-old /var/cache/* /var/log/* \
     && rm -rf /tmp/lua /tmp/lua.tar.gz \

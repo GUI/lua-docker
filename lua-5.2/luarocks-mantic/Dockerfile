@@ -43,7 +43,7 @@ RUN set -ex \
     && if [ -n "$saved_apt_mark" ]; then \
       apt-mark manual $saved_apt_mark; \
     fi \
-          && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline\d+$' | xargs apt-mark manual \
+          && dpkg-query --show --showformat '${package}\n' | grep -P '^libreadline[t\d]+$' | xargs apt-mark manual \
                     && apt-mark manual \
         ca-certificates \
         curl \
