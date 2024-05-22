@@ -41,6 +41,8 @@ RUN set -ex \
         coreutils \
         gnupg \
         unzip \
+        # rundeps
+        wget \
       <% end -%>
   <% end -%>
   && curl -fsSL -o /tmp/lua.tar.gz "<%= archive_url %>" \
@@ -114,7 +116,7 @@ RUN set -ex \
       <% if variant.include?("luarocks") -%>
         ca-certificates \
         coreutils \
-        curl \
+        wget \
         unzip \
       <% end -%>
     && apk del --no-network .lua-builddeps \
