@@ -43,6 +43,16 @@ case "$LUAROCKS" in
         exitcode="1"
         ;;
     esac
+
+    luarocks_search=$(luarocks search --porcelain penlight 1.13.0-1)
+    case "$luarocks_search" in
+      "penlight"*)
+        ;;
+      *)
+        echo "luarocks search command not working as expected"
+        exitcode="1"
+        ;;
+    esac
     ;;
   false)
     if command -v luarocks; then
