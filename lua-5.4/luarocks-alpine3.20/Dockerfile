@@ -14,6 +14,8 @@ RUN set -ex \
                             coreutils \
         gnupg \
         unzip \
+        # rundeps
+        wget \
           && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.6.tar.gz" \
   && cd /tmp \
       && echo "7d5ea1b9cb6aa0b59ca3dde1c6adcb57ef83a1ba8e5432c0ecd06bf439b3ad88 *lua.tar.gz" | sha256sum -c - \
@@ -41,7 +43,7 @@ RUN set -ex \
               readline \
                                   ca-certificates \
         coreutils \
-        curl \
+        wget \
         unzip \
           && apk del --no-network .lua-builddeps \
     && rm -rf /tmp/lua /tmp/lua.tar.gz \

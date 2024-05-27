@@ -13,6 +13,8 @@ RUN set -ex \
                     coreutils \
         gnupg \
         unzip \
+        # rundeps
+        wget \
           && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/93e87998b24021b94de8d1c8db244444c46fb6e9.tar.gz" \
   && cd /tmp \
     && mkdir /tmp/lua \
@@ -39,7 +41,7 @@ RUN set -ex \
                     libgcc \
                     ca-certificates \
         coreutils \
-        curl \
+        wget \
         unzip \
           && apk del --no-network .lua-builddeps \
     && rm -rf /tmp/lua /tmp/lua.tar.gz \
