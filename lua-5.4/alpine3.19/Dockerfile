@@ -11,9 +11,9 @@ RUN set -ex \
       libc-dev \
       make \
               readline-dev \
-                        && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.6.tar.gz" \
+                        && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.7.tar.gz" \
   && cd /tmp \
-      && echo "7d5ea1b9cb6aa0b59ca3dde1c6adcb57ef83a1ba8e5432c0ecd06bf439b3ad88 *lua.tar.gz" | sha256sum -c - \
+      && echo "9fbf5e28ef86c69858f6d3d34eccc32e911c1a28b4120ff3e84aaa70cfbf1e30 *lua.tar.gz" | sha256sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
