@@ -147,8 +147,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.4-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-mantic' /test.sh 2>&1 || true)
+    printf "5.4-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -179,8 +179,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.4-luarocks-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-mantic' /test.sh 2>&1 || true)
+    printf "5.4-luarocks-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -339,8 +339,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.3-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-mantic' /test.sh 2>&1 || true)
+    printf "5.3-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -371,8 +371,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.3-luarocks-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-mantic' /test.sh 2>&1 || true)
+    printf "5.3-luarocks-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -531,8 +531,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.2-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-mantic' /test.sh 2>&1 || true)
+    printf "5.2-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -563,8 +563,8 @@ exitcode=0
       echo
     fi
 
-    printf "5.2-luarocks-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-mantic' /test.sh 2>&1 || true)
+    printf "5.2-luarocks-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=lua" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -851,8 +851,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-mantic' /test.sh 2>&1 || true)
+    printf "2.1-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -883,8 +883,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-luarocks-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-mantic' /test.sh 2>&1 || true)
+    printf "2.1-luarocks-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -915,8 +915,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-lua52compat-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-mantic' /test.sh 2>&1 || true)
+    printf "2.1-lua52compat-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=false" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
@@ -947,8 +947,8 @@ exitcode=0
       echo
     fi
 
-    printf "2.1-lua52compat-luarocks-mantic: "
-    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-mantic' /test.sh 2>&1 || true)
+    printf "2.1-lua52compat-luarocks-jammy: "
+    output=$(docker run -v $(pwd)/test.sh:/test.sh -e "LANG=luajit" -e "LUAROCKS=true" --rm 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-jammy' /test.sh 2>&1 || true)
     if [[ "$output" =~ "Lua Tests: Error" ]]; then
       exitcode=1
       echo "Error"
