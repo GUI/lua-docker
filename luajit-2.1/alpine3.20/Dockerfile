@@ -10,7 +10,7 @@ RUN set -ex \
       gcc \
       libc-dev \
       make \
-                && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/c68711cc872e6626dc9e653e94df7bf21691d38e.tar.gz" \
+                && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/f725e44cda8f359869bf8f92ce71787ddca45618.tar.gz" \
   && cd /tmp \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
