@@ -15,7 +15,7 @@ RUN set -ex \
                     dirmngr \
         gnupg \
         unzip \
-          && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/84cb21ffaf648b472ff3884556e2c413e8abe179.tar.gz" \
+          && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/538a82133ad6fddfd0ca64de167c4aca3bc1a2da.tar.gz" \
   && cd /tmp \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
