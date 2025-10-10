@@ -61,6 +61,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-rolling' \
+      --tag 'ghcr.io/gui/lua:5-rolling' --tag 'nickblah/lua:5-rolling' --tag 'ghcr.io/gui/lua:5.4-rolling' --tag 'nickblah/lua:5.4-rolling' --tag 'ghcr.io/gui/lua:5.4.8-rolling' --tag 'nickblah/lua:5.4.8-rolling' \
+      --file lua-5.4/rolling/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-plucky' \
       --tag 'ghcr.io/gui/lua:5-plucky' --tag 'nickblah/lua:5-plucky' --tag 'ghcr.io/gui/lua:5.4-plucky' --tag 'nickblah/lua:5.4-plucky' --tag 'ghcr.io/gui/lua:5.4.8-plucky' --tag 'nickblah/lua:5.4.8-plucky' \
       --file lua-5.4/plucky/Dockerfile \
@@ -68,9 +75,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-noble' \
-      --tag 'ghcr.io/gui/lua:5-noble' --tag 'nickblah/lua:5-noble' --tag 'ghcr.io/gui/lua:5-ubuntu' --tag 'nickblah/lua:5-ubuntu' --tag 'ghcr.io/gui/lua:5.4-noble' --tag 'nickblah/lua:5.4-noble' --tag 'ghcr.io/gui/lua:5.4-ubuntu' --tag 'nickblah/lua:5.4-ubuntu' --tag 'ghcr.io/gui/lua:5.4.8-noble' --tag 'nickblah/lua:5.4.8-noble' --tag 'ghcr.io/gui/lua:5.4.8-ubuntu' --tag 'nickblah/lua:5.4.8-ubuntu' --tag 'ghcr.io/gui/lua:ubuntu' --tag 'nickblah/lua:ubuntu' \
-      --file lua-5.4/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-rolling' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-rolling' --tag 'nickblah/lua:5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.4-luarocks-rolling' --tag 'nickblah/lua:5.4-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-rolling' --tag 'nickblah/lua:5.4.8-luarocks-rolling' \
+      --file lua-5.4/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -78,13 +85,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-plucky' \
       --tag 'ghcr.io/gui/lua:5-luarocks-plucky' --tag 'nickblah/lua:5-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.4-luarocks-plucky' --tag 'nickblah/lua:5.4-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-plucky' --tag 'nickblah/lua:5.4.8-luarocks-plucky' \
       --file lua-5.4/luarocks-plucky/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-noble' --tag 'nickblah/lua:5-luarocks-noble' --tag 'ghcr.io/gui/lua:5-luarocks-ubuntu' --tag 'nickblah/lua:5-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.4-luarocks-noble' --tag 'nickblah/lua:5.4-luarocks-noble' --tag 'ghcr.io/gui/lua:5.4-luarocks-ubuntu' --tag 'nickblah/lua:5.4-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-noble' --tag 'nickblah/lua:5.4.8-luarocks-noble' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-ubuntu' --tag 'nickblah/lua:5.4.8-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:luarocks-ubuntu' --tag 'nickblah/lua:luarocks-ubuntu' \
-      --file lua-5.4/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -145,6 +145,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-rolling' \
+      --tag 'ghcr.io/gui/lua:5.3-rolling' --tag 'nickblah/lua:5.3-rolling' --tag 'ghcr.io/gui/lua:5.3.6-rolling' --tag 'nickblah/lua:5.3.6-rolling' \
+      --file lua-5.3/rolling/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-plucky' \
       --tag 'ghcr.io/gui/lua:5.3-plucky' --tag 'nickblah/lua:5.3-plucky' --tag 'ghcr.io/gui/lua:5.3.6-plucky' --tag 'nickblah/lua:5.3.6-plucky' \
       --file lua-5.3/plucky/Dockerfile \
@@ -152,9 +159,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-noble' \
-      --tag 'ghcr.io/gui/lua:5.3-noble' --tag 'nickblah/lua:5.3-noble' --tag 'ghcr.io/gui/lua:5.3-ubuntu' --tag 'nickblah/lua:5.3-ubuntu' --tag 'ghcr.io/gui/lua:5.3.6-noble' --tag 'nickblah/lua:5.3.6-noble' --tag 'ghcr.io/gui/lua:5.3.6-ubuntu' --tag 'nickblah/lua:5.3.6-ubuntu' \
-      --file lua-5.3/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-rolling' \
+      --tag 'ghcr.io/gui/lua:5.3-luarocks-rolling' --tag 'nickblah/lua:5.3-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-rolling' --tag 'nickblah/lua:5.3.6-luarocks-rolling' \
+      --file lua-5.3/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -162,13 +169,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-plucky' \
       --tag 'ghcr.io/gui/lua:5.3-luarocks-plucky' --tag 'nickblah/lua:5.3-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-plucky' --tag 'nickblah/lua:5.3.6-luarocks-plucky' \
       --file lua-5.3/luarocks-plucky/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble' \
-      --tag 'ghcr.io/gui/lua:5.3-luarocks-noble' --tag 'nickblah/lua:5.3-luarocks-noble' --tag 'ghcr.io/gui/lua:5.3-luarocks-ubuntu' --tag 'nickblah/lua:5.3-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-noble' --tag 'nickblah/lua:5.3.6-luarocks-noble' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-ubuntu' --tag 'nickblah/lua:5.3.6-luarocks-ubuntu' \
-      --file lua-5.3/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -229,6 +229,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-rolling' \
+      --tag 'ghcr.io/gui/lua:5.2-rolling' --tag 'nickblah/lua:5.2-rolling' --tag 'ghcr.io/gui/lua:5.2.4-rolling' --tag 'nickblah/lua:5.2.4-rolling' \
+      --file lua-5.2/rolling/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-plucky' \
       --tag 'ghcr.io/gui/lua:5.2-plucky' --tag 'nickblah/lua:5.2-plucky' --tag 'ghcr.io/gui/lua:5.2.4-plucky' --tag 'nickblah/lua:5.2.4-plucky' \
       --file lua-5.2/plucky/Dockerfile \
@@ -236,9 +243,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-noble' \
-      --tag 'ghcr.io/gui/lua:5.2-noble' --tag 'nickblah/lua:5.2-noble' --tag 'ghcr.io/gui/lua:5.2-ubuntu' --tag 'nickblah/lua:5.2-ubuntu' --tag 'ghcr.io/gui/lua:5.2.4-noble' --tag 'nickblah/lua:5.2.4-noble' --tag 'ghcr.io/gui/lua:5.2.4-ubuntu' --tag 'nickblah/lua:5.2.4-ubuntu' \
-      --file lua-5.2/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-rolling' \
+      --tag 'ghcr.io/gui/lua:5.2-luarocks-rolling' --tag 'nickblah/lua:5.2-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-rolling' --tag 'nickblah/lua:5.2.4-luarocks-rolling' \
+      --file lua-5.2/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -246,13 +253,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-plucky' \
       --tag 'ghcr.io/gui/lua:5.2-luarocks-plucky' --tag 'nickblah/lua:5.2-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-plucky' --tag 'nickblah/lua:5.2.4-luarocks-plucky' \
       --file lua-5.2/luarocks-plucky/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-noble' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks-noble' --tag 'nickblah/lua:5.2-luarocks-noble' --tag 'ghcr.io/gui/lua:5.2-luarocks-ubuntu' --tag 'nickblah/lua:5.2-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-noble' --tag 'nickblah/lua:5.2.4-luarocks-noble' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-ubuntu' --tag 'nickblah/lua:5.2.4-luarocks-ubuntu' \
-      --file lua-5.2/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -369,6 +369,13 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-rolling' \
+      --tag 'ghcr.io/gui/luajit:2-rolling' --tag 'nickblah/luajit:2-rolling' --tag 'ghcr.io/gui/luajit:2.1-rolling' --tag 'nickblah/luajit:2.1-rolling' --tag 'ghcr.io/gui/luajit:2.1.1753364724-rolling' --tag 'nickblah/luajit:2.1.1753364724-rolling' \
+      --file luajit-2.1/rolling/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-plucky' \
       --tag 'ghcr.io/gui/luajit:2-plucky' --tag 'nickblah/luajit:2-plucky' --tag 'ghcr.io/gui/luajit:2.1-plucky' --tag 'nickblah/luajit:2.1-plucky' --tag 'ghcr.io/gui/luajit:2.1.1753364724-plucky' --tag 'nickblah/luajit:2.1.1753364724-plucky' \
       --file luajit-2.1/plucky/Dockerfile \
@@ -376,9 +383,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-noble' \
-      --tag 'ghcr.io/gui/luajit:2-noble' --tag 'nickblah/luajit:2-noble' --tag 'ghcr.io/gui/luajit:2-ubuntu' --tag 'nickblah/luajit:2-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-noble' --tag 'nickblah/luajit:2.1-noble' --tag 'ghcr.io/gui/luajit:2.1-ubuntu' --tag 'nickblah/luajit:2.1-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1753364724-noble' --tag 'nickblah/luajit:2.1.1753364724-noble' --tag 'ghcr.io/gui/luajit:2.1.1753364724-ubuntu' --tag 'nickblah/luajit:2.1.1753364724-ubuntu' --tag 'ghcr.io/gui/luajit:ubuntu' --tag 'nickblah/luajit:ubuntu' \
-      --file luajit-2.1/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-rolling' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-rolling' --tag 'nickblah/luajit:2-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1-luarocks-rolling' --tag 'nickblah/luajit:2.1-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1.1753364724-luarocks-rolling' --tag 'nickblah/luajit:2.1.1753364724-luarocks-rolling' \
+      --file luajit-2.1/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -390,9 +397,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-noble' --tag 'nickblah/luajit:2-luarocks-noble' --tag 'ghcr.io/gui/luajit:2-luarocks-ubuntu' --tag 'nickblah/luajit:2-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-luarocks-noble' --tag 'nickblah/luajit:2.1-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1753364724-luarocks-noble' --tag 'nickblah/luajit:2.1.1753364724-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1.1753364724-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.1753364724-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:luarocks-ubuntu' --tag 'nickblah/luajit:luarocks-ubuntu' \
-      --file luajit-2.1/luarocks-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-rolling' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-rolling' --tag 'nickblah/luajit:2-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-rolling' --tag 'nickblah/luajit:2.1-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-rolling' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-rolling' \
+      --file luajit-2.1/lua52compat-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -404,9 +411,9 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-noble' --tag 'nickblah/luajit:2-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2-lua52compat-ubuntu' --tag 'nickblah/luajit:2-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-noble' --tag 'nickblah/luajit:2.1-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-noble' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-ubuntu' --tag 'nickblah/luajit:lua52compat-ubuntu' \
-      --file luajit-2.1/lua52compat-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-rolling' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-luarocks-rolling' \
+      --file luajit-2.1/lua52compat-luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -414,11 +421,4 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-plucky' \
       --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-plucky' --tag 'nickblah/luajit:2-lua52compat-luarocks-plucky' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-plucky' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-plucky' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-luarocks-plucky' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-luarocks-plucky' \
       --file luajit-2.1/lua52compat-luarocks-plucky/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1.1753364724-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.1753364724-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:lua52compat-luarocks-ubuntu' \
-      --file luajit-2.1/lua52compat-luarocks-noble/Dockerfile \
       .
