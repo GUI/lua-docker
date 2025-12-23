@@ -5,85 +5,169 @@ set -Eeuxo pipefail
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-trixie' \
+      --tag 'ghcr.io/gui/lua:5' --tag 'nickblah/lua:5' --tag 'ghcr.io/gui/lua:5-debian' --tag 'nickblah/lua:5-debian' --tag 'ghcr.io/gui/lua:5-trixie' --tag 'nickblah/lua:5-trixie' --tag 'ghcr.io/gui/lua:5.5' --tag 'nickblah/lua:5.5' --tag 'ghcr.io/gui/lua:5.5-debian' --tag 'nickblah/lua:5.5-debian' --tag 'ghcr.io/gui/lua:5.5-trixie' --tag 'nickblah/lua:5.5-trixie' --tag 'ghcr.io/gui/lua:5.5.0' --tag 'nickblah/lua:5.5.0' --tag 'ghcr.io/gui/lua:5.5.0-debian' --tag 'nickblah/lua:5.5.0-debian' --tag 'ghcr.io/gui/lua:5.5.0-trixie' --tag 'nickblah/lua:5.5.0-trixie' --tag 'ghcr.io/gui/lua:debian' --tag 'nickblah/lua:debian' --tag 'ghcr.io/gui/lua:latest' --tag 'nickblah/lua:latest' \
+      --file lua-5.5/trixie/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-bookworm' \
+      --tag 'ghcr.io/gui/lua:5-bookworm' --tag 'nickblah/lua:5-bookworm' --tag 'ghcr.io/gui/lua:5.5-bookworm' --tag 'nickblah/lua:5.5-bookworm' --tag 'ghcr.io/gui/lua:5.5.0-bookworm' --tag 'nickblah/lua:5.5.0-bookworm' \
+      --file lua-5.5/bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-trixie' \
+      --tag 'ghcr.io/gui/lua:5-luarocks' --tag 'nickblah/lua:5-luarocks' --tag 'ghcr.io/gui/lua:5-luarocks-debian' --tag 'nickblah/lua:5-luarocks-debian' --tag 'ghcr.io/gui/lua:5-luarocks-trixie' --tag 'nickblah/lua:5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.5-luarocks' --tag 'nickblah/lua:5.5-luarocks' --tag 'ghcr.io/gui/lua:5.5-luarocks-debian' --tag 'nickblah/lua:5.5-luarocks-debian' --tag 'ghcr.io/gui/lua:5.5-luarocks-trixie' --tag 'nickblah/lua:5.5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.5.0-luarocks' --tag 'nickblah/lua:5.5.0-luarocks' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-debian' --tag 'nickblah/lua:5.5.0-luarocks-debian' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-trixie' --tag 'nickblah/lua:5.5.0-luarocks-trixie' --tag 'ghcr.io/gui/lua:luarocks' --tag 'nickblah/lua:luarocks' --tag 'ghcr.io/gui/lua:luarocks-debian' --tag 'nickblah/lua:luarocks-debian' \
+      --file lua-5.5/luarocks-trixie/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-bookworm' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-bookworm' --tag 'nickblah/lua:5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.5-luarocks-bookworm' --tag 'nickblah/lua:5.5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-bookworm' --tag 'nickblah/lua:5.5.0-luarocks-bookworm' \
+      --file lua-5.5/luarocks-bookworm/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-alpine3.23' \
+      --tag 'ghcr.io/gui/lua:5-alpine' --tag 'nickblah/lua:5-alpine' --tag 'ghcr.io/gui/lua:5-alpine3' --tag 'nickblah/lua:5-alpine3' --tag 'ghcr.io/gui/lua:5-alpine3.23' --tag 'nickblah/lua:5-alpine3.23' --tag 'ghcr.io/gui/lua:5.5-alpine' --tag 'nickblah/lua:5.5-alpine' --tag 'ghcr.io/gui/lua:5.5-alpine3.23' --tag 'nickblah/lua:5.5-alpine3.23' --tag 'ghcr.io/gui/lua:5.5.0-alpine' --tag 'nickblah/lua:5.5.0-alpine' --tag 'ghcr.io/gui/lua:5.5.0-alpine3' --tag 'nickblah/lua:5.5.0-alpine3' --tag 'ghcr.io/gui/lua:5.5.0-alpine3.23' --tag 'nickblah/lua:5.5.0-alpine3.23' --tag 'ghcr.io/gui/lua:alpine' --tag 'nickblah/lua:alpine' \
+      --file lua-5.5/alpine3.23/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-alpine3.22' \
+      --tag 'ghcr.io/gui/lua:5-alpine3.22' --tag 'nickblah/lua:5-alpine3.22' --tag 'ghcr.io/gui/lua:5.5-alpine3.22' --tag 'nickblah/lua:5.5-alpine3.22' --tag 'ghcr.io/gui/lua:5.5.0-alpine3.22' --tag 'nickblah/lua:5.5.0-alpine3.22' \
+      --file lua-5.5/alpine3.22/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-alpine3.23' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-alpine' --tag 'nickblah/lua:5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3' --tag 'nickblah/lua:5-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.23' --tag 'nickblah/lua:5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine' --tag 'nickblah/lua:5.5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine3.23' --tag 'nickblah/lua:5.5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine' --tag 'nickblah/lua:5.5.0-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine3' --tag 'nickblah/lua:5.5.0-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine3.23' --tag 'nickblah/lua:5.5.0-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:luarocks-alpine' --tag 'nickblah/lua:luarocks-alpine' \
+      --file lua-5.5/luarocks-alpine3.23/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-alpine3.22' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.22' --tag 'nickblah/lua:5-luarocks-alpine3.22' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine3.22' --tag 'nickblah/lua:5.5-luarocks-alpine3.22' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine3.22' --tag 'nickblah/lua:5.5.0-luarocks-alpine3.22' \
+      --file lua-5.5/luarocks-alpine3.22/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-rolling' \
+      --tag 'ghcr.io/gui/lua:5-rolling' --tag 'nickblah/lua:5-rolling' --tag 'ghcr.io/gui/lua:5.5-rolling' --tag 'nickblah/lua:5.5-rolling' --tag 'ghcr.io/gui/lua:5.5.0-rolling' --tag 'nickblah/lua:5.5.0-rolling' \
+      --file lua-5.5/rolling/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-plucky' \
+      --tag 'ghcr.io/gui/lua:5-plucky' --tag 'nickblah/lua:5-plucky' --tag 'ghcr.io/gui/lua:5.5-plucky' --tag 'nickblah/lua:5.5-plucky' --tag 'ghcr.io/gui/lua:5.5.0-plucky' --tag 'nickblah/lua:5.5.0-plucky' \
+      --file lua-5.5/plucky/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-rolling' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-rolling' --tag 'nickblah/lua:5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.5-luarocks-rolling' --tag 'nickblah/lua:5.5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-rolling' --tag 'nickblah/lua:5.5.0-luarocks-rolling' \
+      --file lua-5.5/luarocks-rolling/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-plucky' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-plucky' --tag 'nickblah/lua:5-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.5-luarocks-plucky' --tag 'nickblah/lua:5.5-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-plucky' --tag 'nickblah/lua:5.5.0-luarocks-plucky' \
+      --file lua-5.5/luarocks-plucky/Dockerfile \
+      .
+    docker buildx build \
+      --platform 'linux/amd64,linux/arm64' \
+      --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-trixie' \
-      --tag 'ghcr.io/gui/lua:5' --tag 'nickblah/lua:5' --tag 'ghcr.io/gui/lua:5-debian' --tag 'nickblah/lua:5-debian' --tag 'ghcr.io/gui/lua:5-trixie' --tag 'nickblah/lua:5-trixie' --tag 'ghcr.io/gui/lua:5.4' --tag 'nickblah/lua:5.4' --tag 'ghcr.io/gui/lua:5.4-debian' --tag 'nickblah/lua:5.4-debian' --tag 'ghcr.io/gui/lua:5.4-trixie' --tag 'nickblah/lua:5.4-trixie' --tag 'ghcr.io/gui/lua:5.4.8' --tag 'nickblah/lua:5.4.8' --tag 'ghcr.io/gui/lua:5.4.8-debian' --tag 'nickblah/lua:5.4.8-debian' --tag 'ghcr.io/gui/lua:5.4.8-trixie' --tag 'nickblah/lua:5.4.8-trixie' --tag 'ghcr.io/gui/lua:debian' --tag 'nickblah/lua:debian' --tag 'ghcr.io/gui/lua:latest' --tag 'nickblah/lua:latest' \
+      --tag 'ghcr.io/gui/lua:5.4' --tag 'nickblah/lua:5.4' --tag 'ghcr.io/gui/lua:5.4-debian' --tag 'nickblah/lua:5.4-debian' --tag 'ghcr.io/gui/lua:5.4-trixie' --tag 'nickblah/lua:5.4-trixie' --tag 'ghcr.io/gui/lua:5.4.8' --tag 'nickblah/lua:5.4.8' --tag 'ghcr.io/gui/lua:5.4.8-debian' --tag 'nickblah/lua:5.4.8-debian' --tag 'ghcr.io/gui/lua:5.4.8-trixie' --tag 'nickblah/lua:5.4.8-trixie' \
       --file lua-5.4/trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-bookworm' \
-      --tag 'ghcr.io/gui/lua:5-bookworm' --tag 'nickblah/lua:5-bookworm' --tag 'ghcr.io/gui/lua:5.4-bookworm' --tag 'nickblah/lua:5.4-bookworm' --tag 'ghcr.io/gui/lua:5.4.8-bookworm' --tag 'nickblah/lua:5.4.8-bookworm' \
+      --tag 'ghcr.io/gui/lua:5.4-bookworm' --tag 'nickblah/lua:5.4-bookworm' --tag 'ghcr.io/gui/lua:5.4.8-bookworm' --tag 'nickblah/lua:5.4.8-bookworm' \
       --file lua-5.4/bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-trixie' \
-      --tag 'ghcr.io/gui/lua:5-luarocks' --tag 'nickblah/lua:5-luarocks' --tag 'ghcr.io/gui/lua:5-luarocks-debian' --tag 'nickblah/lua:5-luarocks-debian' --tag 'ghcr.io/gui/lua:5-luarocks-trixie' --tag 'nickblah/lua:5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.4-luarocks' --tag 'nickblah/lua:5.4-luarocks' --tag 'ghcr.io/gui/lua:5.4-luarocks-debian' --tag 'nickblah/lua:5.4-luarocks-debian' --tag 'ghcr.io/gui/lua:5.4-luarocks-trixie' --tag 'nickblah/lua:5.4-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.4.8-luarocks' --tag 'nickblah/lua:5.4.8-luarocks' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-debian' --tag 'nickblah/lua:5.4.8-luarocks-debian' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-trixie' --tag 'nickblah/lua:5.4.8-luarocks-trixie' --tag 'ghcr.io/gui/lua:luarocks' --tag 'nickblah/lua:luarocks' --tag 'ghcr.io/gui/lua:luarocks-debian' --tag 'nickblah/lua:luarocks-debian' \
+      --tag 'ghcr.io/gui/lua:5.4-luarocks' --tag 'nickblah/lua:5.4-luarocks' --tag 'ghcr.io/gui/lua:5.4-luarocks-debian' --tag 'nickblah/lua:5.4-luarocks-debian' --tag 'ghcr.io/gui/lua:5.4-luarocks-trixie' --tag 'nickblah/lua:5.4-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.4.8-luarocks' --tag 'nickblah/lua:5.4.8-luarocks' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-debian' --tag 'nickblah/lua:5.4.8-luarocks-debian' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-trixie' --tag 'nickblah/lua:5.4.8-luarocks-trixie' \
       --file lua-5.4/luarocks-trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-bookworm' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-bookworm' --tag 'nickblah/lua:5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.4-luarocks-bookworm' --tag 'nickblah/lua:5.4-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-bookworm' --tag 'nickblah/lua:5.4.8-luarocks-bookworm' \
+      --tag 'ghcr.io/gui/lua:5.4-luarocks-bookworm' --tag 'nickblah/lua:5.4-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-bookworm' --tag 'nickblah/lua:5.4.8-luarocks-bookworm' \
       --file lua-5.4/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.23' \
-      --tag 'ghcr.io/gui/lua:5-alpine' --tag 'nickblah/lua:5-alpine' --tag 'ghcr.io/gui/lua:5-alpine3' --tag 'nickblah/lua:5-alpine3' --tag 'ghcr.io/gui/lua:5-alpine3.23' --tag 'nickblah/lua:5-alpine3.23' --tag 'ghcr.io/gui/lua:5.4-alpine' --tag 'nickblah/lua:5.4-alpine' --tag 'ghcr.io/gui/lua:5.4-alpine3.23' --tag 'nickblah/lua:5.4-alpine3.23' --tag 'ghcr.io/gui/lua:5.4.8-alpine' --tag 'nickblah/lua:5.4.8-alpine' --tag 'ghcr.io/gui/lua:5.4.8-alpine3' --tag 'nickblah/lua:5.4.8-alpine3' --tag 'ghcr.io/gui/lua:5.4.8-alpine3.23' --tag 'nickblah/lua:5.4.8-alpine3.23' --tag 'ghcr.io/gui/lua:alpine' --tag 'nickblah/lua:alpine' \
+      --tag 'ghcr.io/gui/lua:5-alpine3' --tag 'nickblah/lua:5-alpine3' --tag 'ghcr.io/gui/lua:5.4-alpine' --tag 'nickblah/lua:5.4-alpine' --tag 'ghcr.io/gui/lua:5.4-alpine3.23' --tag 'nickblah/lua:5.4-alpine3.23' --tag 'ghcr.io/gui/lua:5.4.8-alpine' --tag 'nickblah/lua:5.4.8-alpine' --tag 'ghcr.io/gui/lua:5.4.8-alpine3' --tag 'nickblah/lua:5.4.8-alpine3' --tag 'ghcr.io/gui/lua:5.4.8-alpine3.23' --tag 'nickblah/lua:5.4.8-alpine3.23' \
       --file lua-5.4/alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-alpine3.22' \
-      --tag 'ghcr.io/gui/lua:5-alpine3.22' --tag 'nickblah/lua:5-alpine3.22' --tag 'ghcr.io/gui/lua:5.4-alpine3.22' --tag 'nickblah/lua:5.4-alpine3.22' --tag 'ghcr.io/gui/lua:5.4.8-alpine3.22' --tag 'nickblah/lua:5.4.8-alpine3.22' \
+      --tag 'ghcr.io/gui/lua:5.4-alpine3.22' --tag 'nickblah/lua:5.4-alpine3.22' --tag 'ghcr.io/gui/lua:5.4.8-alpine3.22' --tag 'nickblah/lua:5.4.8-alpine3.22' \
       --file lua-5.4/alpine3.22/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.23' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-alpine' --tag 'nickblah/lua:5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3' --tag 'nickblah/lua:5-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.23' --tag 'nickblah/lua:5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.4-luarocks-alpine' --tag 'nickblah/lua:5.4-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.4-luarocks-alpine3.23' --tag 'nickblah/lua:5.4-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine' --tag 'nickblah/lua:5.4.8-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine3' --tag 'nickblah/lua:5.4.8-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine3.23' --tag 'nickblah/lua:5.4.8-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:luarocks-alpine' --tag 'nickblah/lua:luarocks-alpine' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-alpine3' --tag 'nickblah/lua:5-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.4-luarocks-alpine' --tag 'nickblah/lua:5.4-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.4-luarocks-alpine3.23' --tag 'nickblah/lua:5.4-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine' --tag 'nickblah/lua:5.4.8-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine3' --tag 'nickblah/lua:5.4.8-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine3.23' --tag 'nickblah/lua:5.4.8-luarocks-alpine3.23' \
       --file lua-5.4/luarocks-alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-alpine3.22' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.22' --tag 'nickblah/lua:5-luarocks-alpine3.22' --tag 'ghcr.io/gui/lua:5.4-luarocks-alpine3.22' --tag 'nickblah/lua:5.4-luarocks-alpine3.22' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine3.22' --tag 'nickblah/lua:5.4.8-luarocks-alpine3.22' \
+      --tag 'ghcr.io/gui/lua:5.4-luarocks-alpine3.22' --tag 'nickblah/lua:5.4-luarocks-alpine3.22' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-alpine3.22' --tag 'nickblah/lua:5.4.8-luarocks-alpine3.22' \
       --file lua-5.4/luarocks-alpine3.22/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-rolling' \
-      --tag 'ghcr.io/gui/lua:5-rolling' --tag 'nickblah/lua:5-rolling' --tag 'ghcr.io/gui/lua:5.4-rolling' --tag 'nickblah/lua:5.4-rolling' --tag 'ghcr.io/gui/lua:5.4.8-rolling' --tag 'nickblah/lua:5.4.8-rolling' \
+      --tag 'ghcr.io/gui/lua:5.4-rolling' --tag 'nickblah/lua:5.4-rolling' --tag 'ghcr.io/gui/lua:5.4.8-rolling' --tag 'nickblah/lua:5.4.8-rolling' \
       --file lua-5.4/rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-plucky' \
-      --tag 'ghcr.io/gui/lua:5-plucky' --tag 'nickblah/lua:5-plucky' --tag 'ghcr.io/gui/lua:5.4-plucky' --tag 'nickblah/lua:5.4-plucky' --tag 'ghcr.io/gui/lua:5.4.8-plucky' --tag 'nickblah/lua:5.4.8-plucky' \
+      --tag 'ghcr.io/gui/lua:5.4-plucky' --tag 'nickblah/lua:5.4-plucky' --tag 'ghcr.io/gui/lua:5.4.8-plucky' --tag 'nickblah/lua:5.4.8-plucky' \
       --file lua-5.4/plucky/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-rolling' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-rolling' --tag 'nickblah/lua:5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.4-luarocks-rolling' --tag 'nickblah/lua:5.4-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-rolling' --tag 'nickblah/lua:5.4.8-luarocks-rolling' \
+      --tag 'ghcr.io/gui/lua:5.4-luarocks-rolling' --tag 'nickblah/lua:5.4-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-rolling' --tag 'nickblah/lua:5.4.8-luarocks-rolling' \
       --file lua-5.4/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-plucky' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-plucky' --tag 'nickblah/lua:5-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.4-luarocks-plucky' --tag 'nickblah/lua:5.4-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-plucky' --tag 'nickblah/lua:5.4.8-luarocks-plucky' \
+      --tag 'ghcr.io/gui/lua:5.4-luarocks-plucky' --tag 'nickblah/lua:5.4-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.4.8-luarocks-plucky' --tag 'nickblah/lua:5.4.8-luarocks-plucky' \
       --file lua-5.4/luarocks-plucky/Dockerfile \
       .
     docker buildx build \
@@ -169,90 +253,6 @@ set -Eeuxo pipefail
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-plucky' \
       --tag 'ghcr.io/gui/lua:5.3-luarocks-plucky' --tag 'nickblah/lua:5.3-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.3.6-luarocks-plucky' --tag 'nickblah/lua:5.3.6-luarocks-plucky' \
       --file lua-5.3/luarocks-plucky/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-trixie' \
-      --tag 'ghcr.io/gui/lua:5.2' --tag 'nickblah/lua:5.2' --tag 'ghcr.io/gui/lua:5.2-debian' --tag 'nickblah/lua:5.2-debian' --tag 'ghcr.io/gui/lua:5.2-trixie' --tag 'nickblah/lua:5.2-trixie' --tag 'ghcr.io/gui/lua:5.2.4' --tag 'nickblah/lua:5.2.4' --tag 'ghcr.io/gui/lua:5.2.4-debian' --tag 'nickblah/lua:5.2.4-debian' --tag 'ghcr.io/gui/lua:5.2.4-trixie' --tag 'nickblah/lua:5.2.4-trixie' \
-      --file lua-5.2/trixie/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-bookworm' \
-      --tag 'ghcr.io/gui/lua:5.2-bookworm' --tag 'nickblah/lua:5.2-bookworm' --tag 'ghcr.io/gui/lua:5.2.4-bookworm' --tag 'nickblah/lua:5.2.4-bookworm' \
-      --file lua-5.2/bookworm/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-trixie' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks' --tag 'nickblah/lua:5.2-luarocks' --tag 'ghcr.io/gui/lua:5.2-luarocks-debian' --tag 'nickblah/lua:5.2-luarocks-debian' --tag 'ghcr.io/gui/lua:5.2-luarocks-trixie' --tag 'nickblah/lua:5.2-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.2.4-luarocks' --tag 'nickblah/lua:5.2.4-luarocks' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-debian' --tag 'nickblah/lua:5.2.4-luarocks-debian' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-trixie' --tag 'nickblah/lua:5.2.4-luarocks-trixie' \
-      --file lua-5.2/luarocks-trixie/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-bookworm' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks-bookworm' --tag 'nickblah/lua:5.2-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-bookworm' --tag 'nickblah/lua:5.2.4-luarocks-bookworm' \
-      --file lua-5.2/luarocks-bookworm/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.23' \
-      --tag 'ghcr.io/gui/lua:5-alpine3' --tag 'nickblah/lua:5-alpine3' --tag 'ghcr.io/gui/lua:5.2-alpine' --tag 'nickblah/lua:5.2-alpine' --tag 'ghcr.io/gui/lua:5.2-alpine3.23' --tag 'nickblah/lua:5.2-alpine3.23' --tag 'ghcr.io/gui/lua:5.2.4-alpine' --tag 'nickblah/lua:5.2.4-alpine' --tag 'ghcr.io/gui/lua:5.2.4-alpine3' --tag 'nickblah/lua:5.2.4-alpine3' --tag 'ghcr.io/gui/lua:5.2.4-alpine3.23' --tag 'nickblah/lua:5.2.4-alpine3.23' \
-      --file lua-5.2/alpine3.23/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-alpine3.22' \
-      --tag 'ghcr.io/gui/lua:5.2-alpine3.22' --tag 'nickblah/lua:5.2-alpine3.22' --tag 'ghcr.io/gui/lua:5.2.4-alpine3.22' --tag 'nickblah/lua:5.2.4-alpine3.22' \
-      --file lua-5.2/alpine3.22/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.23' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-alpine3' --tag 'nickblah/lua:5-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.2-luarocks-alpine' --tag 'nickblah/lua:5.2-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.2-luarocks-alpine3.23' --tag 'nickblah/lua:5.2-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-alpine' --tag 'nickblah/lua:5.2.4-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-alpine3' --tag 'nickblah/lua:5.2.4-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-alpine3.23' --tag 'nickblah/lua:5.2.4-luarocks-alpine3.23' \
-      --file lua-5.2/luarocks-alpine3.23/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-alpine3.22' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks-alpine3.22' --tag 'nickblah/lua:5.2-luarocks-alpine3.22' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-alpine3.22' --tag 'nickblah/lua:5.2.4-luarocks-alpine3.22' \
-      --file lua-5.2/luarocks-alpine3.22/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-rolling' \
-      --tag 'ghcr.io/gui/lua:5.2-rolling' --tag 'nickblah/lua:5.2-rolling' --tag 'ghcr.io/gui/lua:5.2.4-rolling' --tag 'nickblah/lua:5.2.4-rolling' \
-      --file lua-5.2/rolling/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-plucky' \
-      --tag 'ghcr.io/gui/lua:5.2-plucky' --tag 'nickblah/lua:5.2-plucky' --tag 'ghcr.io/gui/lua:5.2.4-plucky' --tag 'nickblah/lua:5.2.4-plucky' \
-      --file lua-5.2/plucky/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-rolling' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks-rolling' --tag 'nickblah/lua:5.2-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-rolling' --tag 'nickblah/lua:5.2.4-luarocks-rolling' \
-      --file lua-5.2/luarocks-rolling/Dockerfile \
-      .
-    docker buildx build \
-      --platform 'linux/amd64,linux/arm64' \
-      --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.2-luarocks-plucky' \
-      --tag 'ghcr.io/gui/lua:5.2-luarocks-plucky' --tag 'nickblah/lua:5.2-luarocks-plucky' --tag 'ghcr.io/gui/lua:5.2.4-luarocks-plucky' --tag 'nickblah/lua:5.2.4-luarocks-plucky' \
-      --file lua-5.2/luarocks-plucky/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
