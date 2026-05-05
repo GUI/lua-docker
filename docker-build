@@ -87,10 +87,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.5-noble' \
-      --file lua-5.5/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.5-questing' \
+      --file lua-5.5/questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -105,10 +105,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-noble' \
-      --file lua-5.5/luarocks-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-questing' \
+      --file lua-5.5/luarocks-questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -195,10 +195,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-noble' \
-      --file lua-5.4/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-questing' \
+      --file lua-5.4/questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -213,10 +213,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-noble' \
-      --file lua-5.4/luarocks-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.4-luarocks-questing' \
+      --file lua-5.4/luarocks-questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -303,10 +303,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-noble' \
-      --file lua-5.3/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-questing' \
+      --file lua-5.3/questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -321,10 +321,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-noble' \
-      --file lua-5.3/luarocks-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:5.3-luarocks-questing' \
+      --file lua-5.3/luarocks-questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -483,10 +483,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-noble' \
-      --file luajit-2.1/noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-questing' \
+      --file luajit-2.1/questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -501,10 +501,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble' \
-      --file luajit-2.1/luarocks-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-questing' \
+      --file luajit-2.1/luarocks-questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -519,10 +519,10 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble' \
-      --file luajit-2.1/lua52compat-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-questing' \
+      --file luajit-2.1/lua52compat-questing/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
@@ -537,8 +537,8 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --pull \
       --push \
-      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble' \
-      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble,mode=max' \
-      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble' \
-      --file luajit-2.1/lua52compat-luarocks-noble/Dockerfile \
+      --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-questing' \
+      --cache-to 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-questing,mode=max' \
+      --tag 'localhost:5000/ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-questing' \
+      --file luajit-2.1/lua52compat-luarocks-questing/Dockerfile \
       .
