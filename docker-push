@@ -6,84 +6,84 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-trixie' \
-      --tag 'ghcr.io/gui/lua:5' --tag 'nickblah/lua:5' --tag 'ghcr.io/gui/lua:5-debian' --tag 'nickblah/lua:5-debian' --tag 'ghcr.io/gui/lua:5-trixie' --tag 'nickblah/lua:5-trixie' --tag 'ghcr.io/gui/lua:5.5' --tag 'nickblah/lua:5.5' --tag 'ghcr.io/gui/lua:5.5-debian' --tag 'nickblah/lua:5.5-debian' --tag 'ghcr.io/gui/lua:5.5-trixie' --tag 'nickblah/lua:5.5-trixie' --tag 'ghcr.io/gui/lua:5.5.0' --tag 'nickblah/lua:5.5.0' --tag 'ghcr.io/gui/lua:5.5.0-debian' --tag 'nickblah/lua:5.5.0-debian' --tag 'ghcr.io/gui/lua:5.5.0-trixie' --tag 'nickblah/lua:5.5.0-trixie' --tag 'ghcr.io/gui/lua:debian' --tag 'nickblah/lua:debian' --tag 'ghcr.io/gui/lua:latest' --tag 'nickblah/lua:latest' \
+      --tag 'ghcr.io/gui/lua:5' --tag 'nickblah/lua:5' --tag 'ghcr.io/gui/lua:5-debian' --tag 'nickblah/lua:5-debian' --tag 'ghcr.io/gui/lua:5-trixie' --tag 'nickblah/lua:5-trixie' --tag 'ghcr.io/gui/lua:5.5' --tag 'nickblah/lua:5.5' --tag 'ghcr.io/gui/lua:5.5-debian' --tag 'nickblah/lua:5.5-debian' --tag 'ghcr.io/gui/lua:5.5-trixie' --tag 'nickblah/lua:5.5-trixie' --tag 'ghcr.io/gui/lua:5.5.1' --tag 'nickblah/lua:5.5.1' --tag 'ghcr.io/gui/lua:5.5.1-debian' --tag 'nickblah/lua:5.5.1-debian' --tag 'ghcr.io/gui/lua:5.5.1-trixie' --tag 'nickblah/lua:5.5.1-trixie' --tag 'ghcr.io/gui/lua:debian' --tag 'nickblah/lua:debian' --tag 'ghcr.io/gui/lua:latest' --tag 'nickblah/lua:latest' \
       --file lua-5.5/trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-bookworm' \
-      --tag 'ghcr.io/gui/lua:5-bookworm' --tag 'nickblah/lua:5-bookworm' --tag 'ghcr.io/gui/lua:5.5-bookworm' --tag 'nickblah/lua:5.5-bookworm' --tag 'ghcr.io/gui/lua:5.5.0-bookworm' --tag 'nickblah/lua:5.5.0-bookworm' \
+      --tag 'ghcr.io/gui/lua:5-bookworm' --tag 'nickblah/lua:5-bookworm' --tag 'ghcr.io/gui/lua:5.5-bookworm' --tag 'nickblah/lua:5.5-bookworm' --tag 'ghcr.io/gui/lua:5.5.1-bookworm' --tag 'nickblah/lua:5.5.1-bookworm' \
       --file lua-5.5/bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-trixie' \
-      --tag 'ghcr.io/gui/lua:5-luarocks' --tag 'nickblah/lua:5-luarocks' --tag 'ghcr.io/gui/lua:5-luarocks-debian' --tag 'nickblah/lua:5-luarocks-debian' --tag 'ghcr.io/gui/lua:5-luarocks-trixie' --tag 'nickblah/lua:5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.5-luarocks' --tag 'nickblah/lua:5.5-luarocks' --tag 'ghcr.io/gui/lua:5.5-luarocks-debian' --tag 'nickblah/lua:5.5-luarocks-debian' --tag 'ghcr.io/gui/lua:5.5-luarocks-trixie' --tag 'nickblah/lua:5.5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.5.0-luarocks' --tag 'nickblah/lua:5.5.0-luarocks' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-debian' --tag 'nickblah/lua:5.5.0-luarocks-debian' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-trixie' --tag 'nickblah/lua:5.5.0-luarocks-trixie' --tag 'ghcr.io/gui/lua:luarocks' --tag 'nickblah/lua:luarocks' --tag 'ghcr.io/gui/lua:luarocks-debian' --tag 'nickblah/lua:luarocks-debian' \
+      --tag 'ghcr.io/gui/lua:5-luarocks' --tag 'nickblah/lua:5-luarocks' --tag 'ghcr.io/gui/lua:5-luarocks-debian' --tag 'nickblah/lua:5-luarocks-debian' --tag 'ghcr.io/gui/lua:5-luarocks-trixie' --tag 'nickblah/lua:5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.5-luarocks' --tag 'nickblah/lua:5.5-luarocks' --tag 'ghcr.io/gui/lua:5.5-luarocks-debian' --tag 'nickblah/lua:5.5-luarocks-debian' --tag 'ghcr.io/gui/lua:5.5-luarocks-trixie' --tag 'nickblah/lua:5.5-luarocks-trixie' --tag 'ghcr.io/gui/lua:5.5.1-luarocks' --tag 'nickblah/lua:5.5.1-luarocks' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-debian' --tag 'nickblah/lua:5.5.1-luarocks-debian' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-trixie' --tag 'nickblah/lua:5.5.1-luarocks-trixie' --tag 'ghcr.io/gui/lua:luarocks' --tag 'nickblah/lua:luarocks' --tag 'ghcr.io/gui/lua:luarocks-debian' --tag 'nickblah/lua:luarocks-debian' \
       --file lua-5.5/luarocks-trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-bookworm' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-bookworm' --tag 'nickblah/lua:5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.5-luarocks-bookworm' --tag 'nickblah/lua:5.5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-bookworm' --tag 'nickblah/lua:5.5.0-luarocks-bookworm' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-bookworm' --tag 'nickblah/lua:5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.5-luarocks-bookworm' --tag 'nickblah/lua:5.5-luarocks-bookworm' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-bookworm' --tag 'nickblah/lua:5.5.1-luarocks-bookworm' \
       --file lua-5.5/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-alpine3.24' \
-      --tag 'ghcr.io/gui/lua:5-alpine' --tag 'nickblah/lua:5-alpine' --tag 'ghcr.io/gui/lua:5-alpine3' --tag 'nickblah/lua:5-alpine3' --tag 'ghcr.io/gui/lua:5-alpine3.24' --tag 'nickblah/lua:5-alpine3.24' --tag 'ghcr.io/gui/lua:5.5-alpine' --tag 'nickblah/lua:5.5-alpine' --tag 'ghcr.io/gui/lua:5.5-alpine3.24' --tag 'nickblah/lua:5.5-alpine3.24' --tag 'ghcr.io/gui/lua:5.5.0-alpine' --tag 'nickblah/lua:5.5.0-alpine' --tag 'ghcr.io/gui/lua:5.5.0-alpine3' --tag 'nickblah/lua:5.5.0-alpine3' --tag 'ghcr.io/gui/lua:5.5.0-alpine3.24' --tag 'nickblah/lua:5.5.0-alpine3.24' --tag 'ghcr.io/gui/lua:alpine' --tag 'nickblah/lua:alpine' \
+      --tag 'ghcr.io/gui/lua:5-alpine' --tag 'nickblah/lua:5-alpine' --tag 'ghcr.io/gui/lua:5-alpine3' --tag 'nickblah/lua:5-alpine3' --tag 'ghcr.io/gui/lua:5-alpine3.24' --tag 'nickblah/lua:5-alpine3.24' --tag 'ghcr.io/gui/lua:5.5-alpine' --tag 'nickblah/lua:5.5-alpine' --tag 'ghcr.io/gui/lua:5.5-alpine3.24' --tag 'nickblah/lua:5.5-alpine3.24' --tag 'ghcr.io/gui/lua:5.5.1-alpine' --tag 'nickblah/lua:5.5.1-alpine' --tag 'ghcr.io/gui/lua:5.5.1-alpine3' --tag 'nickblah/lua:5.5.1-alpine3' --tag 'ghcr.io/gui/lua:5.5.1-alpine3.24' --tag 'nickblah/lua:5.5.1-alpine3.24' --tag 'ghcr.io/gui/lua:alpine' --tag 'nickblah/lua:alpine' \
       --file lua-5.5/alpine3.24/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-alpine3.23' \
-      --tag 'ghcr.io/gui/lua:5-alpine3.23' --tag 'nickblah/lua:5-alpine3.23' --tag 'ghcr.io/gui/lua:5.5-alpine3.23' --tag 'nickblah/lua:5.5-alpine3.23' --tag 'ghcr.io/gui/lua:5.5.0-alpine3.23' --tag 'nickblah/lua:5.5.0-alpine3.23' \
+      --tag 'ghcr.io/gui/lua:5-alpine3.23' --tag 'nickblah/lua:5-alpine3.23' --tag 'ghcr.io/gui/lua:5.5-alpine3.23' --tag 'nickblah/lua:5.5-alpine3.23' --tag 'ghcr.io/gui/lua:5.5.1-alpine3.23' --tag 'nickblah/lua:5.5.1-alpine3.23' \
       --file lua-5.5/alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-alpine3.24' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-alpine' --tag 'nickblah/lua:5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3' --tag 'nickblah/lua:5-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.24' --tag 'nickblah/lua:5-luarocks-alpine3.24' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine' --tag 'nickblah/lua:5.5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine3.24' --tag 'nickblah/lua:5.5-luarocks-alpine3.24' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine' --tag 'nickblah/lua:5.5.0-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine3' --tag 'nickblah/lua:5.5.0-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine3.24' --tag 'nickblah/lua:5.5.0-luarocks-alpine3.24' --tag 'ghcr.io/gui/lua:luarocks-alpine' --tag 'nickblah/lua:luarocks-alpine' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-alpine' --tag 'nickblah/lua:5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3' --tag 'nickblah/lua:5-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.24' --tag 'nickblah/lua:5-luarocks-alpine3.24' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine' --tag 'nickblah/lua:5.5-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine3.24' --tag 'nickblah/lua:5.5-luarocks-alpine3.24' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-alpine' --tag 'nickblah/lua:5.5.1-luarocks-alpine' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-alpine3' --tag 'nickblah/lua:5.5.1-luarocks-alpine3' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-alpine3.24' --tag 'nickblah/lua:5.5.1-luarocks-alpine3.24' --tag 'ghcr.io/gui/lua:luarocks-alpine' --tag 'nickblah/lua:luarocks-alpine' \
       --file lua-5.5/luarocks-alpine3.24/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-alpine3.23' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.23' --tag 'nickblah/lua:5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine3.23' --tag 'nickblah/lua:5.5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-alpine3.23' --tag 'nickblah/lua:5.5.0-luarocks-alpine3.23' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-alpine3.23' --tag 'nickblah/lua:5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.5-luarocks-alpine3.23' --tag 'nickblah/lua:5.5-luarocks-alpine3.23' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-alpine3.23' --tag 'nickblah/lua:5.5.1-luarocks-alpine3.23' \
       --file lua-5.5/luarocks-alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-rolling' \
-      --tag 'ghcr.io/gui/lua:5-rolling' --tag 'nickblah/lua:5-rolling' --tag 'ghcr.io/gui/lua:5-ubuntu' --tag 'nickblah/lua:5-ubuntu' --tag 'ghcr.io/gui/lua:5.5-rolling' --tag 'nickblah/lua:5.5-rolling' --tag 'ghcr.io/gui/lua:5.5-ubuntu' --tag 'nickblah/lua:5.5-ubuntu' --tag 'ghcr.io/gui/lua:5.5.0-rolling' --tag 'nickblah/lua:5.5.0-rolling' --tag 'ghcr.io/gui/lua:5.5.0-ubuntu' --tag 'nickblah/lua:5.5.0-ubuntu' --tag 'ghcr.io/gui/lua:ubuntu' --tag 'nickblah/lua:ubuntu' \
+      --tag 'ghcr.io/gui/lua:5-rolling' --tag 'nickblah/lua:5-rolling' --tag 'ghcr.io/gui/lua:5-ubuntu' --tag 'nickblah/lua:5-ubuntu' --tag 'ghcr.io/gui/lua:5.5-rolling' --tag 'nickblah/lua:5.5-rolling' --tag 'ghcr.io/gui/lua:5.5-ubuntu' --tag 'nickblah/lua:5.5-ubuntu' --tag 'ghcr.io/gui/lua:5.5.1-rolling' --tag 'nickblah/lua:5.5.1-rolling' --tag 'ghcr.io/gui/lua:5.5.1-ubuntu' --tag 'nickblah/lua:5.5.1-ubuntu' --tag 'ghcr.io/gui/lua:ubuntu' --tag 'nickblah/lua:ubuntu' \
       --file lua-5.5/rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-noble' \
-      --tag 'ghcr.io/gui/lua:5-noble' --tag 'nickblah/lua:5-noble' --tag 'ghcr.io/gui/lua:5.5-noble' --tag 'nickblah/lua:5.5-noble' --tag 'ghcr.io/gui/lua:5.5.0-noble' --tag 'nickblah/lua:5.5.0-noble' \
+      --tag 'ghcr.io/gui/lua:5-noble' --tag 'nickblah/lua:5-noble' --tag 'ghcr.io/gui/lua:5.5-noble' --tag 'nickblah/lua:5.5-noble' --tag 'ghcr.io/gui/lua:5.5.1-noble' --tag 'nickblah/lua:5.5.1-noble' \
       --file lua-5.5/noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-rolling' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-rolling' --tag 'nickblah/lua:5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5-luarocks-ubuntu' --tag 'nickblah/lua:5-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.5-luarocks-rolling' --tag 'nickblah/lua:5.5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.5-luarocks-ubuntu' --tag 'nickblah/lua:5.5-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-rolling' --tag 'nickblah/lua:5.5.0-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-ubuntu' --tag 'nickblah/lua:5.5.0-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:luarocks-ubuntu' --tag 'nickblah/lua:luarocks-ubuntu' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-rolling' --tag 'nickblah/lua:5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5-luarocks-ubuntu' --tag 'nickblah/lua:5-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.5-luarocks-rolling' --tag 'nickblah/lua:5.5-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.5-luarocks-ubuntu' --tag 'nickblah/lua:5.5-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-rolling' --tag 'nickblah/lua:5.5.1-luarocks-rolling' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-ubuntu' --tag 'nickblah/lua:5.5.1-luarocks-ubuntu' --tag 'ghcr.io/gui/lua:luarocks-ubuntu' --tag 'nickblah/lua:luarocks-ubuntu' \
       --file lua-5.5/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:5.5-luarocks-noble' \
-      --tag 'ghcr.io/gui/lua:5-luarocks-noble' --tag 'nickblah/lua:5-luarocks-noble' --tag 'ghcr.io/gui/lua:5.5-luarocks-noble' --tag 'nickblah/lua:5.5-luarocks-noble' --tag 'ghcr.io/gui/lua:5.5.0-luarocks-noble' --tag 'nickblah/lua:5.5.0-luarocks-noble' \
+      --tag 'ghcr.io/gui/lua:5-luarocks-noble' --tag 'nickblah/lua:5-luarocks-noble' --tag 'ghcr.io/gui/lua:5.5-luarocks-noble' --tag 'nickblah/lua:5.5-luarocks-noble' --tag 'ghcr.io/gui/lua:5.5.1-luarocks-noble' --tag 'nickblah/lua:5.5.1-luarocks-noble' \
       --file lua-5.5/luarocks-noble/Dockerfile \
       .
     docker buildx build \
@@ -258,167 +258,167 @@ set -Eeuxo pipefail
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-trixie' \
-      --tag 'ghcr.io/gui/luajit:2' --tag 'nickblah/luajit:2' --tag 'ghcr.io/gui/luajit:2-debian' --tag 'nickblah/luajit:2-debian' --tag 'ghcr.io/gui/luajit:2-trixie' --tag 'nickblah/luajit:2-trixie' --tag 'ghcr.io/gui/luajit:2.1' --tag 'nickblah/luajit:2.1' --tag 'ghcr.io/gui/luajit:2.1-debian' --tag 'nickblah/luajit:2.1-debian' --tag 'ghcr.io/gui/luajit:2.1-trixie' --tag 'nickblah/luajit:2.1-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785606157' --tag 'nickblah/luajit:2.1.1785606157' --tag 'ghcr.io/gui/luajit:2.1.1785606157-debian' --tag 'nickblah/luajit:2.1.1785606157-debian' --tag 'ghcr.io/gui/luajit:2.1.1785606157-trixie' --tag 'nickblah/luajit:2.1.1785606157-trixie' --tag 'ghcr.io/gui/luajit:debian' --tag 'nickblah/luajit:debian' --tag 'ghcr.io/gui/luajit:latest' --tag 'nickblah/luajit:latest' \
+      --tag 'ghcr.io/gui/luajit:2' --tag 'nickblah/luajit:2' --tag 'ghcr.io/gui/luajit:2-debian' --tag 'nickblah/luajit:2-debian' --tag 'ghcr.io/gui/luajit:2-trixie' --tag 'nickblah/luajit:2-trixie' --tag 'ghcr.io/gui/luajit:2.1' --tag 'nickblah/luajit:2.1' --tag 'ghcr.io/gui/luajit:2.1-debian' --tag 'nickblah/luajit:2.1-debian' --tag 'ghcr.io/gui/luajit:2.1-trixie' --tag 'nickblah/luajit:2.1-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785763465' --tag 'nickblah/luajit:2.1.1785763465' --tag 'ghcr.io/gui/luajit:2.1.1785763465-debian' --tag 'nickblah/luajit:2.1.1785763465-debian' --tag 'ghcr.io/gui/luajit:2.1.1785763465-trixie' --tag 'nickblah/luajit:2.1.1785763465-trixie' --tag 'ghcr.io/gui/luajit:debian' --tag 'nickblah/luajit:debian' --tag 'ghcr.io/gui/luajit:latest' --tag 'nickblah/luajit:latest' \
       --file luajit-2.1/trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-bookworm' \
-      --tag 'ghcr.io/gui/luajit:2-bookworm' --tag 'nickblah/luajit:2-bookworm' --tag 'ghcr.io/gui/luajit:2.1-bookworm' --tag 'nickblah/luajit:2.1-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785606157-bookworm' --tag 'nickblah/luajit:2.1.1785606157-bookworm' \
+      --tag 'ghcr.io/gui/luajit:2-bookworm' --tag 'nickblah/luajit:2-bookworm' --tag 'ghcr.io/gui/luajit:2.1-bookworm' --tag 'nickblah/luajit:2.1-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785763465-bookworm' --tag 'nickblah/luajit:2.1.1785763465-bookworm' \
       --file luajit-2.1/bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-trixie' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks' --tag 'nickblah/luajit:2-luarocks' --tag 'ghcr.io/gui/luajit:2-luarocks-debian' --tag 'nickblah/luajit:2-luarocks-debian' --tag 'ghcr.io/gui/luajit:2-luarocks-trixie' --tag 'nickblah/luajit:2-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1-luarocks' --tag 'nickblah/luajit:2.1-luarocks' --tag 'ghcr.io/gui/luajit:2.1-luarocks-debian' --tag 'nickblah/luajit:2.1-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1-luarocks-trixie' --tag 'nickblah/luajit:2.1-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks' --tag 'nickblah/luajit:2.1.1785606157-luarocks' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-debian' --tag 'nickblah/luajit:2.1.1785606157-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-trixie' --tag 'nickblah/luajit:2.1.1785606157-luarocks-trixie' --tag 'ghcr.io/gui/luajit:luarocks' --tag 'nickblah/luajit:luarocks' --tag 'ghcr.io/gui/luajit:luarocks-debian' --tag 'nickblah/luajit:luarocks-debian' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks' --tag 'nickblah/luajit:2-luarocks' --tag 'ghcr.io/gui/luajit:2-luarocks-debian' --tag 'nickblah/luajit:2-luarocks-debian' --tag 'ghcr.io/gui/luajit:2-luarocks-trixie' --tag 'nickblah/luajit:2-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1-luarocks' --tag 'nickblah/luajit:2.1-luarocks' --tag 'ghcr.io/gui/luajit:2.1-luarocks-debian' --tag 'nickblah/luajit:2.1-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1-luarocks-trixie' --tag 'nickblah/luajit:2.1-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks' --tag 'nickblah/luajit:2.1.1785763465-luarocks' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-debian' --tag 'nickblah/luajit:2.1.1785763465-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-trixie' --tag 'nickblah/luajit:2.1.1785763465-luarocks-trixie' --tag 'ghcr.io/gui/luajit:luarocks' --tag 'nickblah/luajit:luarocks' --tag 'ghcr.io/gui/luajit:luarocks-debian' --tag 'nickblah/luajit:luarocks-debian' \
       --file luajit-2.1/luarocks-trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-bookworm' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-bookworm' --tag 'nickblah/luajit:2-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1-luarocks-bookworm' --tag 'nickblah/luajit:2.1-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-bookworm' --tag 'nickblah/luajit:2.1.1785606157-luarocks-bookworm' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-bookworm' --tag 'nickblah/luajit:2-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1-luarocks-bookworm' --tag 'nickblah/luajit:2.1-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-bookworm' --tag 'nickblah/luajit:2.1.1785763465-luarocks-bookworm' \
       --file luajit-2.1/luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-trixie' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat' --tag 'nickblah/luajit:2-lua52compat' --tag 'ghcr.io/gui/luajit:2-lua52compat-debian' --tag 'nickblah/luajit:2-lua52compat-debian' --tag 'ghcr.io/gui/luajit:2-lua52compat-trixie' --tag 'nickblah/luajit:2-lua52compat-trixie' --tag 'ghcr.io/gui/luajit:2.1-lua52compat' --tag 'nickblah/luajit:2.1-lua52compat' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-debian' --tag 'nickblah/luajit:2.1-lua52compat-debian' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-trixie' --tag 'nickblah/luajit:2.1-lua52compat-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat' --tag 'nickblah/luajit:2.1.1785606157-lua52compat' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-debian' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-debian' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-trixie' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-trixie' --tag 'ghcr.io/gui/luajit:lua52compat' --tag 'nickblah/luajit:lua52compat' --tag 'ghcr.io/gui/luajit:lua52compat-debian' --tag 'nickblah/luajit:lua52compat-debian' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat' --tag 'nickblah/luajit:2-lua52compat' --tag 'ghcr.io/gui/luajit:2-lua52compat-debian' --tag 'nickblah/luajit:2-lua52compat-debian' --tag 'ghcr.io/gui/luajit:2-lua52compat-trixie' --tag 'nickblah/luajit:2-lua52compat-trixie' --tag 'ghcr.io/gui/luajit:2.1-lua52compat' --tag 'nickblah/luajit:2.1-lua52compat' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-debian' --tag 'nickblah/luajit:2.1-lua52compat-debian' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-trixie' --tag 'nickblah/luajit:2.1-lua52compat-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat' --tag 'nickblah/luajit:2.1.1785763465-lua52compat' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-debian' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-debian' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-trixie' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-trixie' --tag 'ghcr.io/gui/luajit:lua52compat' --tag 'nickblah/luajit:lua52compat' --tag 'ghcr.io/gui/luajit:lua52compat-debian' --tag 'nickblah/luajit:lua52compat-debian' \
       --file luajit-2.1/lua52compat-trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-bookworm' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-bookworm' --tag 'nickblah/luajit:2-lua52compat-bookworm' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-bookworm' --tag 'nickblah/luajit:2.1-lua52compat-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-bookworm' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-bookworm' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-bookworm' --tag 'nickblah/luajit:2-lua52compat-bookworm' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-bookworm' --tag 'nickblah/luajit:2.1-lua52compat-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-bookworm' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-bookworm' \
       --file luajit-2.1/lua52compat-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-trixie' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks' --tag 'nickblah/luajit:2-lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-debian' --tag 'nickblah/luajit:2-lua52compat-luarocks-debian' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-trixie' --tag 'nickblah/luajit:2-lua52compat-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks' --tag 'nickblah/luajit:2.1-lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-debian' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-trixie' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-debian' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-trixie' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-trixie' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks' --tag 'nickblah/luajit:lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-debian' --tag 'nickblah/luajit:lua52compat-luarocks-debian' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks' --tag 'nickblah/luajit:2-lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-debian' --tag 'nickblah/luajit:2-lua52compat-luarocks-debian' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-trixie' --tag 'nickblah/luajit:2-lua52compat-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks' --tag 'nickblah/luajit:2.1-lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-debian' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-trixie' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-trixie' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-debian' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-debian' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-trixie' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-trixie' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks' --tag 'nickblah/luajit:lua52compat-luarocks' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-debian' --tag 'nickblah/luajit:lua52compat-luarocks-debian' \
       --file luajit-2.1/lua52compat-luarocks-trixie/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-bookworm' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-bookworm' --tag 'nickblah/luajit:2-lua52compat-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-bookworm' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-bookworm' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-bookworm' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-bookworm' --tag 'nickblah/luajit:2-lua52compat-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-bookworm' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-bookworm' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-bookworm' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-bookworm' \
       --file luajit-2.1/lua52compat-luarocks-bookworm/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.24' \
-      --tag 'ghcr.io/gui/luajit:2-alpine' --tag 'nickblah/luajit:2-alpine' --tag 'ghcr.io/gui/luajit:2-alpine3' --tag 'nickblah/luajit:2-alpine3' --tag 'ghcr.io/gui/luajit:2-alpine3.24' --tag 'nickblah/luajit:2-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-alpine' --tag 'nickblah/luajit:2.1-alpine' --tag 'ghcr.io/gui/luajit:2.1-alpine3.24' --tag 'nickblah/luajit:2.1-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785606157-alpine' --tag 'nickblah/luajit:2.1.1785606157-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785606157-alpine3' --tag 'nickblah/luajit:2.1.1785606157-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785606157-alpine3.24' --tag 'nickblah/luajit:2.1.1785606157-alpine3.24' --tag 'ghcr.io/gui/luajit:alpine' --tag 'nickblah/luajit:alpine' \
+      --tag 'ghcr.io/gui/luajit:2-alpine' --tag 'nickblah/luajit:2-alpine' --tag 'ghcr.io/gui/luajit:2-alpine3' --tag 'nickblah/luajit:2-alpine3' --tag 'ghcr.io/gui/luajit:2-alpine3.24' --tag 'nickblah/luajit:2-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-alpine' --tag 'nickblah/luajit:2.1-alpine' --tag 'ghcr.io/gui/luajit:2.1-alpine3.24' --tag 'nickblah/luajit:2.1-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785763465-alpine' --tag 'nickblah/luajit:2.1.1785763465-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785763465-alpine3' --tag 'nickblah/luajit:2.1.1785763465-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785763465-alpine3.24' --tag 'nickblah/luajit:2.1.1785763465-alpine3.24' --tag 'ghcr.io/gui/luajit:alpine' --tag 'nickblah/luajit:alpine' \
       --file luajit-2.1/alpine3.24/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-alpine3.23' \
-      --tag 'ghcr.io/gui/luajit:2-alpine3.23' --tag 'nickblah/luajit:2-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-alpine3.23' --tag 'nickblah/luajit:2.1-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785606157-alpine3.23' --tag 'nickblah/luajit:2.1.1785606157-alpine3.23' \
+      --tag 'ghcr.io/gui/luajit:2-alpine3.23' --tag 'nickblah/luajit:2-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-alpine3.23' --tag 'nickblah/luajit:2.1-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785763465-alpine3.23' --tag 'nickblah/luajit:2.1.1785763465-alpine3.23' \
       --file luajit-2.1/alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.24' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-alpine' --tag 'nickblah/luajit:2-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2-luarocks-alpine3' --tag 'nickblah/luajit:2-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2-luarocks-alpine3.24' --tag 'nickblah/luajit:2-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-luarocks-alpine' --tag 'nickblah/luajit:2.1-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-alpine' --tag 'nickblah/luajit:2.1.1785606157-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-alpine3' --tag 'nickblah/luajit:2.1.1785606157-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1.1785606157-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:luarocks-alpine' --tag 'nickblah/luajit:luarocks-alpine' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-alpine' --tag 'nickblah/luajit:2-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2-luarocks-alpine3' --tag 'nickblah/luajit:2-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2-luarocks-alpine3.24' --tag 'nickblah/luajit:2-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-luarocks-alpine' --tag 'nickblah/luajit:2.1-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-alpine' --tag 'nickblah/luajit:2.1.1785763465-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-alpine3' --tag 'nickblah/luajit:2.1.1785763465-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1.1785763465-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:luarocks-alpine' --tag 'nickblah/luajit:luarocks-alpine' \
       --file luajit-2.1/luarocks-alpine3.24/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-alpine3.23' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-alpine3.23' --tag 'nickblah/luajit:2-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1.1785606157-luarocks-alpine3.23' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-alpine3.23' --tag 'nickblah/luajit:2-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1.1785763465-luarocks-alpine3.23' \
       --file luajit-2.1/luarocks-alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.24' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine' --tag 'nickblah/luajit:2-lua52compat-alpine' --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine3' --tag 'nickblah/luajit:2-lua52compat-alpine3' --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine3.24' --tag 'nickblah/luajit:2-lua52compat-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-alpine' --tag 'nickblah/luajit:2.1-lua52compat-alpine' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-alpine3.24' --tag 'nickblah/luajit:2.1-lua52compat-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-alpine' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-alpine3' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-alpine3.24' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-alpine3.24' --tag 'ghcr.io/gui/luajit:lua52compat-alpine' --tag 'nickblah/luajit:lua52compat-alpine' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine' --tag 'nickblah/luajit:2-lua52compat-alpine' --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine3' --tag 'nickblah/luajit:2-lua52compat-alpine3' --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine3.24' --tag 'nickblah/luajit:2-lua52compat-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-alpine' --tag 'nickblah/luajit:2.1-lua52compat-alpine' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-alpine3.24' --tag 'nickblah/luajit:2.1-lua52compat-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-alpine' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-alpine3' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-alpine3.24' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-alpine3.24' --tag 'ghcr.io/gui/luajit:lua52compat-alpine' --tag 'nickblah/luajit:lua52compat-alpine' \
       --file luajit-2.1/lua52compat-alpine3.24/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-alpine3.23' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine3.23' --tag 'nickblah/luajit:2-lua52compat-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-alpine3.23' --tag 'nickblah/luajit:2.1-lua52compat-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-alpine3.23' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-alpine3.23' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-alpine3.23' --tag 'nickblah/luajit:2-lua52compat-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-alpine3.23' --tag 'nickblah/luajit:2.1-lua52compat-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-alpine3.23' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-alpine3.23' \
       --file luajit-2.1/lua52compat-alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.24' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine3' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine3.24' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-alpine3' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-alpine' --tag 'nickblah/luajit:lua52compat-luarocks-alpine' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine3' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine3.24' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-alpine' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-alpine' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-alpine3' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-alpine3' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-alpine3.24' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-alpine3.24' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-alpine' --tag 'nickblah/luajit:lua52compat-luarocks-alpine' \
       --file luajit-2.1/lua52compat-luarocks-alpine3.24/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-alpine3.23' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine3.23' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-alpine3.23' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-alpine3.23' --tag 'nickblah/luajit:2-lua52compat-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-alpine3.23' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-alpine3.23' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-alpine3.23' \
       --file luajit-2.1/lua52compat-luarocks-alpine3.23/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-rolling' \
-      --tag 'ghcr.io/gui/luajit:2-rolling' --tag 'nickblah/luajit:2-rolling' --tag 'ghcr.io/gui/luajit:2-ubuntu' --tag 'nickblah/luajit:2-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-rolling' --tag 'nickblah/luajit:2.1-rolling' --tag 'ghcr.io/gui/luajit:2.1-ubuntu' --tag 'nickblah/luajit:2.1-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785606157-rolling' --tag 'nickblah/luajit:2.1.1785606157-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785606157-ubuntu' --tag 'nickblah/luajit:2.1.1785606157-ubuntu' --tag 'ghcr.io/gui/luajit:ubuntu' --tag 'nickblah/luajit:ubuntu' \
+      --tag 'ghcr.io/gui/luajit:2-rolling' --tag 'nickblah/luajit:2-rolling' --tag 'ghcr.io/gui/luajit:2-ubuntu' --tag 'nickblah/luajit:2-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-rolling' --tag 'nickblah/luajit:2.1-rolling' --tag 'ghcr.io/gui/luajit:2.1-ubuntu' --tag 'nickblah/luajit:2.1-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785763465-rolling' --tag 'nickblah/luajit:2.1.1785763465-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785763465-ubuntu' --tag 'nickblah/luajit:2.1.1785763465-ubuntu' --tag 'ghcr.io/gui/luajit:ubuntu' --tag 'nickblah/luajit:ubuntu' \
       --file luajit-2.1/rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-noble' \
-      --tag 'ghcr.io/gui/luajit:2-noble' --tag 'nickblah/luajit:2-noble' --tag 'ghcr.io/gui/luajit:2.1-noble' --tag 'nickblah/luajit:2.1-noble' --tag 'ghcr.io/gui/luajit:2.1.1785606157-noble' --tag 'nickblah/luajit:2.1.1785606157-noble' \
+      --tag 'ghcr.io/gui/luajit:2-noble' --tag 'nickblah/luajit:2-noble' --tag 'ghcr.io/gui/luajit:2.1-noble' --tag 'nickblah/luajit:2.1-noble' --tag 'ghcr.io/gui/luajit:2.1.1785763465-noble' --tag 'nickblah/luajit:2.1.1785763465-noble' \
       --file luajit-2.1/noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-rolling' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-rolling' --tag 'nickblah/luajit:2-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2-luarocks-ubuntu' --tag 'nickblah/luajit:2-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-luarocks-rolling' --tag 'nickblah/luajit:2.1-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-rolling' --tag 'nickblah/luajit:2.1.1785606157-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.1785606157-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:luarocks-ubuntu' --tag 'nickblah/luajit:luarocks-ubuntu' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-rolling' --tag 'nickblah/luajit:2-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2-luarocks-ubuntu' --tag 'nickblah/luajit:2-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-luarocks-rolling' --tag 'nickblah/luajit:2.1-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-rolling' --tag 'nickblah/luajit:2.1.1785763465-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.1785763465-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:luarocks-ubuntu' --tag 'nickblah/luajit:luarocks-ubuntu' \
       --file luajit-2.1/luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-luarocks-noble' \
-      --tag 'ghcr.io/gui/luajit:2-luarocks-noble' --tag 'nickblah/luajit:2-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1-luarocks-noble' --tag 'nickblah/luajit:2.1-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1.1785606157-luarocks-noble' --tag 'nickblah/luajit:2.1.1785606157-luarocks-noble' \
+      --tag 'ghcr.io/gui/luajit:2-luarocks-noble' --tag 'nickblah/luajit:2-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1-luarocks-noble' --tag 'nickblah/luajit:2.1-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1.1785763465-luarocks-noble' --tag 'nickblah/luajit:2.1.1785763465-luarocks-noble' \
       --file luajit-2.1/luarocks-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-rolling' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-rolling' --tag 'nickblah/luajit:2-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2-lua52compat-ubuntu' --tag 'nickblah/luajit:2-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-rolling' --tag 'nickblah/luajit:2.1-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-rolling' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-ubuntu' --tag 'nickblah/luajit:lua52compat-ubuntu' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-rolling' --tag 'nickblah/luajit:2-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2-lua52compat-ubuntu' --tag 'nickblah/luajit:2-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-rolling' --tag 'nickblah/luajit:2.1-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-rolling' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-ubuntu' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-ubuntu' --tag 'nickblah/luajit:lua52compat-ubuntu' \
       --file luajit-2.1/lua52compat-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-noble' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-noble' --tag 'nickblah/luajit:2-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-noble' --tag 'nickblah/luajit:2.1-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-noble' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-noble' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-noble' --tag 'nickblah/luajit:2-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-noble' --tag 'nickblah/luajit:2.1-lua52compat-noble' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-noble' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-noble' \
       --file luajit-2.1/lua52compat-noble/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-rolling' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:lua52compat-luarocks-ubuntu' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-rolling' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-rolling' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-ubuntu' --tag 'ghcr.io/gui/luajit:lua52compat-luarocks-ubuntu' --tag 'nickblah/luajit:lua52compat-luarocks-ubuntu' \
       --file luajit-2.1/lua52compat-luarocks-rolling/Dockerfile \
       .
     docker buildx build \
       --platform 'linux/amd64,linux/arm64' \
       --push \
       --cache-from 'type=registry,ref=ghcr.io/gui/lua-docker-build-cache:2.1-lua52compat-luarocks-noble' \
-      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1.1785606157-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2.1.1785606157-lua52compat-luarocks-noble' \
+      --tag 'ghcr.io/gui/luajit:2-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2.1-lua52compat-luarocks-noble' --tag 'ghcr.io/gui/luajit:2.1.1785763465-lua52compat-luarocks-noble' --tag 'nickblah/luajit:2.1.1785763465-lua52compat-luarocks-noble' \
       --file luajit-2.1/lua52compat-luarocks-noble/Dockerfile \
       .

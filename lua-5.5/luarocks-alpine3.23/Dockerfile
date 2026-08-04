@@ -16,9 +16,9 @@ RUN set -ex \
         unzip \
         # rundeps
         wget \
-          && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.5.0.tar.gz" \
+          && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.5.1.tar.gz" \
   && cd /tmp \
-      && echo "57ccc32bbbd005cab75bcc52444052535af691789dba2b9016d5c50640d68b3d *lua.tar.gz" | sha256sum -c - \
+      && echo "1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce *lua.tar.gz" | sha256sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
