@@ -16,9 +16,9 @@ RUN set -ex \
                             dirmngr \
         gnupg \
         unzip \
-          && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.8.tar.gz" \
+          && curl -fsSL -o /tmp/lua.tar.gz "https://www.lua.org/ftp/lua-5.4.9.tar.gz" \
   && cd /tmp \
-      && echo "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae *lua.tar.gz" | sha256sum -c - \
+      && echo "2335b6c582a52654f94612bf10d2f4672805d05329aa6568b1d8cd9e5c6fb8e6 *lua.tar.gz" | sha256sum -c - \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
   && cd /tmp/lua \
