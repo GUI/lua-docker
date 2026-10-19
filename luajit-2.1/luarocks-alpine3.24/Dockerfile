@@ -15,7 +15,7 @@ RUN set -ex \
         unzip \
         # rundeps
         wget \
-          && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/2a8e017ef1ece6a95b983ffca073d30609dce7c4.tar.gz" \
+          && curl -fsSL -o /tmp/lua.tar.gz "https://github.com/LuaJIT/LuaJIT/archive/dd3b24369ddfaa83c78cd6fdd91d157c8968ec8d.tar.gz" \
   && cd /tmp \
     && mkdir /tmp/lua \
   && tar -xf /tmp/lua.tar.gz -C /tmp/lua --strip-components=1 \
